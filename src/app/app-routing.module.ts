@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
-import { RegisterComponent } from './components/registro/registro.component.spec';
+import { RegistroComponent } from './components/registro/registro.component';
 
 const routes: Routes = [
   { path: "login", component: LoginComponent, pathMatch: "full" },
-  { path: "register", component: RegisterComponent, pathMatch: "full" }
+  { path: "registro", component: RegistroComponent, pathMatch: "full" }
 ];
 
 @NgModule({

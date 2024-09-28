@@ -13,7 +13,6 @@ export class LoginComponent {
   constructor(public router: Router) {}
 
   login() {
-    const user = { email: this.email, password: this.password };
-    
-}
+    const user = { email: this.email, password: this.password };    
+  }
 }
