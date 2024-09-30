@@ -18,7 +18,7 @@ export class UsersService {
 
   login(user: any): Observable<any> {
     this.authStatusListener.next(true);
-    return this.http.post(`${this.apiUrl}/login`, user);
+    return this.http.post(`${this.apiUrl}/login`, user, { withCredentials: true });
   }
 
   register(user: any): Observable<any> {
@@ -40,9 +40,9 @@ export class UsersService {
   deleteToken(): void {
     this.cookie.delete('token', '/');
   }
-
+ 
   isAuthenticated(): boolean {
-    return this.getToken() !== null;
+    return this.cookie.check('authToken');
   }
 
   logout(): void {

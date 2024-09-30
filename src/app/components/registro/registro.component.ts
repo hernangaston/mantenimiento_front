@@ -15,8 +15,8 @@ export class RegistroComponent {
   constructor(private fb: FormBuilder, private service: UsersService, private router: Router) { 
    
     this.formData = this.fb.group({
-      email: ['', /*[Validators.required, Validators.email]*/],  // Email field with validation
-      password: ['', /*[Validators.required, Validators.minLength(6)]*/],  // Password field with validation
+      email: ['', /*[Validators.required, Validators.email]*/],  
+      password: ['', /*[Validators.required, Validators.minLength(6)]*/], 
       confirmPassword:['']
     });
   }
@@ -25,9 +25,7 @@ export class RegistroComponent {
     if (this.formData.value.password === this.formData.value.confirmPassword) {
       this.service.register({ email: this.formData.value.email, password: this.formData.value.password }).subscribe({
         next: (response) => {
-          const token = response.token;
-          this.service.setToken(token);
-          console.log('Usuario registrado y token guardado en cookie.');
+          console.log(response.message);
         },
         error: (error) => { console.error('Error al registrar usuario:', error); },
         complete: () => { this.router.navigate(['/login']); }
