@@ -20,12 +20,13 @@ export class LoginComponent {
 
   login() {
     const user = { email: this.formData.value.email, password: this.formData.value.password };
-    
+   
     this.service.login(user).subscribe({
       next: ()=>{ 
-          this.router.navigate(['/'])
-        },
-      error: () => { console.log("there was an error")}
+        this.router.navigate([''])},
+      error: () => { 
+        console.log("there was an error");
+      }
     });
   }
 }

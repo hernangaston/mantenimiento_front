@@ -8,12 +8,14 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { RegistroComponent } from './components/registro/registro.component';
 import { provideHttpClient } from '@angular/common/http';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    RegistroComponent
+    RegistroComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,

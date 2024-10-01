@@ -42,7 +42,7 @@ export class UsersService {
   }
  
   isAuthenticated(): boolean {
-    return this.cookie.check('authToken');
+    return this.cookie.check('token');
   }
 
   logout(): void {
