@@ -8,6 +8,7 @@ import { CookieService } from "ngx-cookie-service";
 })
 export class UsersService {
   private apiUrl = 'http://localhost:3000';
+
   private authStatusListener = new Subject<boolean>();
 
   constructor(private cookie: CookieService, private http: HttpClient) { }
@@ -25,24 +26,18 @@ export class UsersService {
     return this.http.post(`${this.apiUrl}/registro`, user);
   }
 
-  setToken(token: string): void  {
-    this.cookie.set('token', token, { path: '/', secure: true, sameSite: 'Strict' });
+  dashboard(user: any): Observable<any> {
+    return this.http.get(`${this.apiUrl}/dashboard`);
   }
 
-  getToken() {
-    return this.cookie.get("token");
-  }
-
-  getUser() {
-    return this.http.get(`${this.apiUrl}/users/2`);
-  }
 
   deleteToken(): void {
-    this.cookie.delete('token', '/');
+    this.cookie.delete('auth-token', '/');
   }
  
   isAuthenticated(): boolean {
-    return this.cookie.check('token');
+    this.http.get(`${this.apiUrl}/protected`);
+    return this.cookie.check('auth-token');
   }
 
   logout(): void {
