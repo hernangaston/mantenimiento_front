@@ -22,7 +22,7 @@ export class LoginComponent {
   login() {
     const user = { email: this.formData.value.email, password: this.formData.value.password };
     this.service.login(user).subscribe({
-      next: (response)=>{
+      next: (response) =>{
         this.router.navigate(['dashboard'])},
       error: () => { 
         console.log("there was an error");
