@@ -9,10 +9,8 @@ import { InicioComponent } from './components/inicio/inicio.component';
 const routes: Routes = [
   { path: "login", component: LoginComponent },
   { path: "registro", component: RegistroComponent},
-  { path: "inicio", component: InicioComponent},
-  //{ path: "dashboard", component: DashboardComponent, canActivate: [AuthorizationGuard]},
-  { path: "dashboard", component: DashboardComponent},
-  { path: "**", redirectTo: "inicio", pathMatch: "full" }
+  { path: "dashboard", component: DashboardComponent, canActivate: [AuthorizationGuard]},
+  { path: "**", redirectTo: "/login", pathMatch: "full" }
 ];
 
 @NgModule({

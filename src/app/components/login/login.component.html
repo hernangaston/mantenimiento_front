@@ -1,8 +1,14 @@
-<div class="login">
-    <form [formGroup]="formData" class="custom-form" method="post">
-        <h1>Login</h1>
-        <input type="email" name="email" placeholder="Email" formControlName="email" required="required" />
-        <input type="password" name="password" placeholder="Password" formControlName="password" required="required" />
-        <button type="submit" (click)="login()">Log in</button>
+<header>
+    <img src="./assets/images/utn.png" alt="Logo UTN" class="logo">
+</header>
+<main class="main">
+    <form class="custom-form">
+        <label for="usuario">Usuario:</label>
+        <input type="text" id="usuario" name="usuario">
+        <br>
+        <label for="contraseña">Contraseña:</label>
+        <input type="password" id="contraseña" name="contraseña">
+        <br>
+        <button type="submit">Iniciar sesión</button>
     </form>
-</div>
+</main>
