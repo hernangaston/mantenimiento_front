@@ -2,10 +2,18 @@
     <img src="./assets/images/utn.png" alt="Logo UTN" class="logo">
 </header>
 <main class="main">
-    <form class="custom-form">
-        <h1>Login</h1>        
-        <input type="text" id="usuario" name="usuario" placeholder="nombre de usuario">
-        <input type="password" id="password" name="password" placeholder="contraseña">
-        <button type="submit">Iniciar sesión</button>
+    <form class="custom-form" [formGroup]="formData" (ngSubmit)="onSubmit()">
+        <h1>Login</h1>
+        <input type="email" id="usuario" name="usuario" formControlName="email" placeholder="nombre de usuario">
+        <div *ngIf="formData.get('email')?.invalid && formData.get('email')?.touched">
+            <small *ngIf="formData.get('email')?.errors?.['required']">El correo es obligatorio.</small>
+            <small *ngIf="formData.get('email')?.errors?.['email']">Formato de correo inválido.</small>
+        </div>
+        <input type="password" id="password" name="password" placeholder="contraseña" formControlName="password">
+        <div *ngIf="formData.get('password')?.invalid && formData.get('password')?.touched">
+            <small *ngIf="formData.get('password')?.errors?.['required']">La contraseña es obligatoria.</small>
+            <small *ngIf="formData.get('password')?.errors?.['minlength']">Mínimo 6 caracteres.</small>
+        </div>
+        <button type="submit" [disabled]="formData.invalid">Registrar</button>
     </form>
 </main>

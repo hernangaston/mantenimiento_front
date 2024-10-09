@@ -75,4 +75,10 @@ button {
     color: #fff;
     border: none;
     cursor: pointer;
+    margin-top: 2em;
+}
+
+small{
+    color: red;
+    margin: 2em;
 }

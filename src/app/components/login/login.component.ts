@@ -1,7 +1,7 @@
 import { Component } from "@angular/core";
 import { Router } from "@angular/router";
 import { UsersService } from "../../service/users.service";
-import { FormBuilder, FormGroup } from "@angular/forms";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { CookieService } from "ngx-cookie-service";
 
 @Component({
@@ -14,17 +14,26 @@ export class LoginComponent {
 
   constructor(private fb: FormBuilder, public router: Router, private service: UsersService, private cookie: CookieService) {
     this.formData = this.fb.group({
-      email: ['', /*[Validators.required, Validators.email]*/],  // Email field with validation
-      password: ['', /*[Validators.required, Validators.minLength(6)]*/],  // Password field with validation
+      email: ['', [Validators.required, Validators.email]],  // Campo de email con validación de email y requerido
+      password: ['', [Validators.required, Validators.minLength(6)]]
     });
   }
 
-  login() {
-    const user = { email: this.formData.value.email, password: this.formData.value.password };
+  onSubmit() {
+    if (this.formData.valid) {
+      console.log('Formulario válido:', this.formData.value);      
+      this.login(this.formData.value);
+    } else {
+      console.log('Formulario no válido');
+    }
+  }
+
+  login(user: {}) {
     this.service.login(user).subscribe({
-      next: (response)=>{
-        this.router.navigate(['dashboard'])},
-      error: () => { 
+      next: (response) => {
+        this.router.navigate(['dashboard'])
+      },
+      error: () => {
         console.log("there was an error");
       }
     });
