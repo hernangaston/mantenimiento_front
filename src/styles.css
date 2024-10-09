@@ -3,9 +3,18 @@
     box-sizing: border-box;
 }
 
-html,
-body {
+body,
+html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
     background: #ecf0f3;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
 h1 {
