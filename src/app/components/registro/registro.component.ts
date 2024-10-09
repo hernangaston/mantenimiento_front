@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { UsersService } from '../../service/users.service';
 import { Router } from '@angular/router';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-registro',
@@ -15,10 +15,16 @@ export class RegistroComponent {
   constructor(private fb: FormBuilder, private service: UsersService, private router: Router) { 
    
     this.formData = this.fb.group({
-      email: ['', /*[Validators.required, Validators.email]*/],  
-      password: ['', /*[Validators.required, Validators.minLength(6)]*/], 
-      confirmPassword:['']
-    });
+      email: ['', [Validators.required, Validators.email]],  // Campo de email con validación de formato y requerido
+      password: ['', [Validators.required, Validators.minLength(6)]],  // Campo de password con mínimo de 6 caracteres
+      confirmPassword: ['', [Validators.required]]  // Campo de confirmación de contraseña
+    }, { validator: this.checkPasswords });  // Validador personalizado para contraseñas
+  }
+
+  checkPasswords(group: AbstractControl): { [key: string]: boolean } | null {
+    const password = group.get('password')?.value;
+    const confirmPassword = group.get('confirmPassword')?.value;
+    return password === confirmPassword ? null : { notSame: true };
   }
 
   registro() {
@@ -32,6 +38,15 @@ export class RegistroComponent {
       });
     } else {
       alert("passwords don't match");
+    }
+  }
+
+  onSubmit() {
+    if (this.formData.valid) {
+      console.log('Formulario válido:', this.formData.value);
+      
+    } else {
+      console.log('Formulario no válido');
     }
   }
 }
