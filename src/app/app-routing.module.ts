@@ -8,7 +8,8 @@ import { AuthorizationGuard } from './guards/authorization.guard';
 const routes: Routes = [
   { path: "login", component: LoginComponent },
   { path: "registro", component: RegistroComponent},
-  { path: "dashboard", component: DashboardComponent, canActivate: [AuthorizationGuard]},
+  //{ path: "dashboard", component: DashboardComponent, canActivate: [AuthorizationGuard]},
+  {path: "dashboard", component: DashboardComponent},
   { path: "**", redirectTo: "/login", pathMatch: "full" }
 ];
 
