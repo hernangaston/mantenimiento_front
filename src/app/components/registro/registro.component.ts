@@ -27,9 +27,9 @@ export class RegistroComponent {
     return password === confirmPassword ? null : { notSame: true };
   }
 
-  registro() {
-    if (this.formData.value.password === this.formData.value.confirmPassword) {
-      this.service.register({ email: this.formData.value.email, password: this.formData.value.password }).subscribe({
+  registro(data: any) {
+    if (data.password === data.confirmPassword) {
+      this.service.register({ email: data.email, password: data.password }).subscribe({
         next: (response) => {
           console.log(response.message);
         },
@@ -44,7 +44,7 @@ export class RegistroComponent {
   onSubmit() {
     if (this.formData.valid) {
       console.log('Formulario válido:', this.formData.value);
-      
+      this.registro(this.formData.value);
     } else {
       console.log('Formulario no válido');
     }

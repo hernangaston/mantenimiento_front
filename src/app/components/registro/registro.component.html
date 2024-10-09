@@ -14,7 +14,6 @@
             <small *ngIf="formData.get('password')?.errors?.['required']">La contraseña es obligatoria.</small>
             <small *ngIf="formData.get('password')?.errors?.['minlength']">Mínimo 6 caracteres.</small>
         </div>
-        <label for="confirmPassword">Confirmar Contraseña</label>
         <input type="password" id="confirmPassword" formControlName="confirmPassword" name="password"
             placeholder="Repeat the password">
         <div *ngIf="formData.hasError('notSame') && formData.get('confirmPassword')?.touched">
