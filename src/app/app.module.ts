@@ -10,6 +10,7 @@ import { RegistroComponent } from './components/registro/registro.component';
 import { provideHttpClient } from '@angular/common/http';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { InicioComponent } from './components/inicio/inicio.component';
+import { ActivoFormComponent } from './components/activo/activoform/activoform.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { InicioComponent } from './components/inicio/inicio.component';
     LoginComponent,
     RegistroComponent,
     DashboardComponent,
-    InicioComponent
+    InicioComponent,
+    ActivoFormComponent
   ],
   imports: [
     BrowserModule,

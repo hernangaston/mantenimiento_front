@@ -1,0 +1,28 @@
+.contenedor{    
+    margin-top: 10vh;
+    padding: 1.5rem;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    margin: auto;
+  }
+  
+  label {
+    margin-top: 10px;
+  }
+  
+  input {
+    margin: 10px;
+  }
+  
+  button {
+    margin-top: 20px;
+  }
+  
+  small {
+    color: red;
+  }
+  

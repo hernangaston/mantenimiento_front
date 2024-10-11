@@ -15,21 +15,27 @@ export class RegistroComponent {
   constructor(private fb: FormBuilder, private service: UsersService, private router: Router) { 
    
     this.formData = this.fb.group({
-      email: ['', [Validators.required, Validators.email]],  // Campo de email con validación de formato y requerido
-      password: ['', [Validators.required, Validators.minLength(6)]],  // Campo de password con mínimo de 6 caracteres
-      confirmPassword: ['', [Validators.required]]  // Campo de confirmación de contraseña
-    }, { validator: this.checkPasswords });  // Validador personalizado para contraseñas
+      email: ['', [Validators.required, Validators.email]],  // Formato de email válido
+      password: ['', [Validators.required, Validators.minLength(6)]], 
+      confirmPassword:['', [Validators.required]] 
+    }, {
+      validator: this.passwordMatchValidator 
+    });
   }
 
-  checkPasswords(group: AbstractControl): { [key: string]: boolean } | null {
-    const password = group.get('password')?.value;
-    const confirmPassword = group.get('confirmPassword')?.value;
-    return password === confirmPassword ? null : { notSame: true };
+  passwordMatchValidator(formGroup: AbstractControl): { [key: string]: boolean } | null {
+    const password = formGroup.get('password')?.value;
+    const confirmPassword = formGroup.get('confirmPassword')?.value;
+
+    if (password !== confirmPassword) {
+      return { notSame: true };
+    }
+    return null;
   }
 
-  registro(data: any) {
-    if (data.password === data.confirmPassword) {
-      this.service.register({ email: data.email, password: data.password }).subscribe({
+  registro(nuevo: any) {
+    if (nuevo.password === nuevo.confirmPassword) {
+      this.service.register({ email: nuevo.email, password: nuevo.password }).subscribe({
         next: (response) => {
           console.log(response.message);
         },
@@ -43,10 +49,11 @@ export class RegistroComponent {
 
   onSubmit() {
     if (this.formData.valid) {
-      console.log('Formulario válido:', this.formData.value);
-      this.registro(this.formData.value);
+      const nuevo = this.formData.value;
+      console.log(nuevo);
+      //this.registro(nuevo);
     } else {
-      console.log('Formulario no válido');
+      console.log("Formulario inválido");
     }
   }
 }

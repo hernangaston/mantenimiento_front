@@ -5,11 +5,13 @@ import { RegistroComponent } from './components/registro/registro.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AuthorizationGuard } from './guards/authorization.guard';
 import { InicioComponent } from './components/inicio/inicio.component';
+import { ActivoFormComponent } from './components/activo/activoform/activoform.component';
 
 const routes: Routes = [
   { path: "login", component: LoginComponent },
   { path: "registro", component: RegistroComponent},
   { path: "dashboard", component: DashboardComponent, canActivate: [AuthorizationGuard]},
+  { path: "activo", component: ActivoFormComponent},
   { path: "**", redirectTo: "/login", pathMatch: "full" }
 ];
 
