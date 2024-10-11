@@ -11,6 +11,7 @@ import { provideHttpClient } from '@angular/common/http';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { InicioComponent } from './components/inicio/inicio.component';
 import { ActivoFormComponent } from './components/activo/activoform/activoform.component';
+import { EdificioFormComponent } from './components/edificio/edificio-form/edificio-form.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { ActivoFormComponent } from './components/activo/activoform/activoform.c
     RegistroComponent,
     DashboardComponent,
     InicioComponent,
-    ActivoFormComponent
+    ActivoFormComponent,
+    EdificioFormComponent
   ],
   imports: [
     BrowserModule,

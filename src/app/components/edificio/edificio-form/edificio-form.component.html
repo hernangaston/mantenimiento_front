@@ -1,0 +1,53 @@
+<div class="edificio-form">
+    <form [formGroup]="edificioForm" (ngSubmit)="onSubmit()" class="custom-form">
+      <h1>Registro de Edificio</h1>
+  
+      <!-- Campo Nombre -->
+      <div>
+        <label for="Nombre">Nombre</label>
+        <input type="text" id="Nombre" formControlName="Nombre" placeholder="Nombre del edificio" required />
+        <div *ngIf="edificioForm.get('Nombre')?.invalid && edificioForm.get('Nombre')?.touched">
+          <small *ngIf="edificioForm.get('Nombre')?.errors?.['required']">El nombre es obligatorio.</small>
+          <small *ngIf="edificioForm.get('Nombre')?.errors?.['maxLength']">Máximo 255 caracteres.</small>
+        </div>
+      </div>
+  
+      <!-- Campo Dirección -->
+      <div>
+        <label for="Direccion">Dirección</label>
+        <input type="text" id="Direccion" formControlName="Direccion" placeholder="Dirección del edificio" required />
+        <div *ngIf="edificioForm.get('Direccion')?.invalid && edificioForm.get('Direccion')?.touched">
+          <small *ngIf="edificioForm.get('Direccion')?.errors?.['required']">La dirección es obligatoria.</small>
+          <small *ngIf="edificioForm.get('Direccion')?.errors?.['maxLength']">Máximo 255 caracteres.</small>
+        </div>
+      </div>
+  
+      <!-- Campo labelTag -->
+      <div>
+        <label for="labelTag">Label Tag</label>
+        <input type="number" id="labelTag" formControlName="labelTag" placeholder="Etiqueta del edificio" />
+      </div>
+  
+      <!-- Campo Select para Piso (Clave foránea) -->
+      <div>
+        <label for="id_piso">Piso</label>
+        <select id="id_piso" formControlName="id_piso" required>
+          <option value="">Seleccione un piso</option>
+          <option *ngFor="let piso of pisos" [value]="piso.id_piso">{{ piso.nombre_piso }}</option>
+        </select>
+        <div *ngIf="edificioForm.get('id_piso')?.invalid && edificioForm.get('id_piso')?.touched">
+          <small *ngIf="edificioForm.get('id_piso')?.errors?.['required']">Debe seleccionar un piso.</small>
+        </div>
+      </div>
+  
+      <!-- Campo Fecha de Creación -->
+      <div>
+        <label for="fecha_creacion">Fecha de Creación</label>
+        <input type="date" id="fecha_creacion" formControlName="fecha_creacion" />
+      </div>
+  
+      <!-- Botón de Enviar -->
+      <button type="submit" [disabled]="edificioForm.invalid">Registrar Edificio</button>
+    </form>
+  </div>
+  
