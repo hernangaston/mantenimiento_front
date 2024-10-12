@@ -7,6 +7,7 @@ import { AuthorizationGuard } from './guards/authorization.guard';
 import { InicioComponent } from './components/inicio/inicio.component';
 import { ActivoFormComponent } from './components/activo/activoform/activoform.component';
 import { EdificioFormComponent } from './components/edificio/edificio-form/edificio-form.component';
+import { OrdenTrabajoFormComponent } from './components/ordenTrabajo/orden-trabajo-form/orden-trabajo-form.component';
 
 const routes: Routes = [
   { path: "login", component: LoginComponent },
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: "inicio", component: InicioComponent},
   { path: "activo", component: ActivoFormComponent},
   { path: "edificio", component: EdificioFormComponent},
+  { path: "orden", component: OrdenTrabajoFormComponent},
   { path: "**", redirectTo: "/login", pathMatch: "full" }
 ];
 

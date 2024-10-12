@@ -1,0 +1,39 @@
+<form [formGroup]="ordenTrabajoForm" (ngSubmit)="onSubmit()" class="custom-form">
+    <h1>Registro de Orden de Trabajo</h1>
+  
+    <!-- Campo de fecha de impresión -->
+    <div>
+      <label for="fecha_impresion">Fecha de Impresión</label>
+      <input type="date" id="fecha_impresion" formControlName="fecha_impresion">
+      <div *ngIf="ordenTrabajoForm.get('fecha_impresion')?.invalid && ordenTrabajoForm.get('fecha_impresion')?.touched">
+        <small>La fecha de impresión es obligatoria.</small>
+      </div>
+    </div>
+  
+    <!-- Campo de observación -->
+    <div>
+      <label for="observacion">Observación</label>
+      <input type="text" id="observacion" formControlName="observacion" maxlength="255">
+      <div *ngIf="ordenTrabajoForm.get('observacion')?.invalid && ordenTrabajoForm.get('observacion')?.touched">
+        <small>Máximo 255 caracteres.</small>
+      </div>
+    </div>
+  
+    <!-- Select para operarios -->
+    <div>
+      <label for="id_operario">Operario</label>
+      <select id="id_operario" formControlName="id_operario" required>
+        <option value="">Seleccione un operario</option>
+        <option *ngFor="let operario of operarios" [value]="operario.id">{{ operario.nombre }}</option>
+      </select>
+      <div *ngIf="ordenTrabajoForm.get('id_operario')?.invalid && ordenTrabajoForm.get('id_operario')?.touched">
+        <small>El operario es obligatorio.</small>
+      </div>
+    </div>
+  
+    <!-- Repetir para Edificios, Pisos, Sectores, Ubicaciones, Activos... -->
+  
+    <!-- Botón de Enviar -->
+    <button type="submit" [disabled]="ordenTrabajoForm.invalid">Registrar Orden</button>
+  </form>
+  

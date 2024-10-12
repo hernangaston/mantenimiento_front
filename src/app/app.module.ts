@@ -12,6 +12,8 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { InicioComponent } from './components/inicio/inicio.component';
 import { ActivoFormComponent } from './components/activo/activoform/activoform.component';
 import { EdificioFormComponent } from './components/edificio/edificio-form/edificio-form.component';
+import { OrdenTrabajoComponent } from './components/ordenTrabajo/orden-trabajo/orden-trabajo.component';
+import { OrdenTrabajoFormComponent } from './components/ordenTrabajo/orden-trabajo-form/orden-trabajo-form.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { EdificioFormComponent } from './components/edificio/edificio-form/edifi
     DashboardComponent,
     InicioComponent,
     ActivoFormComponent,
-    EdificioFormComponent
+    EdificioFormComponent,
+    OrdenTrabajoComponent,
+    OrdenTrabajoFormComponent
   ],
   imports: [
     BrowserModule,
