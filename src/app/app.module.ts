@@ -19,6 +19,7 @@ import { SectorFormComponent } from './components/sector/sector-form/sector-form
 import { TagFormComponent } from './components/tag/tag-form/tag-form.component';
 import { TareaFormComponent } from './components/tarea/tarea-form/tarea-form.component';
 import { TipoTareaFormComponent } from './components/tipoTarea/tipo-tarea-form/tipo-tarea-form.component';
+import { UbicacionFormComponent } from './components/ubicacion/ubicacion-form/ubicacion-form.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { TipoTareaFormComponent } from './components/tipoTarea/tipo-tarea-form/t
     SectorFormComponent,
     TagFormComponent,
     TareaFormComponent,
-    TipoTareaFormComponent
+    TipoTareaFormComponent,
+    UbicacionFormComponent
   ],
   imports: [
     BrowserModule,

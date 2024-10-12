@@ -13,6 +13,7 @@ import { SectorFormComponent } from './components/sector/sector-form/sector-form
 import { TagFormComponent } from './components/tag/tag-form/tag-form.component';
 import { TareaFormComponent } from './components/tarea/tarea-form/tarea-form.component';
 import { TipoTareaFormComponent } from './components/tipoTarea/tipo-tarea-form/tipo-tarea-form.component';
+import { UbicacionFormComponent } from './components/ubicacion/ubicacion-form/ubicacion-form.component';
 
 const routes: Routes = [
   { path: "login", component: LoginComponent },
@@ -28,6 +29,7 @@ const routes: Routes = [
   { path: "tag", component: TagFormComponent},
   { path: "tarea", component: TareaFormComponent},
   { path: "tipoTarea", component: TipoTareaFormComponent},
+  { path: "ubicacion", component: UbicacionFormComponent},
   { path: "**", redirectTo: "/login", pathMatch: "full" }
 ];
 
