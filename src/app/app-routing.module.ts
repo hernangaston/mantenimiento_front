@@ -10,6 +10,7 @@ import { EdificioFormComponent } from './components/edificio/edificio-form/edifi
 import { OrdenTrabajoFormComponent } from './components/ordenTrabajo/orden-trabajo-form/orden-trabajo-form.component';
 import { PisoFormComponent } from './components/piso/piso-form/piso-form.component';
 import { SectorFormComponent } from './components/sector/sector-form/sector-form.component';
+import { TagFormComponent } from './components/tag/tag-form/tag-form.component';
 
 const routes: Routes = [
   { path: "login", component: LoginComponent },
@@ -22,6 +23,7 @@ const routes: Routes = [
   { path: "orden", component: OrdenTrabajoFormComponent},
   { path: "piso", component: PisoFormComponent},
   { path: "sector", component: SectorFormComponent},
+  { path: "tag", component: TagFormComponent},
   { path: "**", redirectTo: "/login", pathMatch: "full" }
 ];
 
