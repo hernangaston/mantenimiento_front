@@ -9,6 +9,7 @@ import { ActivoFormComponent } from './components/activo/activoform/activoform.c
 import { EdificioFormComponent } from './components/edificio/edificio-form/edificio-form.component';
 import { OrdenTrabajoFormComponent } from './components/ordenTrabajo/orden-trabajo-form/orden-trabajo-form.component';
 import { PisoFormComponent } from './components/piso/piso-form/piso-form.component';
+import { SectorFormComponent } from './components/sector/sector-form/sector-form.component';
 
 const routes: Routes = [
   { path: "login", component: LoginComponent },
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: "edificio", component: EdificioFormComponent},
   { path: "orden", component: OrdenTrabajoFormComponent},
   { path: "piso", component: PisoFormComponent},
+  { path: "sector", component: SectorFormComponent},
   { path: "**", redirectTo: "/login", pathMatch: "full" }
 ];
 

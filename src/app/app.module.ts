@@ -15,6 +15,7 @@ import { EdificioFormComponent } from './components/edificio/edificio-form/edifi
 import { OrdenTrabajoComponent } from './components/ordenTrabajo/orden-trabajo/orden-trabajo.component';
 import { OrdenTrabajoFormComponent } from './components/ordenTrabajo/orden-trabajo-form/orden-trabajo-form.component';
 import { PisoFormComponent } from './components/piso/piso-form/piso-form.component';
+import { SectorFormComponent } from './components/sector/sector-form/sector-form.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { PisoFormComponent } from './components/piso/piso-form/piso-form.compone
     EdificioFormComponent,
     OrdenTrabajoComponent,
     OrdenTrabajoFormComponent,
-    PisoFormComponent
+    PisoFormComponent,
+    SectorFormComponent
   ],
   imports: [
     BrowserModule,

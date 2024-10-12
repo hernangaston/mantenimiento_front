@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Sector } from '../models/sector';
 
 @Injectable({
   providedIn: 'root'
@@ -10,8 +11,15 @@ export class SectorService {
 
   constructor(private http: HttpClient) {}
 
+  // Crear un nuevo sector
+  crearSector(sector: Sector): Observable<Sector> {
+    return this.http.post<Sector>(this.apiUrl, sector);
+  }
+
   // Obtener todos los sectores
-  obtenerSectores(): Observable<any[]> {
-    return this.http.get<any[]>(this.apiUrl);
+  obtenerSectores(): Observable<Sector[]> {
+    return this.http.get<Sector[]>(this.apiUrl);
   }
 }
+
+
