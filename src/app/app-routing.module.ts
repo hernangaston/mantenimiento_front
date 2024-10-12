@@ -8,6 +8,7 @@ import { InicioComponent } from './components/inicio/inicio.component';
 import { ActivoFormComponent } from './components/activo/activoform/activoform.component';
 import { EdificioFormComponent } from './components/edificio/edificio-form/edificio-form.component';
 import { OrdenTrabajoFormComponent } from './components/ordenTrabajo/orden-trabajo-form/orden-trabajo-form.component';
+import { PisoFormComponent } from './components/piso/piso-form/piso-form.component';
 
 const routes: Routes = [
   { path: "login", component: LoginComponent },
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: "activo", component: ActivoFormComponent},
   { path: "edificio", component: EdificioFormComponent},
   { path: "orden", component: OrdenTrabajoFormComponent},
+  { path: "piso", component: PisoFormComponent},
   { path: "**", redirectTo: "/login", pathMatch: "full" }
 ];
 

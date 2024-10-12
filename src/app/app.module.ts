@@ -14,6 +14,7 @@ import { ActivoFormComponent } from './components/activo/activoform/activoform.c
 import { EdificioFormComponent } from './components/edificio/edificio-form/edificio-form.component';
 import { OrdenTrabajoComponent } from './components/ordenTrabajo/orden-trabajo/orden-trabajo.component';
 import { OrdenTrabajoFormComponent } from './components/ordenTrabajo/orden-trabajo-form/orden-trabajo-form.component';
+import { PisoFormComponent } from './components/piso/piso-form/piso-form.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { OrdenTrabajoFormComponent } from './components/ordenTrabajo/orden-traba
     ActivoFormComponent,
     EdificioFormComponent,
     OrdenTrabajoComponent,
-    OrdenTrabajoFormComponent
+    OrdenTrabajoFormComponent,
+    PisoFormComponent
   ],
   imports: [
     BrowserModule,
