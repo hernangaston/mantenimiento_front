@@ -11,6 +11,7 @@ import { OrdenTrabajoFormComponent } from './components/ordenTrabajo/orden-traba
 import { PisoFormComponent } from './components/piso/piso-form/piso-form.component';
 import { SectorFormComponent } from './components/sector/sector-form/sector-form.component';
 import { TagFormComponent } from './components/tag/tag-form/tag-form.component';
+import { TareaFormComponent } from './components/tarea/tarea-form/tarea-form.component';
 
 const routes: Routes = [
   { path: "login", component: LoginComponent },
@@ -24,6 +25,7 @@ const routes: Routes = [
   { path: "piso", component: PisoFormComponent},
   { path: "sector", component: SectorFormComponent},
   { path: "tag", component: TagFormComponent},
+  { path: "tarea", component: TareaFormComponent},
   { path: "**", redirectTo: "/login", pathMatch: "full" }
 ];
 

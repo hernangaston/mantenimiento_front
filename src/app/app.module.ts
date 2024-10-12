@@ -17,6 +17,7 @@ import { OrdenTrabajoFormComponent } from './components/ordenTrabajo/orden-traba
 import { PisoFormComponent } from './components/piso/piso-form/piso-form.component';
 import { SectorFormComponent } from './components/sector/sector-form/sector-form.component';
 import { TagFormComponent } from './components/tag/tag-form/tag-form.component';
+import { TareaFormComponent } from './components/tarea/tarea-form/tarea-form.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { TagFormComponent } from './components/tag/tag-form/tag-form.component';
     OrdenTrabajoFormComponent,
     PisoFormComponent,
     SectorFormComponent,
-    TagFormComponent
+    TagFormComponent,
+    TareaFormComponent
   ],
   imports: [
     BrowserModule,
