@@ -18,6 +18,7 @@ import { PisoFormComponent } from './components/piso/piso-form/piso-form.compone
 import { SectorFormComponent } from './components/sector/sector-form/sector-form.component';
 import { TagFormComponent } from './components/tag/tag-form/tag-form.component';
 import { TareaFormComponent } from './components/tarea/tarea-form/tarea-form.component';
+import { TipoTareaFormComponent } from './components/tipoTarea/tipo-tarea-form/tipo-tarea-form.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { TareaFormComponent } from './components/tarea/tarea-form/tarea-form.com
     PisoFormComponent,
     SectorFormComponent,
     TagFormComponent,
-    TareaFormComponent
+    TareaFormComponent,
+    TipoTareaFormComponent
   ],
   imports: [
     BrowserModule,

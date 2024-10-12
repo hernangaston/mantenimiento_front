@@ -12,6 +12,7 @@ import { PisoFormComponent } from './components/piso/piso-form/piso-form.compone
 import { SectorFormComponent } from './components/sector/sector-form/sector-form.component';
 import { TagFormComponent } from './components/tag/tag-form/tag-form.component';
 import { TareaFormComponent } from './components/tarea/tarea-form/tarea-form.component';
+import { TipoTareaFormComponent } from './components/tipoTarea/tipo-tarea-form/tipo-tarea-form.component';
 
 const routes: Routes = [
   { path: "login", component: LoginComponent },
@@ -26,6 +27,7 @@ const routes: Routes = [
   { path: "sector", component: SectorFormComponent},
   { path: "tag", component: TagFormComponent},
   { path: "tarea", component: TareaFormComponent},
+  { path: "tipoTarea", component: TipoTareaFormComponent},
   { path: "**", redirectTo: "/login", pathMatch: "full" }
 ];
 
