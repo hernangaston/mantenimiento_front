@@ -7,7 +7,7 @@ import { Tag } from '../models/tag';
   providedIn: 'root'
 })
 export class TagService {
-  private apiUrl = 'http://localhost:3000/api/tags'; // Cambia la URL según tu backend
+  private apiUrl = 'http://localhost:3000/api/tag'; // Cambia la URL según tu backend
 
   constructor(private http: HttpClient) {}
 
@@ -18,6 +18,7 @@ export class TagService {
 
   // Obtener todos los tags (opcional)
   obtenerTags(): Observable<Tag[]> {
+    console.log("obteniendo tags");
     return this.http.get<Tag[]>(this.apiUrl);
   }
 }

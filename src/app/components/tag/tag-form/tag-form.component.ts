@@ -23,12 +23,20 @@ export class TagFormComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    /*const tags = this.tagService.obtenerTags().subscribe({
+      next: (res) => {
+        console.log(res);
+      },
+      error: (err) => {
+        console.log("Error: " + err);
+      }
+    });*/
+  }
 
   onSubmit() {
     if (this.tagForm.valid) {
       const nuevoTag: Tag = this.tagForm.value;
-
       this.tagService.crearTag(nuevoTag).subscribe({
         next: (res) => {
           console.log('Tag creado con éxito:', res);
