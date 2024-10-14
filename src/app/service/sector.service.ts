@@ -7,7 +7,7 @@ import { Sector } from '../models/sector';
   providedIn: 'root'
 })
 export class SectorService {
-  private apiUrl = 'http://localhost:3000/api/sectores';
+  private apiUrl = 'http://localhost:3000/api/sector';
 
   constructor(private http: HttpClient) {}
 

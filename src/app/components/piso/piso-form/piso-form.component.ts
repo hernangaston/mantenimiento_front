@@ -22,8 +22,7 @@ export class PisoFormComponent implements OnInit {
     this.pisoForm = this.formBuilder.group({
       nombre: ['', [Validators.required, Validators.maxLength(255)]],
       labelTag: [null], 
-      id_sector: [null, Validators.required],
-      fecha_creacion: [null]
+      id_sector: [null, Validators.required]
     });
   }
 
@@ -32,10 +31,10 @@ export class PisoFormComponent implements OnInit {
   }
 
   cargarSectores() {
-
     this.sectorService.obtenerSectores().subscribe({
       next: (res) => {
         this.sectores = res;
+        console.log(this.sectores);
       },
       error: (err) => {
         console.error('Error al cargar los sectores:', err);

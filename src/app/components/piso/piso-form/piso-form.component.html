@@ -22,17 +22,11 @@
       <label for="id_sector">Sector</label>
       <select id="id_sector" formControlName="id_sector" required>
         <option value="">Seleccione un sector</option>
-        <option *ngFor="let sector of sectores" [value]="sector.id_sector">{{ sector.nombre_sector }}</option>
+        <option *ngFor="let sector of sectores" [value]="sector.id_sector">{{ sector.nombre }}</option>
       </select>
       <div *ngIf="pisoForm.get('id_sector')?.invalid && pisoForm.get('id_sector')?.touched">
         <small>Debe seleccionar un sector.</small>
       </div>
-    </div>
-  
-    <!-- Campo Fecha de Creación -->
-    <div>
-      <label for="fecha_creacion">Fecha de Creación</label>
-      <input type="date" id="fecha_creacion" formControlName="fecha_creacion" />
     </div>
   
     <!-- Botón de Enviar -->

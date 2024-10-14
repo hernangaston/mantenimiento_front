@@ -27,7 +27,6 @@ export class SectorFormComponent implements OnInit {
       labelTag: [null],
       id_activo: [null, Validators.required],
       id_ubicacion: [null, Validators.required],
-      fecha_creacion: [null]
     });
   }
 
