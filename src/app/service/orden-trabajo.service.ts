@@ -8,7 +8,7 @@ import { OrdenTrabajo } from '../models/orden-trabajo';
   providedIn: 'root'
 })
 export class OrdenTrabajoService {
-  private apiUrl = 'http://localhost:3000/api/ordenes-trabajo';
+  private apiUrl = 'http://localhost:3000/api/orden';
 
   constructor(private http: HttpClient) {}
 

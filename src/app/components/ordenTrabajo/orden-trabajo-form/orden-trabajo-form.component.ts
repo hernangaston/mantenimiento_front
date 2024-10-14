@@ -4,6 +4,11 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { OrdenTrabajo } from '../../../models/orden-trabajo';
 import { OperarioService } from '../../../service/operario.service';
 import { OrdenTrabajoService } from '../../../service/orden-trabajo.service';
+import { ActivoService } from '../../../service/activo.service';
+import { EdificioService } from '../../../service/edificio.service';
+import { PisoService } from '../../../service/piso.service';
+import { SectorService } from '../../../service/sector.service';
+import { UbicacionService } from '../../../service/ubicacion.service';
 
 @Component({
   selector: 'app-orden-trabajo-form',
@@ -22,14 +27,20 @@ export class OrdenTrabajoFormComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private operarioService: OperarioService,
-    private ordenTrabajoService: OrdenTrabajoService
+    private ordenTrabajoService: OrdenTrabajoService,
+    private activoService: ActivoService,
+    private edificioService: EdificioService,
+    private pisoService: PisoService,
+    private sectorService: SectorService,
+    private ubicacionService: UbicacionService
+
   ) {
     this.ordenTrabajoForm = this.formBuilder.group({
       fecha_impresion: [null, Validators.required],
       observacion: ['', [Validators.maxLength(255)]],
       fecha_terminacion: [null],
       realizada: [false],
-      id_operario: [null, Validators.required],
+      id_op: [null, Validators.required],
       id_edificio: [null, Validators.required],
       id_piso: [null, Validators.required],
       id_sector: [null, Validators.required],
@@ -45,19 +56,62 @@ export class OrdenTrabajoFormComponent implements OnInit {
   }
 
   cargarDatos() {
-
-    this.operarioService.obtenerOperarios().subscribe((data) => {
-      this.operarios = data;
+    this.operarioService.obtenerOperarios().subscribe({
+      next: (res) => {
+        this.operarios = res;
+      },
+      error: (err) => {
+        console.log(err);
+      }
+      // otros servicios similares para cargar edificios, pisos, etc.
+      // Ejemplo:
+      // this.edificioService.obtenerEdificios().subscribe((data) => { this.edificios = data });
     });
-    // otros servicios similares para cargar edificios, pisos, etc.
-    // Ejemplo:
-    // this.edificioService.obtenerEdificios().subscribe((data) => { this.edificios = data });
+    this.activoService.obtenerActivos().subscribe({
+      next: (res) => {
+        this.activos = res;
+      },
+      error: (err) => {
+        console.log(err);
+      }
+    });
+    this.edificioService.obtenerEdificios().subscribe({
+      next: (res) => {
+        this.edificios = res;
+      },
+      error: (err) => {
+        console.log(err);
+      }
+    });
+    this.pisoService.obtenerPisos().subscribe({
+      next: (res) => {
+        this.pisos = res;
+      },
+      error: (err) => {
+        console.log(err);
+      }
+    });
+    this.sectorService.obtenerSectores().subscribe({
+      next: (res) => {
+        this.sectores = res;
+      },
+      error: (err) => {
+        console.log(err);
+      }
+    });
+    this.ubicacionService.obtenerUbicaciones().subscribe({
+      next: (res) => {
+        this.ubicaciones = res;
+      },
+      error: (err) => {
+        console.log(err);
+      }
+    });
   }
 
   onSubmit() {
     if (this.ordenTrabajoForm.valid) {
       const nuevaOrden: OrdenTrabajo = this.ordenTrabajoForm.value;
-
       this.ordenTrabajoService.crearOrdenTrabajo(nuevaOrden).subscribe({
         next: (res) => {
           console.log('Orden creada con éxito:', res);
