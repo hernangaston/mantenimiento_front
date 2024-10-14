@@ -7,7 +7,7 @@ import { Tarea } from '../models/tarea';
   providedIn: 'root'
 })
 export class TareaService {
-  private apiUrl = 'http://localhost:3000/api/tareas'; // Cambia la URL según tu backend
+  private apiUrl = 'http://localhost:3000/api/tarea'; // Cambia la URL según tu backend
 
   constructor(private http: HttpClient) {}
 
