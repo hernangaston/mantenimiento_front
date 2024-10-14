@@ -8,7 +8,7 @@ import { Activo } from '../models/activo';
 })
 export class ActivoService {
 
-  private apiUrl = 'http://localhost:3000/api/activos';  // Cambia esta URL según tu configuración
+  private apiUrl = 'http://localhost:3000/api/activo';  // Cambia esta URL según tu configuración
 
   constructor(private http: HttpClient) {}
 
