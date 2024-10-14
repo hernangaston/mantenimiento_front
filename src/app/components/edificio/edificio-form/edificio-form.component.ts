@@ -48,7 +48,7 @@ export class EdificioFormComponent implements OnInit {
           this.edificioForm.reset();  // Reinicia el formulario tras el éxito
         },
         error: (error) => { console.error('Error al crear el edificio:', error); },
-        complete: () => { this.router.navigate(['/dashboard']); }
+        //complete: () => { this.router.navigate(['/dashboard']); }
       });
     } else {
       console.log('Formulario no válido');

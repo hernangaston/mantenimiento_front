@@ -8,7 +8,7 @@ import { Edificio } from '../models/edificio';
   providedIn: 'root'
 })
 export class EdificioService {
-  private apiUrl = 'http://localhost:3000/api/edificios'; 
+  private apiUrl = 'http://localhost:3000/api/edificio'; 
   
   constructor(private http: HttpClient) {}
 

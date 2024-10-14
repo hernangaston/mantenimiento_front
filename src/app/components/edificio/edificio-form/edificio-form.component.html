@@ -33,17 +33,11 @@
         <label for="id_piso">Piso</label>
         <select id="id_piso" formControlName="id_piso" required>
           <option value="">Seleccione un piso</option>
-          <option *ngFor="let piso of pisos" [value]="piso.id_piso">{{ piso.nombre_piso }}</option>
+          <option *ngFor="let piso of pisos" [value]="piso.id_piso">{{ piso.nombre }}</option>
         </select>
         <div *ngIf="edificioForm.get('id_piso')?.invalid && edificioForm.get('id_piso')?.touched">
           <small *ngIf="edificioForm.get('id_piso')?.errors?.['required']">Debe seleccionar un piso.</small>
         </div>
-      </div>
-  
-      <!-- Campo Fecha de Creación -->
-      <div>
-        <label for="fecha_creacion">Fecha de Creación</label>
-        <input type="date" id="fecha_creacion" formControlName="fecha_creacion" />
       </div>
   
       <!-- Botón de Enviar -->
