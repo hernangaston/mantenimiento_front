@@ -18,7 +18,6 @@ export class TipoTareaFormComponent implements OnInit {
     this.tipoTareaForm = this.formBuilder.group({
       nombre: ['', [Validators.required, Validators.maxLength(255)]],
       descripcion: ['', Validators.maxLength(255)],
-      fecha_creacion: [null]
     });
   }
 

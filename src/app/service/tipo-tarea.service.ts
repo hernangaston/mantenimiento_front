@@ -8,7 +8,7 @@ import { TipoTarea } from '../models/tipo-tarea';
   providedIn: 'root'
 })
 export class TipoTareaService {
-  private apiUrl = 'http://localhost:3000/api/tipos-tarea'; // Cambia la URL según tu backend
+  private apiUrl = 'http://localhost:3000/api/tipoTarea'; // Cambia la URL según tu backend
 
   constructor(private http: HttpClient) {}
 
