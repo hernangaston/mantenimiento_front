@@ -3,9 +3,36 @@
     box-sizing: border-box;
 }
 
-html,
-body {
-    background: #ecf0f3;
+body, html {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.logo {
+    width: 200px;
+    height: 70px;
+    margin: 20px;
+    position: absolute;
+    top: 30px;
+    left: 30px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
 h1 {

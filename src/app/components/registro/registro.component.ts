@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { UsersService } from '../../service/users.service';
 import { Router } from '@angular/router';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-registro',
@@ -15,15 +15,27 @@ export class RegistroComponent {
   constructor(private fb: FormBuilder, private service: UsersService, private router: Router) { 
    
     this.formData = this.fb.group({
-      email: ['', /*[Validators.required, Validators.email]*/],  
-      password: ['', /*[Validators.required, Validators.minLength(6)]*/], 
-      confirmPassword:['']
+      email: ['', [Validators.required, Validators.email]],  // Formato de email válido
+      password: ['', [Validators.required, Validators.minLength(6)]], 
+      confirmPassword:['', [Validators.required]] 
+    }, {
+      validator: this.passwordMatchValidator 
     });
   }
 
-  registro() {
-    if (this.formData.value.password === this.formData.value.confirmPassword) {
-      this.service.register({ email: this.formData.value.email, password: this.formData.value.password }).subscribe({
+  passwordMatchValidator(formGroup: AbstractControl): { [key: string]: boolean } | null {
+    const password = formGroup.get('password')?.value;
+    const confirmPassword = formGroup.get('confirmPassword')?.value;
+
+    if (password !== confirmPassword) {
+      return { notSame: true };
+    }
+    return null;
+  }
+
+  registro(nuevo: any) {
+    if (nuevo.password === nuevo.confirmPassword) {
+      this.service.register({ email: nuevo.email, password: nuevo.password }).subscribe({
         next: (response) => {
           console.log(response.message);
         },
@@ -32,6 +44,16 @@ export class RegistroComponent {
       });
     } else {
       alert("passwords don't match");
+    }
+  }
+
+  onSubmit() {
+    if (this.formData.valid) {
+      const nuevo = this.formData.value;
+      console.log(nuevo);
+      //this.registro(nuevo);
+    } else {
+      console.log("Formulario inválido");
     }
   }
 }

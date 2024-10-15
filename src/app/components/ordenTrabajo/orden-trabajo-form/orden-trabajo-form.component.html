@@ -1,0 +1,104 @@
+<form [formGroup]="ordenTrabajoForm" (ngSubmit)="onSubmit()" class="custom-form">
+    <h1>Registro de Orden de Trabajo</h1>
+  
+    <!-- Campo de fecha de impresión -->
+    <div>
+      <label for="fecha_impresion">Fecha de Impresión</label>
+      <input type="date" id="fecha_impresion" formControlName="fecha_impresion">
+      <div *ngIf="ordenTrabajoForm.get('fecha_impresion')?.invalid && ordenTrabajoForm.get('fecha_impresion')?.touched">
+        <small>La fecha de impresión es obligatoria.</small>
+      </div>
+    </div>
+
+    <div>
+      <label for="fecha_terminacion">Fecha de terminacion</label>
+      <input type="date" id="fecha_terminacion" formControlName="fecha_terminacion">
+      <div *ngIf="ordenTrabajoForm.get('fecha_terminacion')?.invalid && ordenTrabajoForm.get('fecha_terminacion')?.touched">
+        <small>La fecha de terminacion es obligatoria.</small>
+      </div>
+    </div>
+  
+  
+    <!-- Campo de observación -->
+    <div>
+      <label for="observacion">Observación</label>
+      <input type="text" id="observacion" formControlName="observacion" maxlength="255">
+      <div *ngIf="ordenTrabajoForm.get('observacion')?.invalid && ordenTrabajoForm.get('observacion')?.touched">
+        <small>Máximo 255 caracteres.</small>
+      </div>
+    </div>
+  
+    <!-- Select para operarios -->
+    <div>
+      <label for="id_operario">Operario</label>
+      <select id="id_operario" formControlName="id_op" required>
+        <option value="">Seleccione un operario</option>
+        <option *ngFor="let operario of operarios" [value]="operario.id_op">{{ operario.nombre }}</option>
+      </select>
+      <div *ngIf="ordenTrabajoForm.get('id_op')?.invalid && ordenTrabajoForm.get('id_op')?.touched">
+        <small>El operario es obligatorio.</small>
+      </div>
+    </div>
+  
+    <!-- Repetir para Edificios, Pisos, Sectores, Ubicaciones, Activos... -->
+    <div>
+      <label for="id_edificio">Edificio</label>
+      <select id="id_edificio" formControlName="id_edificio" required>
+        <option value="">Seleccione un edificio</option>
+        <option *ngFor="let edificio of edificios" [value]="edificio.id_edificio">{{ edificio.Nombre }}</option>
+      </select>
+      <div *ngIf="ordenTrabajoForm.get('id_edificio')?.invalid && ordenTrabajoForm.get('id_edificio')?.touched">
+        <small>El edificio es obligatorio.</small>
+      </div>
+    </div>
+
+    <div>
+      <label for="id_piso">Piso</label>
+      <select id="id_piso" formControlName="id_piso" required>
+        <option value="">Seleccione un piso</option>
+        <option *ngFor="let piso of pisos" [value]="piso.id_piso">{{ piso.nombre }}</option>
+      </select>
+      <div *ngIf="ordenTrabajoForm.get('id_piso')?.invalid && ordenTrabajoForm.get('id_piso')?.touched">
+        <small>El piso es obligatorio.</small>
+      </div>
+    </div>
+
+    <div>
+      <label for="id_sector">Sector</label>
+      <select id="id_sector" formControlName="id_sector" required>
+        <option value="">Seleccione un sector</option>
+        <option *ngFor="let sector of sectores" [value]="sector.id_sector">{{ sector.nombre }}</option>
+      </select>
+      <div *ngIf="ordenTrabajoForm.get('id_sector')?.invalid && ordenTrabajoForm.get('id_sector')?.touched">
+        <small>El sector es obligatorio.</small>
+      </div>
+    </div>
+
+    <div>
+      <label for="id_ubicacion">Ubicacion</label>
+      <select id="id_ubicacion" formControlName="id_ubicacion" required>
+        <option value="">Seleccione una ubicacion.</option>
+        <option *ngFor="let ubicacion of ubicaciones" [value]="ubicacion.id_ubicacion">{{ ubicacion.nombre }}</option>
+      </select>
+      <div *ngIf="ordenTrabajoForm.get('id_ubicacion')?.invalid && ordenTrabajoForm.get('id_ubicacion')?.touched">
+        <small>La ubicacion es obligatoria.</small>
+      </div>
+    </div>
+
+    <div>
+      <label for="id_activo">Activo</label>
+      <select id="id_activo" formControlName="id_activo" required>
+        <option value="">Seleccione un activo.</option>
+        <option *ngFor="let activo of activos" [value]="activo.id_activo">{{ activo.nombre }}</option>
+      </select>
+      <div *ngIf="ordenTrabajoForm.get('id_activo')?.invalid && ordenTrabajoForm.get('id_activo')?.touched">
+        <small>El activo es obligatorio.</small>
+      </div>
+    </div>
+
+   
+  
+    <!-- Botón de Enviar -->
+    <button type="submit" [disabled]="ordenTrabajoForm.invalid">Registrar Orden</button>
+  </form>
+  

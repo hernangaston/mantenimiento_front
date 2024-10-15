@@ -1,0 +1,61 @@
+<div class="contenedor">
+<form [formGroup]="activoForm" (ngSubmit)="onSubmit()">
+    <!-- Campo Nombre -->
+    <div>
+        <label for="nombre">Nombre</label>
+        <input type="text" id="nombre" formControlName="nombre">
+        <div *ngIf="activoForm.get('nombre')?.invalid && activoForm.get('nombre')?.touched">
+            <small *ngIf="activoForm.get('nombre')?.errors?.['required']">El nombre es obligatorio.</small>
+        </div>
+    </div>
+
+    <!-- Campo ID Tag -->
+    <div>
+        <label for="id_tag">ID Tag</label>
+        <input type="number" id="id_tag" formControlName="id_tag">
+        <div *ngIf="activoForm.get('id_tag')?.invalid && activoForm.get('id_tag')?.touched">
+            <small *ngIf="activoForm.get('id_tag')?.errors?.['required']">El ID Tag es obligatorio.</small>
+            <small *ngIf="activoForm.get('id_tag')?.errors?.['min']">Debe ser un número positivo.</small>
+        </div>
+    </div>
+
+    <!-- Campo Disponibilidad -->
+    <div>
+        <label for="Disponibilidad">Disponibilidad</label>
+        <input type="checkbox" id="Disponibilidad" formControlName="Disponibilidad">
+    </div>
+
+    <!-- Campo Label Tag -->
+    <div>
+        <label for="labelTag">Label Tag</label>
+        <input type="number" id="labelTag" formControlName="labelTag">
+        <div *ngIf="activoForm.get('labelTag')?.invalid && activoForm.get('labelTag')?.touched">
+            <small *ngIf="activoForm.get('labelTag')?.errors?.['required']">El Label Tag es obligatorio.</small>
+            <small *ngIf="activoForm.get('labelTag')?.errors?.['min']">Debe ser un número positivo.</small>
+        </div>
+    </div>
+
+    <!-- Campo Número Existencia -->
+    <div>
+        <label for="numero_existencia">Número de Existencia</label>
+        <input type="number" id="numero_existencia" formControlName="numero_existencia">
+        <div *ngIf="activoForm.get('numero_existencia')?.invalid && activoForm.get('numero_existencia')?.touched">
+            <small *ngIf="activoForm.get('numero_existencia')?.errors?.['required']">Este campo es obligatorio.</small>
+            <small *ngIf="activoForm.get('numero_existencia')?.errors?.['min']">Debe ser un número positivo.</small>
+        </div>
+    </div>
+
+    <!-- Campo Número Real -->
+    <div>
+        <label for="numero_real">Número Real</label>
+        <input type="number" id="numero_real" formControlName="numero_real">
+        <div *ngIf="activoForm.get('numero_real')?.invalid && activoForm.get('numero_real')?.touched">
+            <small *ngIf="activoForm.get('numero_real')?.errors?.['required']">Este campo es obligatorio.</small>
+            <small *ngIf="activoForm.get('numero_real')?.errors?.['min']">Debe ser un número positivo.</small>
+        </div>
+    </div>
+
+    <!-- Botón de Enviar -->
+    <button type="submit" [disabled]="activoForm.invalid">Registrar Activo</button>
+</form>
+</div>

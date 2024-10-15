@@ -1,0 +1,26 @@
+<form [formGroup]="tipoTareaForm" (ngSubmit)="onSubmit()" class="custom-form">
+    <h1>Registro de Tipo de Tarea</h1>
+  
+    <!-- Campo Nombre -->
+    <div>
+      <label for="nombre">Nombre</label>
+      <input type="text" id="nombre" formControlName="nombre" placeholder="Nombre del tipo de tarea" required />
+      <div *ngIf="tipoTareaForm.get('nombre')?.invalid && tipoTareaForm.get('nombre')?.touched">
+        <small *ngIf="tipoTareaForm.get('nombre')?.errors?.['required']">El nombre es obligatorio.</small>
+        <small *ngIf="tipoTareaForm.get('nombre')?.errors?.['maxLength']">Máximo 255 caracteres.</small>
+      </div>
+    </div>
+  
+    <!-- Campo Descripción -->
+    <div>
+      <label for="descripcion">Descripción</label>
+      <input type="text" id="descripcion" formControlName="descripcion" placeholder="Descripción del tipo de tarea" />
+      <div *ngIf="tipoTareaForm.get('descripcion')?.invalid && tipoTareaForm.get('descripcion')?.touched">
+        <small>Máximo 255 caracteres.</small>
+      </div>
+    </div>
+  
+    <!-- Botón de Enviar -->
+    <button type="submit" [disabled]="tipoTareaForm.invalid">Registrar Tipo de Tarea</button>
+  </form>
+  

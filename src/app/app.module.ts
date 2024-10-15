@@ -9,13 +9,35 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { RegistroComponent } from './components/registro/registro.component';
 import { provideHttpClient } from '@angular/common/http';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { InicioComponent } from './components/inicio/inicio.component';
+import { ActivoFormComponent } from './components/activo/activoform/activoform.component';
+import { EdificioFormComponent } from './components/edificio/edificio-form/edificio-form.component';
+import { OrdenTrabajoComponent } from './components/ordenTrabajo/orden-trabajo/orden-trabajo.component';
+import { OrdenTrabajoFormComponent } from './components/ordenTrabajo/orden-trabajo-form/orden-trabajo-form.component';
+import { PisoFormComponent } from './components/piso/piso-form/piso-form.component';
+import { SectorFormComponent } from './components/sector/sector-form/sector-form.component';
+import { TagFormComponent } from './components/tag/tag-form/tag-form.component';
+import { TareaFormComponent } from './components/tarea/tarea-form/tarea-form.component';
+import { TipoTareaFormComponent } from './components/tipoTarea/tipo-tarea-form/tipo-tarea-form.component';
+import { UbicacionFormComponent } from './components/ubicacion/ubicacion-form/ubicacion-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegistroComponent,
-    DashboardComponent
+    DashboardComponent,
+    InicioComponent,
+    ActivoFormComponent,
+    EdificioFormComponent,
+    OrdenTrabajoComponent,
+    OrdenTrabajoFormComponent,
+    PisoFormComponent,
+    SectorFormComponent,
+    TagFormComponent,
+    TareaFormComponent,
+    TipoTareaFormComponent,
+    UbicacionFormComponent
   ],
   imports: [
     BrowserModule,
