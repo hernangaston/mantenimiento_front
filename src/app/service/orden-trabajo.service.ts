@@ -2,7 +2,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { OrdenTrabajo } from '../models/orden-trabajo';
+import { OrdenTrabajo } from '../interfaces/orden-trabajo';
 
 @Injectable({
   providedIn: 'root'

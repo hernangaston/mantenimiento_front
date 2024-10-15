@@ -1,7 +1,7 @@
 // src/app/components/piso-form/piso-form.component.ts
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Piso } from '../../../models/piso';
+import { Piso } from '../../../interfaces/piso';
 import { PisoService } from '../../../service/piso.service';
 import { SectorService } from '../../../service/sector.service';
 

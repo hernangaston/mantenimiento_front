@@ -21,7 +21,6 @@ export class LoginComponent {
 
   onSubmit() {
     if (this.formData.valid) {
-      console.log('Formulario válido:', this.formData.value);      
       this.login(this.formData.value);
     } else {
       console.log('Formulario no válido');
@@ -33,8 +32,8 @@ export class LoginComponent {
       next: (response) => {
         this.router.navigate(['dashboard'])
       },
-      error: () => {
-        console.log("there was an error");
+      error: (err) => {
+        console.log("Error de servidor: " + err.message);
       }
     });
   }

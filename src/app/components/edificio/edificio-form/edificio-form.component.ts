@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Edificio } from '../../../models/edificio';
+import { Edificio } from '../../../interfaces/edificio';
 import { PisoService } from '../../../service/piso.service';
 import { EdificioService } from '../../../service/edificio.service';
 import { Router } from '@angular/router';

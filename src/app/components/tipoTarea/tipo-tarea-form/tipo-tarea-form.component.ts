@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { TipoTarea } from '../../../models/tipo-tarea';
+import { TipoTarea } from '../../../interfaces/tipo-tarea';
 import { TipoTareaService } from '../../../service/tipo-tarea.service';
 
 @Component({

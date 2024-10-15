@@ -1,7 +1,7 @@
 // src/app/components/tag-form/tag-form.component.ts
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Tag } from '../../../models/tag';
+import { Tag } from '../../../interfaces/tag';
 import { TagService } from '../../../service/tag.service';
 
 @Component({

@@ -2,7 +2,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivoService } from '../../../service/activo.service';
-import { Activo } from '../../../models/activo';
+import { Activo } from '../../../interfaces/activo';
 
 @Component({
   selector: 'app-activo-form',

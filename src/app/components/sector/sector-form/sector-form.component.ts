@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Sector } from '../../../models/sector';
+import { Sector } from '../../../interfaces/sector';
+import { Activo } from '../../../interfaces/activo';
 import { ActivoService } from '../../../service/activo.service';
 import { SectorService } from '../../../service/sector.service';
 import { UbicacionService } from '../../../service/ubicacion.service';
-import { Activo } from '../../../models/activo';
+
 
 @Component({
   selector: 'app-sector-form',
