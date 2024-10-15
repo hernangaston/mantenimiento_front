@@ -3,6 +3,7 @@ import { UsersService } from '../../service/users.service';
 import { Router } from '@angular/router';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 
+
 @Component({
   selector: 'app-registro',
   templateUrl: './registro.component.html',
@@ -12,9 +13,9 @@ import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/fo
 export class RegistroComponent {
   formData: FormGroup;  
 
-  constructor(private fb: FormBuilder, private service: UsersService, private router: Router) { 
+  constructor(private formBuilder: FormBuilder, private service: UsersService, private router: Router) { 
    
-    this.formData = this.fb.group({
+    this.formData = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],  // Formato de email válido
       password: ['', [Validators.required, Validators.minLength(6)]], 
       confirmPassword:['', [Validators.required]] 
@@ -50,8 +51,7 @@ export class RegistroComponent {
   onSubmit() {
     if (this.formData.valid) {
       const nuevo = this.formData.value;
-      console.log(nuevo);
-      //this.registro(nuevo);
+      this.registro(nuevo);
     } else {
       console.log("Formulario inválido");
     }

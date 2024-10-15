@@ -1,7 +1,7 @@
 // src/app/components/orden-trabajo-form/orden-trabajo-form.component.ts
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { OrdenTrabajo } from '../../../models/orden-trabajo';
+import { OrdenTrabajo } from '../../../interfaces/orden-trabajo';
 import { OperarioService } from '../../../service/operario.service';
 import { OrdenTrabajoService } from '../../../service/orden-trabajo.service';
 import { ActivoService } from '../../../service/activo.service';

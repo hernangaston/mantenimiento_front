@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Piso } from '../models/piso';
+import { Piso } from '../interfaces/piso';
 
 @Injectable({
   providedIn: 'root'

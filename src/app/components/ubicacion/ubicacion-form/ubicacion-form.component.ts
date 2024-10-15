@@ -1,7 +1,7 @@
 // src/app/components/ubicacion-form/ubicacion-form.component.ts
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Ubicacion } from '../../../models/ubicacion';
+import { Ubicacion } from '../../../interfaces/ubicacion';
 import { UbicacionService } from '../../../service/ubicacion.service';
 
 @Component({

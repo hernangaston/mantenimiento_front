@@ -1,7 +1,7 @@
 // src/app/components/tarea-form/tarea-form.component.ts
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Tarea } from '../../../models/tarea';
+import { Tarea } from '../../../interfaces/tarea';
 import { TareaService } from '../../../service/tarea.service';
 import { TipoTareaService } from '../../../service/tipo-tarea.service';
 
