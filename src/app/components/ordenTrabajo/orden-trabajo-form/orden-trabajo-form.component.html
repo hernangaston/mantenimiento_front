@@ -1,6 +1,7 @@
+
+<div class="contenedor">
 <form [formGroup]="ordenTrabajoForm" (ngSubmit)="onSubmit()" class="custom-form">
-    <h1>Registro de Orden de Trabajo</h1>
-  
+    <h1>Registro de Orden de Trabajo</h1>  
     <!-- Campo de fecha de impresión -->
     <div>
       <label for="fecha_impresion">Fecha de Impresión</label>
@@ -101,4 +102,5 @@
     <!-- Botón de Enviar -->
     <button type="submit" [disabled]="ordenTrabajoForm.invalid">Registrar Orden</button>
   </form>
+</div>
   

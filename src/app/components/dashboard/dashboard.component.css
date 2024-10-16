@@ -3,16 +3,9 @@
   justify-content: start;
 }
 
-.content {
-  flex-grow: 1;
-  padding: 20px;
-}
 .contenedorForms{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 70vw;
-  flex-direction: column;
+  width: 100vw;
+  padding: 20px;
 }
 
 .sidebar {
