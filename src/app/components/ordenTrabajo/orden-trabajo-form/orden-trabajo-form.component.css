@@ -5,16 +5,11 @@ main {
     padding: 10px;
 }
 
-.custom-form {
-    min-width: 280px;
-    max-width: 60%;
-    background: rgba(255, 255, 255, 0.15);
+.custom-form {    
     padding: 2rem 3rem;
-    margin: 250px;
     border-radius: 2.5rem;
     background-color: #ecf0f3;
-    box-shadow: 13px 13px 20px #cbced1, -13px -13px 20px #ffffff;
-    color: black;    
+    box-shadow: 13px 13px 20px #cbced1, -13px -13px 20px #ffffff;    
 }
 
 .custom-form input {

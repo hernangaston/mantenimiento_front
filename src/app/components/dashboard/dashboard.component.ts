@@ -1,12 +1,18 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
-import { UsersService } from '../../service/users.service';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrl: './dashboard.component.css'
+  styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent {
-  
+  expandedMenu: number | null = null;
+
+  toggleDropdown(menuNumber: number): void {
+    this.expandedMenu = this.expandedMenu === menuNumber ? null : menuNumber;
+  }
+
+  isExpanded(menuNumber: number): boolean {
+    return this.expandedMenu === menuNumber;
+  }
 }
