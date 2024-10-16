@@ -19,8 +19,36 @@ const routes: Routes = [
   { path: "login", component: LoginComponent },
   { path: "registro", component: RegistroComponent},
   //{ path: "dashboard", component: DashboardComponent, canActivate: [AuthorizationGuard]},
-  { path: "dashboard", component: DashboardComponent},
-  { path: "inicio", component: InicioComponent},
+  {
+    path: 'dashboard', component: DashboardComponent, children: [
+      {
+        path: 'orden', children: [
+          { path: '', component: OrdenTrabajoFormComponent}
+        ]
+      },
+      {
+        path: 'tarea', children: [
+          { path: '', component: TareaFormComponent}
+        ]
+      },
+      {
+        path: 'activo', children: [
+          { path: '', component: ActivoFormComponent}
+        ]
+      },
+      {
+        path: 'edificio', children: [
+          { path: '', component: EdificioFormComponent}
+        ]
+      },
+      {
+        path: 'piso', children: [
+          { path: '', component: PisoFormComponent}
+        ]
+      },
+    ]
+  },
+  /*{ path: "inicio", component: InicioComponent},
   { path: "activo", component: ActivoFormComponent},
   { path: "edificio", component: EdificioFormComponent},
   { path: "orden", component: OrdenTrabajoFormComponent},
@@ -29,7 +57,7 @@ const routes: Routes = [
   { path: "tag", component: TagFormComponent},
   { path: "tarea", component: TareaFormComponent},
   { path: "tipoTarea", component: TipoTareaFormComponent},
-  { path: "ubicacion", component: UbicacionFormComponent},
+  { path: "ubicacion", component: UbicacionFormComponent},*/
   { path: "**", redirectTo: "/login", pathMatch: "full" }
 ];
 
