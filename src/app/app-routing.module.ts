@@ -14,6 +14,7 @@ import { TagFormComponent } from './components/tag/tag-form/tag-form.component';
 import { TareaFormComponent } from './components/tarea/tarea-form/tarea-form.component';
 import { TipoTareaFormComponent } from './components/tipoTarea/tipo-tarea-form/tipo-tarea-form.component';
 import { UbicacionFormComponent } from './components/ubicacion/ubicacion-form/ubicacion-form.component';
+import { OrdenTrabajoComponent } from './components/ordenTrabajo/orden-trabajo/orden-trabajo.component';
 
 const routes: Routes = [
   { path: "login", component: LoginComponent },
@@ -23,7 +24,8 @@ const routes: Routes = [
     path: 'dashboard', component: DashboardComponent, children: [
       {
         path: 'orden', children: [
-          { path: '', component: OrdenTrabajoFormComponent}
+          { path: '', component: OrdenTrabajoFormComponent},
+          { path: 'lista', component: OrdenTrabajoComponent}
         ]
       },
       {

@@ -20,6 +20,7 @@ import { TagFormComponent } from './components/tag/tag-form/tag-form.component';
 import { TareaFormComponent } from './components/tarea/tarea-form/tarea-form.component';
 import { TipoTareaFormComponent } from './components/tipoTarea/tipo-tarea-form/tipo-tarea-form.component';
 import { UbicacionFormComponent } from './components/ubicacion/ubicacion-form/ubicacion-form.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { UbicacionFormComponent } from './components/ubicacion/ubicacion-form/ub
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CommonModule
   ],
   providers: [provideHttpClient()],
   bootstrap: [AppComponent]
