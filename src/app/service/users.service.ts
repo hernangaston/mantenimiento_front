@@ -18,8 +18,9 @@ export class UsersService {
   }
 
   login(user: any): Observable<any> {
+    console.log(user);
     this.authStatusListener.next(true);
-    return this.http.post(`${this.apiUrl}/login`, user, { withCredentials: true });
+    return this.http.post(`${this.apiUrl}/login`, user);
   }
 
   register(user: any): Observable<any> {

@@ -13,7 +13,6 @@ export class AuthorizationGuard implements CanActivate {
     if (this.authService.isAuthenticated()) {
       return true;
     } else {
-      console.log("Error")
       this.router.navigate(['login']);
       return false;
     }

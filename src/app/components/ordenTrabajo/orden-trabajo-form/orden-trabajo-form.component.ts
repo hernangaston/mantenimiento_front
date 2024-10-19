@@ -46,8 +46,7 @@ export class OrdenTrabajoFormComponent implements OnInit {
       id_sector: [null, Validators.required],
       id_ubicacion: [null, Validators.required],
       id_activo: [null, Validators.required],
-      tiempo: [null],
-      fecha_creacion: [null]
+      tiempo: [null, Validators.required],
     });
   }
 

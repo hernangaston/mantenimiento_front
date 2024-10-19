@@ -15,6 +15,7 @@
           <th>Ubicación</th>
           <th>Activo</th>
           <th>Tiempo</th>
+          <th>Acciones</th>
         </tr>
       </thead>
       <tbody>
@@ -30,6 +31,18 @@
           <td>{{ orden.id_ubicacion }}</td>
           <td>{{ orden.id_activo }}</td>
           <td>{{ orden.tiempo }}</td>
+          <td><div class="botonesAcciones">
+            <button type="button" [routerLink]="['/orden', orden.id_ot]"><span class="material-symbols-outlined">
+              search_insights
+              </span></button>
+              <button type="button" [routerLink]="['/orden/edit', orden.id_ot]"><span class="material-symbols-outlined">
+              edit_square
+              </span></button>
+              <button type="button" [routerLink]="['/orden/delete', orden.id_ot]"><span class="material-symbols-outlined">
+              delete
+              </span></button>
+          </div>
+          </td>
         </tr>
       </tbody>
     </table>

@@ -12,7 +12,7 @@ import { CookieService } from "ngx-cookie-service";
 export class LoginComponent {
   formData: FormGroup;
 
-  constructor(private fb: FormBuilder, public router: Router, private service: UsersService, private cookie: CookieService) {
+  constructor(private fb: FormBuilder, public router: Router, private userService: UsersService, private cookie: CookieService) {
     this.formData = this.fb.group({
       email: ['', [Validators.required, Validators.email]],  // Campo de email con validación de email y requerido
       password: ['', [Validators.required, Validators.minLength(6)]]
@@ -28,7 +28,7 @@ export class LoginComponent {
   }
 
   login(user: {}) {
-    this.service.login(user).subscribe({
+    this.userService.login(user).subscribe({
       next: (response) => {
         this.router.navigate(['dashboard'])
       },

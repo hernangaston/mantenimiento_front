@@ -46,7 +46,7 @@
       <label for="id_edificio">Edificio</label>
       <select id="id_edificio" formControlName="id_edificio" required>
         <option value="">Seleccione un edificio</option>
-        <option *ngFor="let edificio of edificios" [value]="edificio.id_edificio">{{ edificio.Nombre }}</option>
+        <option *ngFor="let edificio of edificios" [value]="edificio.id_edificio">{{ edificio.nombre }}</option>
       </select>
       <div *ngIf="ordenTrabajoForm.get('id_edificio')?.invalid && ordenTrabajoForm.get('id_edificio')?.touched">
         <small>El edificio es obligatorio.</small>
@@ -57,7 +57,7 @@
       <label for="id_piso">Piso</label>
       <select id="id_piso" formControlName="id_piso" required>
         <option value="">Seleccione un piso</option>
-        <option *ngFor="let piso of pisos" [value]="piso.id_piso">{{ piso.nombre }}</option>
+        <option *ngFor="let piso of pisos" [value]="piso.Id_piso">{{ piso.nombre }}</option>
       </select>
       <div *ngIf="ordenTrabajoForm.get('id_piso')?.invalid && ordenTrabajoForm.get('id_piso')?.touched">
         <small>El piso es obligatorio.</small>
@@ -96,6 +96,15 @@
         <small>El activo es obligatorio.</small>
       </div>
     </div>
+
+    <div>
+      <label for="tiempo">Tiempo</label>
+      <input type="date" id="tiempo" formControlName="tiempo">
+      <div *ngIf="ordenTrabajoForm.get('tiempo')?.invalid && ordenTrabajoForm.get('tiempo')?.touched">
+        <small>El tiempo es obligatorio.</small>
+      </div>
+    </div>
+
 
    
   
