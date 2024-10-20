@@ -21,6 +21,7 @@ import { TareaFormComponent } from './components/tarea/tarea-form/tarea-form.com
 import { TipoTareaFormComponent } from './components/tipoTarea/tipo-tarea-form/tipo-tarea-form.component';
 import { UbicacionFormComponent } from './components/ubicacion/ubicacion-form/ubicacion-form.component';
 import { CommonModule } from '@angular/common';
+import { OrdenTrabajoVistaComponent } from './components/ordenTrabajo/orden-trabajo-vista/orden-trabajo-vista.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { CommonModule } from '@angular/common';
     TagFormComponent,
     TareaFormComponent,
     TipoTareaFormComponent,
-    UbicacionFormComponent
+    UbicacionFormComponent,
+    OrdenTrabajoVistaComponent
   ],
   imports: [
     BrowserModule,

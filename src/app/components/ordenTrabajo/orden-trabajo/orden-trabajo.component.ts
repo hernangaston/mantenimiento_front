@@ -42,7 +42,7 @@ export class OrdenTrabajoComponent implements OnInit {
     // Agrega más datos según sea necesario
   ];
 
-  constructor() { }
+  constructor() { console.log(this.ordenes[0].id_ot)}
 
   ngOnInit(): void {
   }

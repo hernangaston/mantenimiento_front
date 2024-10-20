@@ -15,17 +15,19 @@ import { TareaFormComponent } from './components/tarea/tarea-form/tarea-form.com
 import { TipoTareaFormComponent } from './components/tipoTarea/tipo-tarea-form/tipo-tarea-form.component';
 import { UbicacionFormComponent } from './components/ubicacion/ubicacion-form/ubicacion-form.component';
 import { OrdenTrabajoComponent } from './components/ordenTrabajo/orden-trabajo/orden-trabajo.component';
+import { OrdenTrabajoVistaComponent } from './components/ordenTrabajo/orden-trabajo-vista/orden-trabajo-vista.component';
 
 const routes: Routes = [
   { path: "login", component: LoginComponent },
   { path: "registro", component: RegistroComponent},
   //{ path: "dashboard", component: DashboardComponent, canActivate: [AuthorizationGuard]},
   {
-    path: 'dashboard', component: DashboardComponent, canActivate: [AuthorizationGuard], children: [
+    path: "dashboard", component: DashboardComponent, children: [
       {
-        path: 'orden', children: [
-          { path: '', component: OrdenTrabajoFormComponent},
-          { path: 'lista', component: OrdenTrabajoComponent}
+        path: "orden", children: [
+          { path: "", component: OrdenTrabajoFormComponent},
+          { path: "lista", component: OrdenTrabajoComponent},
+          { path: "ver/:id_ot", component: OrdenTrabajoVistaComponent}
         ]
       },
       {
@@ -60,7 +62,7 @@ const routes: Routes = [
   { path: "tarea", component: TareaFormComponent},
   { path: "tipoTarea", component: TipoTareaFormComponent},
   { path: "ubicacion", component: UbicacionFormComponent},*/
-  { path: "**", redirectTo: "/login", pathMatch: "full" }
+  { path: "**", redirectTo: "login", pathMatch: "full" }
 ];
 
 @NgModule({

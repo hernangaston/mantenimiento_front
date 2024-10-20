@@ -32,13 +32,14 @@
           <td>{{ orden.id_activo }}</td>
           <td>{{ orden.tiempo }}</td>
           <td><div class="botonesAcciones">
-            <button type="button" [routerLink]="['/orden', orden.id_ot]"><span class="material-symbols-outlined">
+            
+            <button type="button" [routerLink]="['/dashboard/orden/ver', orden.id_ot]"><span class="material-symbols-outlined">
               search_insights
               </span></button>
-              <button type="button" [routerLink]="['/orden/edit', orden.id_ot]"><span class="material-symbols-outlined">
+              <button type="button" [routerLink]="['/dashboard/orden/edit', orden.id_ot]"><span class="material-symbols-outlined">
               edit_square
               </span></button>
-              <button type="button" [routerLink]="['/orden/delete', orden.id_ot]"><span class="material-symbols-outlined">
+              <button type="button" [routerLink]="['/dashboard/orden/delete', orden.id_ot]"><span class="material-symbols-outlined">
               delete
               </span></button>
           </div>
