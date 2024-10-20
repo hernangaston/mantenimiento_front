@@ -9,6 +9,8 @@ import { EdificioService } from '../../../service/edificio.service';
 import { PisoService } from '../../../service/piso.service';
 import { SectorService } from '../../../service/sector.service';
 import { UbicacionService } from '../../../service/ubicacion.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { formatDate } from '@angular/common';
 
 @Component({
   selector: 'app-orden-trabajo-form',
@@ -23,6 +25,7 @@ export class OrdenTrabajoFormComponent implements OnInit {
   sectores: any[] = [];
   ubicaciones: any[] = [];
   activos: any[] = [];
+  id_ot: any = "";
 
   constructor(
     private formBuilder: FormBuilder,
@@ -32,8 +35,9 @@ export class OrdenTrabajoFormComponent implements OnInit {
     private edificioService: EdificioService,
     private pisoService: PisoService,
     private sectorService: SectorService,
-    private ubicacionService: UbicacionService
-
+    private ubicacionService: UbicacionService,
+    private route: ActivatedRoute,
+    private router: Router
   ) {
     this.ordenTrabajoForm = this.formBuilder.group({
       fecha_impresion: [null, Validators.required],
@@ -51,7 +55,8 @@ export class OrdenTrabajoFormComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.cargarDatos();
+    this.id_ot = this.route.snapshot.paramMap.get('id_ot');
+    !this.id_ot ? this.cargarDatos() : this.cargarForm();
   }
 
   cargarDatos() {
@@ -62,9 +67,6 @@ export class OrdenTrabajoFormComponent implements OnInit {
       error: (err) => {
         console.log(err);
       }
-      // otros servicios similares para cargar edificios, pisos, etc.
-      // Ejemplo:
-      // this.edificioService.obtenerEdificios().subscribe((data) => { this.edificios = data });
     });
     this.activoService.obtenerActivos().subscribe({
       next: (res) => {
@@ -108,18 +110,45 @@ export class OrdenTrabajoFormComponent implements OnInit {
     });
   }
 
+  cargarForm() {
+    console.log("Cargando form");
+    this.ordenTrabajoService.getOrdenDetrabajo(this.id_ot).subscribe({
+      next: (res) => {
+        res[0].fecha_impresion = formatDate(res[0].fecha_impresion, 'yyyy-MM-dd', 'en', 'UTC');
+        res[0].fecha_terminacion = formatDate(res[0].fecha_terminacion, 'yyyy-MM-dd', 'en', 'UTC');
+        res[0].fecha_creacion = formatDate(res[0].fecha_creacion, 'yyyy-MM-dd', 'en', 'UTC');
+        res[0].tiempo = formatDate(res[0].tiempo, 'yyyy-MM-dd', 'en', 'UTC');
+        this.ordenTrabajoForm.patchValue(res[0]);
+        this.cargarDatos();
+      },
+      error: (err) => {
+        console.log(err);
+      }
+    })
+  }
+
   onSubmit() {
     if (this.ordenTrabajoForm.valid) {
-      const nuevaOrden: OrdenTrabajo = this.ordenTrabajoForm.value;
-      this.ordenTrabajoService.crearOrdenTrabajo(nuevaOrden).subscribe({
-        next: (res) => {
-          console.log('Orden creada con éxito:', res);
-          this.ordenTrabajoForm.reset();
-        },
-        error: (err) => {
-          console.error('Error al crear la orden de trabajo:', err);
-        }
-      });
+      if (this.id_ot) {
+        console.log("Editando");
+        const ot: OrdenTrabajo = this.ordenTrabajoForm.getRawValue();
+        this.ordenTrabajoService.updateOrdenTrabajo(this.id_ot, ot).subscribe({
+          next: (v) => { this.router.navigate(['/dashboard/orden/lista']); },
+          error: (e) => { console.error(e); },
+          complete: () => { console.info('Orden actualizada');}
+        });
+      } else {
+        const nuevaOrden: OrdenTrabajo = this.ordenTrabajoForm.value;
+        this.ordenTrabajoService.crearOrdenTrabajo(nuevaOrden).subscribe({
+          next: (res) => {
+            console.log('Orden creada con éxito:', res);
+            this.ordenTrabajoForm.reset();
+          },
+          error: (err) => {
+            console.error('Error al crear la orden de trabajo:', err);
+          }
+        });
+      }
     } else {
       console.log('Formulario no válido');
     }

@@ -12,5 +12,11 @@ export interface OrdenTrabajo {
     id_ubicacion?: number;
     id_activo?: number;
     fecha_creacion?: Date;
+    nombre_edificio?: string;
+    direccion_edificio?: string;
+    nombre_piso?: string;
+    nombre_sector?: string;
+    nombre_ubicacion?: string;
+    nombre_activo?: string;
   }
   

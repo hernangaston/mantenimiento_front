@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { OrdenTrabajoService } from '../../../service/orden-trabajo.service';
+import { OrdenTrabajo } from '../../../interfaces/orden-trabajo';
 
 @Component({
   selector: 'app-orden-trabajo-vista',
@@ -9,15 +11,19 @@ import { ActivatedRoute } from '@angular/router';
 export class OrdenTrabajoVistaComponent {
 
   id_ot: string | null = null;
-
-  constructor(private route: ActivatedRoute) { }
+  orden?: OrdenTrabajo;
+  nom_edif: string = "";
+  constructor(private route: ActivatedRoute, private ordenTrabajoService:OrdenTrabajoService) { }
 
   ngOnInit(): void {
-    // Obtener el parámetro id_ot de la ruta
     this.id_ot = this.route.snapshot.paramMap.get('id_ot');
-    console.log('ID de la orden:', this.id_ot);
-    
-    // Aquí puedes llamar a un servicio para obtener los detalles de la orden
-    // usando el id_ot obtenido
+    this.ordenTrabajoService.getOrdenDetrabajo(this.id_ot).subscribe({
+      next: (res) => {
+        this.orden = res[0];
+      },
+      error: (err) => {
+        console.log(err);
+      }
+    })
   }
 }

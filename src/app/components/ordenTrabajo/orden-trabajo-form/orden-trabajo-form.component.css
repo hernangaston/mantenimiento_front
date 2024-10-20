@@ -1,20 +1,9 @@
-.contenedor{
-    display: flex;
-    justify-content: center;
-}
-
-.custom-form {    
-    padding: 2rem 3rem;
-    border-radius: 2.5rem;
-    background-color: #ecf0f3;
-    box-shadow: 13px 13px 20px #cbced1, -13px -13px 20px #ffffff;    
-}
-
-.custom-form div {
+.formNueva div {
     margin-top: 25px;
+
 }
 
-.custom-form input {
+.formNueva input {
     margin: 5px 0;
     display: block;
     width: 100%;
@@ -30,6 +19,7 @@
 label {
     margin-bottom: 10px;
 }
+
 input {
     width: 100%;
     height: 40px;
@@ -45,15 +35,15 @@ button {
     color: #fff;
     border: none;
     cursor: pointer;
-    margin-top:2rem;
+    margin-top: 2rem;
 }
 
 .register {
-    display:  flex;
+    display: flex;
     justify-content: center;
 
 }
 
-small{
+small {
     color: red;
 }

@@ -27,7 +27,8 @@ const routes: Routes = [
         path: "orden", children: [
           { path: "", component: OrdenTrabajoFormComponent},
           { path: "lista", component: OrdenTrabajoComponent},
-          { path: "ver/:id_ot", component: OrdenTrabajoVistaComponent}
+          { path: "ver/:id_ot", component: OrdenTrabajoVistaComponent},
+          { path: "edit/:id_ot", component: OrdenTrabajoFormComponent}
         ]
       },
       {

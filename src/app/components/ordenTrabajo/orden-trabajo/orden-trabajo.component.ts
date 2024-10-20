@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { OrdenTrabajo } from '../../../interfaces/orden-trabajo'; // Asegúrate de ajustar la ruta de tu modelo
+import { OrdenTrabajoService } from '../../../service/orden-trabajo.service';
 
 @Component({
   selector: 'app-orden-trabajo',
@@ -8,43 +9,19 @@ import { OrdenTrabajo } from '../../../interfaces/orden-trabajo'; // Asegúrate 
 })
 export class OrdenTrabajoComponent implements OnInit {
 
-  ordenes: OrdenTrabajo[] = [
-    {
-      id_ot: 1,
-      fecha_impresion: new Date('2024-10-01'),
-      observacion: 'Reparación de equipo A',
-      fecha_terminacion: new Date('2024-10-03'),
-      realizada: true,
-      id_operario: 101,
-      tiempo: '3 horas',
-      id_edificio: 2,
-      id_piso: 5,
-      id_sector: 12,
-      id_ubicacion: 20,
-      id_activo: 30,
-      fecha_creacion: new Date('2024-09-28')
-    },
-    {
-      id_ot: 2,
-      fecha_impresion: new Date('2024-10-02'),
-      observacion: 'Mantenimiento preventivo B',
-      fecha_terminacion: new Date('2024-10-05'),
-      realizada: true,
-      id_operario: 102,
-      tiempo: '5 horas',
-      id_edificio: 3,
-      id_piso: 2,
-      id_sector: 15,
-      id_ubicacion: 25,
-      id_activo: 35,
-      fecha_creacion: new Date('2024-09-29')
-    }
-    // Agrega más datos según sea necesario
-  ];
+  ordenesTrabajo: OrdenTrabajo[] = [];
 
-  constructor() { console.log(this.ordenes[0].id_ot)}
+  constructor(private ordenTrabajoService:OrdenTrabajoService) { }
 
   ngOnInit(): void {
+    this.ordenTrabajoService.listaOrdenTrabajo().subscribe({
+      next: (res) => {
+        this.ordenesTrabajo = res;
+      },
+      error: (err) => {
+        console.log(err);
+      }
+     })
   }
 
 }

@@ -1,4 +1,4 @@
-<div class="container">
+<div class="contenedor">
     <h2>Listado de Órdenes de Trabajo</h2>
     
     <table>
@@ -19,7 +19,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let orden of ordenes">
+        <tr *ngFor="let orden of ordenesTrabajo">
           <td>{{ orden.id_ot }}</td>
           <td>{{ orden.fecha_impresion | date: 'dd/MM/yyyy' }}</td>
           <td>{{ orden.fecha_terminacion | date: 'dd/MM/yyyy' }}</td>

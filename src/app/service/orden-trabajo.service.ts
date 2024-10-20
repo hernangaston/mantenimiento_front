@@ -12,7 +12,20 @@ export class OrdenTrabajoService {
 
   constructor(private http: HttpClient) {}
 
+  listaOrdenTrabajo(): Observable<OrdenTrabajo[]>{
+    return this.http.get<OrdenTrabajo[]>(this.apiUrl)
+  }
+
   crearOrdenTrabajo(orden: OrdenTrabajo): Observable<OrdenTrabajo> {
     return this.http.post<OrdenTrabajo>(this.apiUrl, orden);
+  }
+
+  getOrdenDetrabajo(id:any): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/${id}`);
+  }
+
+  updateOrdenTrabajo(id: any, ot: OrdenTrabajo):Observable<OrdenTrabajo> {
+    console.log("orden: ", ot);
+    return this.http.patch<OrdenTrabajo>(`${this.apiUrl}/${id}`, ot);
   }
 }
