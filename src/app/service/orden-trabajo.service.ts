@@ -28,4 +28,8 @@ export class OrdenTrabajoService {
     console.log("orden: ", ot);
     return this.http.patch<OrdenTrabajo>(`${this.apiUrl}/${id}`, ot);
   }
+
+  deleteOrdenTrabajo(id: any):Observable<OrdenTrabajo> {
+    return this.http.delete<OrdenTrabajo>(`${this.apiUrl}/${id}`);
+  }
 }

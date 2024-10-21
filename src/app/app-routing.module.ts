@@ -28,7 +28,8 @@ const routes: Routes = [
           { path: "", component: OrdenTrabajoFormComponent},
           { path: "lista", component: OrdenTrabajoComponent},
           { path: "ver/:id_ot", component: OrdenTrabajoVistaComponent},
-          { path: "edit/:id_ot", component: OrdenTrabajoFormComponent}
+          { path: "edit/:id_ot", component: OrdenTrabajoFormComponent},
+          { path: "delete/:id_ot", component: OrdenTrabajoComponent}
         ]
       },
       {
