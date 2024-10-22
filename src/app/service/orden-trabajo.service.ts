@@ -13,7 +13,7 @@ export class OrdenTrabajoService {
   constructor(private http: HttpClient) {}
 
   listaOrdenTrabajo(): Observable<OrdenTrabajo[]>{
-    return this.http.get<OrdenTrabajo[]>(this.apiUrl)
+    return this.http.get<OrdenTrabajo[]>(this.apiUrl);
   }
 
   crearOrdenTrabajo(orden: OrdenTrabajo): Observable<OrdenTrabajo> {
@@ -32,4 +32,5 @@ export class OrdenTrabajoService {
   deleteOrdenTrabajo(id: any):Observable<OrdenTrabajo> {
     return this.http.delete<OrdenTrabajo>(`${this.apiUrl}/${id}`);
   }
+
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { OrdenTrabajo } from '../../../interfaces/orden-trabajo'; // Asegúrate de ajustar la ruta de tu modelo
+import { OrdenTrabajo } from '../../../interfaces/orden-trabajo'; 
 import { OrdenTrabajoService } from '../../../service/orden-trabajo.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -27,6 +27,7 @@ export class OrdenTrabajoComponent implements OnInit {
     }else{
       this.ordenTrabajoService.listaOrdenTrabajo().subscribe({
         next: (res) => {
+          console.log("Ordenes", res);
           this.ordenesTrabajo = res;
         },
         error: (err) => {

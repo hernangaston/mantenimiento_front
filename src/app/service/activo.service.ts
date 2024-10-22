@@ -21,4 +21,10 @@ export class ActivoService {
   obtenerActivos(): Observable<Activo[]> {
     return this.http.get<Activo[]>(this.apiUrl);
   }
+
+  getTareasPorActivo(id_activo: number): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/${id_activo}/tarea`);
+  }
+
+  
 }

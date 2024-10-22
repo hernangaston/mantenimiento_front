@@ -1,4 +1,3 @@
-// src/app/components/orden-trabajo-form/orden-trabajo-form.component.ts
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { OrdenTrabajo } from '../../../interfaces/orden-trabajo';
@@ -11,6 +10,8 @@ import { SectorService } from '../../../service/sector.service';
 import { UbicacionService } from '../../../service/ubicacion.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { formatDate } from '@angular/common';
+import { TipoTareaService } from '../../../service/tipo-tarea.service';
+import { TipoTarea } from '../../../interfaces/tipo-tarea';
 
 @Component({
   selector: 'app-orden-trabajo-form',
@@ -26,6 +27,10 @@ export class OrdenTrabajoFormComponent implements OnInit {
   ubicaciones: any[] = [];
   activos: any[] = [];
   id_ot: any = "";
+  tareas: any[] = [];  // Tareas a mostrar en el select múltiple
+  tiposTarea: TipoTarea[] = [];
+
+
 
   constructor(
     private formBuilder: FormBuilder,
@@ -36,6 +41,7 @@ export class OrdenTrabajoFormComponent implements OnInit {
     private pisoService: PisoService,
     private sectorService: SectorService,
     private ubicacionService: UbicacionService,
+    private tipoTareaService: TipoTareaService,
     private route: ActivatedRoute,
     private router: Router
   ) {
@@ -51,12 +57,34 @@ export class OrdenTrabajoFormComponent implements OnInit {
       id_ubicacion: [null, Validators.required],
       id_activo: [null, Validators.required],
       tiempo: [null, Validators.required],
+      id_tarea: [[], Validators.required],
+      id_tita: [[], Validators.required]
     });
   }
 
   ngOnInit() {
     this.id_ot = this.route.snapshot.paramMap.get('id_ot');
-    !this.id_ot ? this.cargarDatos() : this.cargarForm();
+    this.id_ot ? this.cargarForm() : this.cargarDatos();
+    
+    this.activoService.obtenerActivos().subscribe({
+      next: (res) => {
+        this.activos = res;
+      },
+      error: (err) => {
+        console.log(err);
+      }
+    });
+
+    this.ordenTrabajoForm.get('id_activo')?.valueChanges.subscribe(id_activo => {
+      this.activoService.getTareasPorActivo(id_activo).subscribe({
+        next: (res) => {
+          this.tareas = res;
+        },
+        error: (err) => {
+          console.log(err);
+        }
+      });
+    });
   }
 
   cargarDatos() {
@@ -108,10 +136,13 @@ export class OrdenTrabajoFormComponent implements OnInit {
         console.log(err);
       }
     });
+    this.tipoTareaService.obtenerTiposTarea().subscribe({
+      next: (res) => { this.tiposTarea = res },
+      error: (err) => { console.log(err) }
+    });
   }
 
   cargarForm() {
-    console.log("Cargando form");
     this.ordenTrabajoService.getOrdenDetrabajo(this.id_ot).subscribe({
       next: (res) => {
         res[0].fecha_impresion = formatDate(res[0].fecha_impresion, 'yyyy-MM-dd', 'en', 'UTC');
@@ -135,7 +166,7 @@ export class OrdenTrabajoFormComponent implements OnInit {
         this.ordenTrabajoService.updateOrdenTrabajo(this.id_ot, ot).subscribe({
           next: (v) => { this.router.navigate(['/dashboard/orden/lista']); },
           error: (e) => { console.error(e); },
-          complete: () => { console.info('Orden actualizada');}
+          complete: () => { console.info('Orden actualizada'); }
         });
       } else {
         const nuevaOrden: OrdenTrabajo = this.ordenTrabajoForm.value;

@@ -89,6 +89,17 @@
       </div>
 
       <div>
+        <label for="id_tita">Tipos de tarea</label>
+        <select id="id_tita" formControlName="id_tita" required>
+          <option value="">Seleccione un tipo de tarea.</option>
+          <option *ngFor="let tipoTarea of tiposTarea" [value]="tipoTarea.id_tita">{{ tipoTarea.nombre }}</option>
+        </select>
+        <div *ngIf="ordenTrabajoForm.get('id_tita')?.invalid && ordenTrabajoForm.get('id_tita')?.touched">
+          <small>El tipo de tarea es obligatorio.</small>
+        </div>
+      </div>
+
+      <div>
         <label for="id_activo">Activo</label>
         <select id="id_activo" formControlName="id_activo" required>
           <option value="">Seleccione un activo.</option>
@@ -107,8 +118,16 @@
         </div>
       </div>
 
-
-
+     
+      <div>
+        <label for="id_tarea">Tareas</label>
+        <select id="id_tarea" formControlName="id_tarea" multiple required>
+          <option *ngFor="let tarea of tareas" [value]="tarea.id_tarea">{{ tarea.tiempo_estimado }}</option>
+        </select>
+        <div *ngIf="ordenTrabajoForm.get('id_tarea')?.invalid && ordenTrabajoForm.get('id_tarea')?.touched">
+          <small>La tarea es obligatoria.</small>
+        </div>
+      </div>
 
       <!-- Botón de Enviar -->
       <button type="submit" [disabled]="ordenTrabajoForm.invalid">Registrar Orden</button>
