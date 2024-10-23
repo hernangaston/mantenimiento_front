@@ -9,7 +9,6 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrl: './orden-trabajo.component.css'
 })
 export class OrdenTrabajoComponent implements OnInit {
-
   ordenesTrabajo: OrdenTrabajo[] = [];
   id_ot: string | null = null;
   constructor(private route: ActivatedRoute, private router: Router, private ordenTrabajoService:OrdenTrabajoService) { }
@@ -27,7 +26,6 @@ export class OrdenTrabajoComponent implements OnInit {
     }else{
       this.ordenTrabajoService.listaOrdenTrabajo().subscribe({
         next: (res) => {
-          console.log("Ordenes", res);
           this.ordenesTrabajo = res;
         },
         error: (err) => {

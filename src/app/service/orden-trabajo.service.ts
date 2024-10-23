@@ -29,8 +29,6 @@ export class OrdenTrabajoService {
   }
 
   deleteOrdenTrabajo(id: any):Observable<OrdenTrabajo> {    
-    //consultar quien esta iniciado en la sesion y si es un operario no hacer nada
-    //si es admin eliminar
     return this.http.delete<OrdenTrabajo>(`${this.apiUrl}/${id}`);
   }
 }

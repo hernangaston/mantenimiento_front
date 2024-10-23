@@ -1,3 +1,19 @@
+.navegacion{
+  display: flex;
+  justify-content: end;
+  padding: 20px;  
+}
+
+.navegacion button{
+  background-color: #333333;
+  color: #ffffff;
+  padding: 5px;
+  font-size: 2em;
+  cursor: pointer;
+  border-radius: 5px;
+  border: 2px solid #999999;
+  align-content: center;
+}
 .container-dashboard {
   display: flex;
   justify-content: start;

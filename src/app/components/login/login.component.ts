@@ -32,7 +32,6 @@ export class LoginComponent {
       next: (response) => {
         if (response && response.token) {
           this.userService.setToken(response.token);
-          console.log(response.message);
         }else{
           console.log('no hay response');
         }
