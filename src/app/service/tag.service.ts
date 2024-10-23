@@ -18,7 +18,7 @@ export class TagService {
 
   // Obtener todos los tags (opcional)
   obtenerTags(): Observable<Tag[]> {
-    console.log("obteniendo tags");
     return this.http.get<Tag[]>(this.apiUrl);
   }
+  
 }

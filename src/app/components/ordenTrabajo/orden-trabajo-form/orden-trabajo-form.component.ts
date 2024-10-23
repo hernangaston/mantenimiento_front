@@ -12,6 +12,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { formatDate } from '@angular/common';
 import { TipoTareaService } from '../../../service/tipo-tarea.service';
 import { TipoTarea } from '../../../interfaces/tipo-tarea';
+import { TagService } from '../../../service/tag.service';
 
 @Component({
   selector: 'app-orden-trabajo-form',
@@ -29,6 +30,7 @@ export class OrdenTrabajoFormComponent implements OnInit {
   id_ot: any = "";
   tareas: any[] = [];  // Tareas a mostrar en el select múltiple
   tiposTarea: TipoTarea[] = [];
+  tags:any[] = [];
 
 
 
@@ -42,6 +44,7 @@ export class OrdenTrabajoFormComponent implements OnInit {
     private sectorService: SectorService,
     private ubicacionService: UbicacionService,
     private tipoTareaService: TipoTareaService,
+    private tagService: TagService,
     private route: ActivatedRoute,
     private router: Router
   ) {
@@ -58,7 +61,8 @@ export class OrdenTrabajoFormComponent implements OnInit {
       id_activo: [null, Validators.required],
       tiempo: [null, Validators.required],
       id_tarea: [[], Validators.required],
-      id_tita: [[], Validators.required]
+      id_tita: [[], Validators.required],
+      id_tag: [[], Validators.required]
     });
   }
 
@@ -85,6 +89,8 @@ export class OrdenTrabajoFormComponent implements OnInit {
         }
       });
     });
+
+    
   }
 
   cargarDatos() {
@@ -140,6 +146,10 @@ export class OrdenTrabajoFormComponent implements OnInit {
       next: (res) => { this.tiposTarea = res },
       error: (err) => { console.log(err) }
     });
+    this.tagService.obtenerTags().subscribe({
+      next:(res)=>{ this.tags = res },
+      error:(err)=>{ console.log(err)}
+    })
   }
 
   cargarForm() {
