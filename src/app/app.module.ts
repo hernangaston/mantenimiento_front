@@ -22,6 +22,7 @@ import { TipoTareaFormComponent } from './components/tipoTarea/tipo-tarea-form/t
 import { UbicacionFormComponent } from './components/ubicacion/ubicacion-form/ubicacion-form.component';
 import { CommonModule } from '@angular/common';
 import { OrdenTrabajoVistaComponent } from './components/ordenTrabajo/orden-trabajo-vista/orden-trabajo-vista.component';
+import { CookieService } from 'ngx-cookie-service';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,7 @@ import { OrdenTrabajoVistaComponent } from './components/ordenTrabajo/orden-trab
     ReactiveFormsModule,
     CommonModule
   ],
-  providers: [provideHttpClient()],
+  providers: [provideHttpClient(), CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -5,4 +5,5 @@ export interface Edificio {
     labelTag?: number;
     id_piso?: number;
     fecha_creacion?: Date;
+    nombre_edificio?: string;
   }

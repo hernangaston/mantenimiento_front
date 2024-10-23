@@ -20,9 +20,8 @@ import { OrdenTrabajoVistaComponent } from './components/ordenTrabajo/orden-trab
 const routes: Routes = [
   { path: "login", component: LoginComponent },
   { path: "registro", component: RegistroComponent},
-  //{ path: "dashboard", component: DashboardComponent, canActivate: [AuthorizationGuard]},
   {
-    path: "dashboard", component: DashboardComponent, children: [
+    path: "dashboard", component: DashboardComponent, canActivate: [AuthorizationGuard], children: [
       {
         path: "orden", children: [
           { path: "", component: OrdenTrabajoFormComponent},

@@ -14,7 +14,7 @@ export class LoginComponent {
 
   constructor(private fb: FormBuilder, public router: Router, private userService: UsersService, private cookie: CookieService) {
     this.formData = this.fb.group({
-      email: ['', [Validators.required, Validators.email]],  // Campo de email con validación de email y requerido
+      email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]]
     });
   }
@@ -27,14 +27,23 @@ export class LoginComponent {
     }
   }
 
-  login(user: {}) {
+  login(user:any) {
     this.userService.login(user).subscribe({
       next: (response) => {
-        this.router.navigate(['dashboard'])
+        if (response && response.token) {
+          this.userService.setToken(response.token);
+          console.log(response.message);
+        }else{
+          console.log('no hay response');
+        }
       },
       error: (err) => {
         console.log("Error de servidor: " + err.message);
+      },
+      complete: () => {
+        this.router.navigate(['dashboard']);
       }
+
     });
   }
 }

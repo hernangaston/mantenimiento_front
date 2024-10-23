@@ -17,9 +17,7 @@ export class UsersService {
     return this.authStatusListener.asObservable();
   }
 
-  login(user: any): Observable<any> {
-    console.log(user);
-    this.authStatusListener.next(true);
+  login(user:any): Observable<any> {
     return this.http.post(`${this.apiUrl}/login`, user);
   }
 
@@ -36,13 +34,19 @@ export class UsersService {
     this.cookie.delete('auth-token', '/');
   }
  
+  setToken(token: string): void {
+    this.cookie.set('auth-token', token);
+  }
+
+  getToken(): string {
+    return this.cookie.get('auth-token');
+  }
+
   isAuthenticated(): boolean {
-    this.http.get(`${this.apiUrl}/protected`);
-    return this.cookie.check('auth-token');
+    return !!this.getToken();
   }
 
   logout(): void {
-    this.deleteToken();
-    this.authStatusListener.next(false);
+    this.cookie.delete('auth-token');
   }
 }

@@ -25,12 +25,12 @@ export class OrdenTrabajoService {
   }
 
   updateOrdenTrabajo(id: any, ot: OrdenTrabajo):Observable<OrdenTrabajo> {
-    console.log("orden: ", ot);
     return this.http.patch<OrdenTrabajo>(`${this.apiUrl}/${id}`, ot);
   }
 
-  deleteOrdenTrabajo(id: any):Observable<OrdenTrabajo> {
+  deleteOrdenTrabajo(id: any):Observable<OrdenTrabajo> {    
+    //consultar quien esta iniciado en la sesion y si es un operario no hacer nada
+    //si es admin eliminar
     return this.http.delete<OrdenTrabajo>(`${this.apiUrl}/${id}`);
   }
-
 }
