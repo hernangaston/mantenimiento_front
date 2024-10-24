@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Tag } from '../interfaces/tag';
+import { Activo } from '../interfaces/activo';
 
 @Injectable({
   providedIn: 'root'
@@ -21,4 +22,7 @@ export class TagService {
     return this.http.get<Tag[]>(this.apiUrl);
   }
   
+  obtenerActivosByTag(id:number): Observable<Activo[]>{
+    return this.http.get<Activo[]>(`${this.apiUrl}/${id}/activo`);
+  }
 }

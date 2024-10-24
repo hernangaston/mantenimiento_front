@@ -89,6 +89,17 @@
       </div>
 
       <div>
+        <label for="id_activo">Activos</label>
+        <select id="id_activo" formControlName="id_activo" required>
+          <option value="">Seleccione un tipo de tarea.</option>
+          <option *ngFor="let activo of activos" [value]="activo.id_tag">{{ activo.nombre }}</option>
+        </select>
+        <div *ngIf="ordenTrabajoForm.get('id_activo')?.invalid && ordenTrabajoForm.get('id_activo')?.touched">
+          <small>El tipo de tarea es obligatorio.</small>
+        </div>
+      </div>
+
+      <div>
         <label for="id_tita">Tipos de tarea</label>
         <select id="id_tita" formControlName="id_tita" required>
           <option value="">Seleccione un tipo de tarea.</option>
@@ -96,17 +107,6 @@
         </select>
         <div *ngIf="ordenTrabajoForm.get('id_tita')?.invalid && ordenTrabajoForm.get('id_tita')?.touched">
           <small>El tipo de tarea es obligatorio.</small>
-        </div>
-      </div>
-
-      <div>
-        <label for="id_tag">Activo</label>
-        <select id="id_tag" formControlName="id_tag" required>
-          <option value="">Seleccione un activo.</option>
-          <option *ngFor="let tag of tags" [value]="tag.id_tag">{{ tag.nombre }}</option>
-        </select>
-        <div *ngIf="ordenTrabajoForm.get('id_tag')?.invalid && ordenTrabajoForm.get('id_tag')?.touched">
-          <small>El activo es obligatorio.</small>
         </div>
       </div>
 

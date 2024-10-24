@@ -77,20 +77,20 @@ export class OrdenTrabajoFormComponent implements OnInit {
       error: (err) => {
         console.log(err);
       }
-    });
+    });        
 
-    this.ordenTrabajoForm.get('id_activo')?.valueChanges.subscribe(id_activo => {
-      this.activoService.getTareasPorActivo(id_activo).subscribe({
+    this.ordenTrabajoForm.get('id_activo')?.valueChanges.subscribe(id_tag => {
+      this.activoService.obtenerTagByActivos(id_tag).subscribe({
         next: (res) => {
-          this.tareas = res;
+          console.log(id_tag)
+          this.tags = res;
+          console.log(this.tags);
         },
         error: (err) => {
           console.log(err);
         }
       });
     });
-
-    
   }
 
   cargarDatos() {
@@ -102,14 +102,7 @@ export class OrdenTrabajoFormComponent implements OnInit {
         console.log(err);
       }
     });
-    this.activoService.obtenerActivos().subscribe({
-      next: (res) => {
-        this.activos = res;
-      },
-      error: (err) => {
-        console.log(err);
-      }
-    });
+    
     this.edificioService.obtenerEdificios().subscribe({
       next: (res) => {
         this.edificios = res;
@@ -146,6 +139,7 @@ export class OrdenTrabajoFormComponent implements OnInit {
       next: (res) => { this.tiposTarea = res },
       error: (err) => { console.log(err) }
     });
+
     this.tagService.obtenerTags().subscribe({
       next:(res)=>{ this.tags = res },
       error:(err)=>{ console.log(err)}

@@ -26,5 +26,8 @@ export class ActivoService {
     return this.http.get<any[]>(`${this.apiUrl}/${id_activo}/tarea`);
   }
 
+  obtenerTagByActivos(id_tag:number): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/${id_tag}/tag`);
+  }
   
 }
