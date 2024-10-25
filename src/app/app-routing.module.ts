@@ -21,6 +21,7 @@ const routes: Routes = [
   { path: "login", component: LoginComponent },
   { path: "logout", component: DashboardComponent, canActivate: [AuthorizationGuard]},
   { path: "registro", component: RegistroComponent},
+  { path: "inicio", component: InicioComponent},
   {
     path: "dashboard", component: DashboardComponent, canActivate: [AuthorizationGuard], children: [
       {

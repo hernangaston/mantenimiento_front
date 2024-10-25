@@ -32,8 +32,6 @@ export class OrdenTrabajoFormComponent implements OnInit {
   tiposTarea: TipoTarea[] = [];
   tags:any[] = [];
 
-
-
   constructor(
     private formBuilder: FormBuilder,
     private operarioService: OperarioService,
@@ -82,9 +80,7 @@ export class OrdenTrabajoFormComponent implements OnInit {
     this.ordenTrabajoForm.get('id_activo')?.valueChanges.subscribe(id_tag => {
       this.activoService.obtenerTagByActivos(id_tag).subscribe({
         next: (res) => {
-          console.log(id_tag)
           this.tags = res;
-          console.log(this.tags);
         },
         error: (err) => {
           console.log(err);
@@ -139,7 +135,6 @@ export class OrdenTrabajoFormComponent implements OnInit {
       next: (res) => { this.tiposTarea = res },
       error: (err) => { console.log(err) }
     });
-
     this.tagService.obtenerTags().subscribe({
       next:(res)=>{ this.tags = res },
       error:(err)=>{ console.log(err)}
@@ -165,7 +160,6 @@ export class OrdenTrabajoFormComponent implements OnInit {
   onSubmit() {
     if (this.ordenTrabajoForm.valid) {
       if (this.id_ot) {
-        console.log("Editando");
         const ot: OrdenTrabajo = this.ordenTrabajoForm.getRawValue();
         this.ordenTrabajoService.updateOrdenTrabajo(this.id_ot, ot).subscribe({
           next: (v) => { this.router.navigate(['/dashboard/orden/lista']); },
