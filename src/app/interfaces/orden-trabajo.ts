@@ -20,5 +20,6 @@ export interface OrdenTrabajo {
     nombre_activo?: string;
     diminutivo?: string;
     nombre_tag?: string;
+    id_tarea?: Array<any>;
   }
   

@@ -2,7 +2,7 @@
   <div class="contenedorForms">
     <form [formGroup]="ordenTrabajoForm" (ngSubmit)="onSubmit()" class="formNueva">
       <h1>Registro de Orden de Trabajo</h1>
-      <!-- Campo de fecha de impresión -->
+
       <div>
         <label for="fecha_impresion">Fecha de Impresión</label>
         <input type="date" id="fecha_impresion" formControlName="fecha_impresion">
@@ -31,7 +31,6 @@
         </div>
       </div>
 
-      <!-- Select para operarios -->
       <div>
         <label for="id_operario">Operario</label>
         <select id="id_operario" formControlName="id_op" required>
@@ -43,7 +42,6 @@
         </div>
       </div>
 
-      <!-- Repetir para Edificios, Pisos, Sectores, Ubicaciones, Activos... -->
       <div>
         <label for="id_edificio">Edificio</label>
         <select id="id_edificio" formControlName="id_edificio" required>
@@ -59,7 +57,7 @@
         <label for="id_piso">Piso</label>
         <select id="id_piso" formControlName="id_piso" required>
           <option value="">Seleccione un piso</option>
-          <option *ngFor="let piso of pisos" [value]="piso.Id_piso">{{ piso.nombre }}</option>
+          <option *ngFor="let piso of pisos" [value]="piso.id_piso">{{ piso.nombre }}</option>
         </select>
         <div *ngIf="ordenTrabajoForm.get('id_piso')?.invalid && ordenTrabajoForm.get('id_piso')?.touched">
           <small>El piso es obligatorio.</small>
@@ -122,14 +120,13 @@
       <div>
         <label for="id_tarea">Tareas</label>
         <select id="id_tarea" formControlName="id_tarea" multiple required>
-          <option *ngFor="let tarea of tareas" [value]="tarea.id_tarea">{{ tarea.tiempo_estimado }}</option>
+          <option *ngFor="let tarea of desc" [value]="tarea.id_descripcion">{{ tarea.descripcion }}</option>
         </select>
         <div *ngIf="ordenTrabajoForm.get('id_tarea')?.invalid && ordenTrabajoForm.get('id_tarea')?.touched">
           <small>La tarea es obligatoria.</small>
         </div>
       </div>
 
-      <!-- Botón de Enviar -->
       <button type="submit" [disabled]="ordenTrabajoForm.invalid">Registrar Orden</button>
     </form>
   </div>

@@ -13,6 +13,8 @@ import { formatDate } from '@angular/common';
 import { TipoTareaService } from '../../../service/tipo-tarea.service';
 import { TipoTarea } from '../../../interfaces/tipo-tarea';
 import { TagService } from '../../../service/tag.service';
+import { DescripcionService } from '../../../service/descripcion.service';
+import { Descripcion } from '../../../interfaces/descripcion';
 
 @Component({
   selector: 'app-orden-trabajo-form',
@@ -31,6 +33,7 @@ export class OrdenTrabajoFormComponent implements OnInit {
   tareas: any[] = [];  // Tareas a mostrar en el select múltiple
   tiposTarea: TipoTarea[] = [];
   tags:any[] = [];
+  desc:Descripcion[]=[];
 
   constructor(
     private formBuilder: FormBuilder,
@@ -44,7 +47,8 @@ export class OrdenTrabajoFormComponent implements OnInit {
     private tipoTareaService: TipoTareaService,
     private tagService: TagService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private descService: DescripcionService
   ) {
     this.ordenTrabajoForm = this.formBuilder.group({
       fecha_impresion: [null, Validators.required],
@@ -60,7 +64,6 @@ export class OrdenTrabajoFormComponent implements OnInit {
       tiempo: [null, Validators.required],
       id_tarea: [[], Validators.required],
       id_tita: [[], Validators.required],
-      id_tag: [[], Validators.required]
     });
   }
 
@@ -87,6 +90,17 @@ export class OrdenTrabajoFormComponent implements OnInit {
         }
       });
     });
+
+    this.ordenTrabajoForm.get('id_tita')?.valueChanges.subscribe(id_tita => {
+      this.descService.obtenerDescByTipoTarea(id_tita).subscribe({
+        next: (res) => {
+          this.desc = res;
+        },
+        error: (err) => {
+          console.log(err);
+        }
+      });
+    });
   }
 
   cargarDatos() {
@@ -97,8 +111,7 @@ export class OrdenTrabajoFormComponent implements OnInit {
       error: (err) => {
         console.log(err);
       }
-    });
-    
+    });    
     this.edificioService.obtenerEdificios().subscribe({
       next: (res) => {
         this.edificios = res;
@@ -138,6 +151,10 @@ export class OrdenTrabajoFormComponent implements OnInit {
     this.tagService.obtenerTags().subscribe({
       next:(res)=>{ this.tags = res },
       error:(err)=>{ console.log(err)}
+    });
+    this.descService.obtenerListaDescripcion().subscribe({
+      next: (res) => { this.desc = res;},
+      error: (err) => { console.log(err);}
     })
   }
 
@@ -170,12 +187,12 @@ export class OrdenTrabajoFormComponent implements OnInit {
         const nuevaOrden: OrdenTrabajo = this.ordenTrabajoForm.value;
         this.ordenTrabajoService.crearOrdenTrabajo(nuevaOrden).subscribe({
           next: (res) => {
-            console.log('Orden creada con éxito:', res);
             this.ordenTrabajoForm.reset();
           },
           error: (err) => {
             console.error('Error al crear la orden de trabajo:', err);
-          }
+          },
+          complete: () => { console.info('Orden creada'); }
         });
       }
     } else {
