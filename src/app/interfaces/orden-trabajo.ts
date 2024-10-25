@@ -18,5 +18,7 @@ export interface OrdenTrabajo {
     nombre_sector?: string;
     nombre_ubicacion?: string;
     nombre_activo?: string;
+    diminutivo?: string;
+    nombre_tag?: string;
   }
   

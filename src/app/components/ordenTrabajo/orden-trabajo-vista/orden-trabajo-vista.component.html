@@ -2,9 +2,9 @@
   <h1>Orden de Trabajo de Mantenimiento Planificado</h1>
 
   <div class="info-principal">
-    <p><strong>OT N°:</strong> {{ orden?.fecha_creacion | date: 'yyyyMMdd'}} _ 20 _ ILUM - 001002081001001 - 566</p>
-    <p><strong>Código Único de Identificación de Activo:</strong> ILUM - 001002081001001 - 566</p>
-    <p><strong>Tipo de Activo:</strong> Iluminación</p>
+    <p><strong>OT N°:</strong> {{ orden?.fecha_creacion | date: 'yyyyMMdd' }} _ 20 _ {{ orden?.diminutivo }} 001002081001001 - 566</p>
+    <p><strong>Código Único de Identificación de Activo:</strong> {{ orden?.diminutivo }} 001002081001001 - 566</p>
+    <p><strong>Tipo de Activo:</strong> {{ orden?.nombre_tag }} </p>
     <p><strong>Edificio:</strong> {{ orden?.direccion_edificio }} - {{ orden?.nombre_edificio }}</p>
     <p><strong>Piso / Nivel:</strong>{{ orden?.nombre_piso }}</p>
     <p><strong>Sector:</strong>{{ orden?.nombre_sector }}</p>
