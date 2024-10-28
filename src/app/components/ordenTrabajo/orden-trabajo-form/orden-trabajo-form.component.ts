@@ -185,6 +185,7 @@ export class OrdenTrabajoFormComponent implements OnInit {
         });
       } else {
         const nuevaOrden: OrdenTrabajo = this.ordenTrabajoForm.value;
+        console.log(nuevaOrden);
         this.ordenTrabajoService.crearOrdenTrabajo(nuevaOrden).subscribe({
           next: (res) => {
             this.ordenTrabajoForm.reset();
