@@ -11,7 +11,7 @@ import { UsersService } from './service/users.service';
 export class AppComponent implements OnInit {
   title = 'mantenimiento_front';
   autenticado = false;
-  user=""
+  currentUser: string | null = null;
 
   constructor(
     private router: Router,
@@ -22,6 +22,10 @@ export class AppComponent implements OnInit {
     this.autenticado = this.userService.isAuthenticated();
     this.userService.getAuthStatusListener().subscribe((isAuthenticated) => {
       this.autenticado = isAuthenticated;
+    });
+    this.userService.getCurrentUser().subscribe((user) => {
+      this.currentUser = user;
+      console.log(this.currentUser);
     });
   }
 

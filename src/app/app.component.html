@@ -1,7 +1,13 @@
 <nav>
     <img src="./assets/images/utn.png" alt="Logo UTN" class="logo">
-    <button type="button" (click)="onLogout()" *ngIf="autenticado">Salir <span class="material-symbols-outlined">
+    <div class="contenedor-nav" *ngIf="autenticado">
+        <span class="material-symbols-outlined">
+            person
+            </span>
+    <p> {{ currentUser }}</p>
+    <button type="button" (click)="onLogout()" >Salir <span class="material-symbols-outlined">
             logout
         </span></button>
+    </div>
 </nav>
 <router-outlet></router-outlet>

@@ -18,9 +18,23 @@ nav button {
     gap: 8px;
     justify-content: center;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 nav button:hover {
     background-color: white;
     color: #333333;
+    font-weight: 700;
+}
+
+.contenedor-nav{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: #333333;
+}
+
+.contenedor-nav p{
+    font-size: 1 em;
+    font-weight: 700;
 }
