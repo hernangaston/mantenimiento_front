@@ -2,17 +2,18 @@
   display: flex;
   justify-content: start;
   padding: 10px;
+  gap: 1rem;
 }
 
 .contenedor {
   display: flex;
   justify-content: center;
-  margin: 10px;
-  padding: 2rem 3rem;
+  flex-direction: column;
   border-radius: 1.5rem;
   background-color: #ecf0f3;
   box-shadow: 13px 13px 20px #cbced1, -13px -13px 20px #ffffff;
-  width: 100vw;
+  width: 100%;
+  padding: 20px;
 }
 
 
@@ -61,22 +62,4 @@
 
 .btn-volver {
   background-color: #920000;
-}
-
-
-@media (max-width: 768px) {
-  .sidebar {
-    width: 100%;
-    flex-direction: row;
-    justify-content: space-around;
-  }
-
-  .sidebar button {
-    width: auto;
-    margin: 5px;
-  }
-
-  .submenu {
-    padding-left: 0;
-  }
 }
