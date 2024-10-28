@@ -21,5 +21,7 @@ export interface OrdenTrabajo {
     diminutivo?: string;
     nombre_tag?: string;
     id_tarea?: Array<any>;
+    nombre_operario?: string,
+    apellido_operario?: string 
   }
   

@@ -21,8 +21,12 @@ export class DescripcionService {
     return this.http.get<Descripcion[]>(this.apiUrl);
   }
 
-  obtenerDescByTipoTarea(id:number): Observable<Descripcion[]> {
+  obtenerDescByTipoTarea(id:any): Observable<Descripcion[]> {
     return this.http.get<Descripcion[]>(`${this.apiUrl}/${id}/tita`);
+  }
+
+  obtenerDescByOrden(id: any): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/${id}/orden`);
   }
   
 }

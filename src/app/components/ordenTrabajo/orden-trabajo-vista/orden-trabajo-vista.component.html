@@ -14,16 +14,9 @@
   <div class="instrucciones">
     <h2>Instrucciones de la tarea</h2>
     <ol>
-      <li>Señalice el área de trabajo. Desconecte la energía eléctrica - Verificar NO existencia de tensión eléctrica.
+      <li *ngFor="let tarea of tareas">
+        {{ tarea.descripcion }}
       </li>
-      <li>Control de louver.</li>
-      <li>Verificación de funcionamiento de la totalidad de las lámparas.</li>
-      <li>Verificación de estados de zócalos y/o portalámparas.</li>
-      <li>Limpieza de luminaria y lámpara.</li>
-      <li>Verificar correcto montaje y sujeción.</li>
-      <li>Verifique correcto funcionamiento del equipo luego de finalizada la actividad.</li>
-      <li>Complete la documentación de mantenimiento.</li>
-      <li>Deje el área y equipo limpios, ordenados y seguros.</li>
     </ol>
   </div>
 
@@ -31,7 +24,7 @@
     <p><strong>Fecha Impresión:</strong> {{ orden?.fecha_impresion | date: 'yyyyMMdd'}}</p>
     <p><strong>Fecha de Realización:</strong>{{ orden?.fecha_terminacion | date: 'yyyyMMdd'}}</p>
     <p><strong>Tiempo total utilizado:</strong>{{ orden?.tiempo | date: "yyyyMMdd - HH:mm:ss"}}</p>
-    <p><strong>Tarea Realizada por:</strong>{{ orden?.id_operario }}</p>
+    <p><strong>Tarea Realizada por:</strong>{{ orden?.nombre_operario }}</p>
     <p><strong>Tarea Controlada por:</strong> Ruben</p>
   </div>
 
