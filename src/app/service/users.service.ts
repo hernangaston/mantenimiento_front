@@ -18,6 +18,7 @@ export class UsersService {
   }
 
   login(user:any): Observable<any> {
+    this.authStatusListener.next(true);
     return this.http.post(`${this.apiUrl}/login`, user);
   }
 
@@ -47,6 +48,7 @@ export class UsersService {
   }
 
   logout(): void {
+    this.authStatusListener.next(false);
     this.cookie.delete('auth-token');
   }
 }

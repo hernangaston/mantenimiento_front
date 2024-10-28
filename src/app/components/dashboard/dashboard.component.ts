@@ -7,9 +7,8 @@ import { ActivatedRoute, Router } from '@angular/router';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
-export class DashboardComponent implements OnInit {
+export class DashboardComponent {
   expandedMenu: number | null = null;
-  autenticado?:boolean;
 
   constructor(private route: ActivatedRoute, private router: Router, private userService: UsersService){}
 
@@ -21,14 +20,5 @@ export class DashboardComponent implements OnInit {
     return this.expandedMenu === menuNumber;
   }
 
-  ngOnInit(): void {
-    this.autenticado = this.userService.isAuthenticated();
-  }
-
-  onLogout(){
-    this.userService.deleteToken();
-    this.userService.logout();
-    this.router.navigate(['/login']);
-  }
 
 }

@@ -1,4 +1,26 @@
 nav{
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+nav button {
+    margin: 20px;
+    background-color: #333333;
+    color: white;
+    padding: 10px;
+    align-items: center;
+    border-radius: 15px;
+    border: none;
+    font-size: large;
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    cursor: pointer;
+}
+
+nav button:hover {
+    background-color: white;
+    color: #333333;
 }
