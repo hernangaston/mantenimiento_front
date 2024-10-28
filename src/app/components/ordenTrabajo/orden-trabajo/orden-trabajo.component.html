@@ -26,9 +26,9 @@
           <td>{{ orden.nombre_edificio }}</td>
           <td>{{ orden.nombre_piso }}</td>
           <td>{{ orden.nombre_sector }}</td>
-          <td>{{ orden.id_ubicacion }}</td>
-          <td>{{ orden.id_activo }}</td>
-          <td>{{ orden.tiempo }}</td>
+          <td>{{ orden.nombre_ubicacion }}</td>
+          <td>{{ orden.nombre_activo }}</td>
+          <td>{{ orden.tiempo | date: 'HH:mm:ss'}}</td>
           <td><div class="botonesAcciones">
             
             <button type="button" [routerLink]="['/dashboard/orden/ver', orden.id_ot]"><span class="material-symbols-outlined">

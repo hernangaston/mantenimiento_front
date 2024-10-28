@@ -21,8 +21,8 @@
   </div>
 
   <div class="info-adicional">
-    <p><strong>Fecha Impresión:</strong> {{ orden?.fecha_impresion | date: 'yyyyMMdd'}}</p>
-    <p><strong>Fecha de Realización:</strong>{{ orden?.fecha_terminacion | date: 'yyyyMMdd'}}</p>
+    <p><strong>Fecha Impresión:</strong> {{ orden?.fecha_impresion | date: 'yyyy/MM/dd'}}</p>
+    <p><strong>Fecha de Realización:</strong>{{ orden?.fecha_terminacion | date: 'yyyy/MM/dd'}}</p>
     <p><strong>Tiempo total utilizado:</strong>{{ orden?.tiempo | date: "yyyyMMdd - HH:mm:ss"}}</p>
     <p><strong>Tarea Realizada por:</strong>{{ orden?.nombre_operario }}</p>
     <p><strong>Tarea Controlada por:</strong> Ruben</p>
