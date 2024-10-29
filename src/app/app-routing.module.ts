@@ -65,7 +65,7 @@ const routes: Routes = [
   { path: "tarea", component: TareaFormComponent},
   { path: "tipoTarea", component: TipoTareaFormComponent},
   { path: "ubicacion", component: UbicacionFormComponent},*/
-  { path: "**", redirectTo: "login", pathMatch: "full" }
+  { path: "**", redirectTo: "inicio", pathMatch: "full" }
 ];
 
 @NgModule({

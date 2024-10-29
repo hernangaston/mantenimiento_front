@@ -16,6 +16,7 @@
         <div *ngIf="formData.hasError('notSame') && formData.get('confirmPassword')?.touched">
             <small>Las contraseñas no coinciden.</small>
         </div>
-        <button type="submit" [disabled]="formData.invalid">Registrar</button>
+        <button type="submit" [disabled]="formData.invalid">Registrarse</button>
+        <button type="submit" [routerLink]="['/inicio']">Volver</button>
     </form>
 </div>

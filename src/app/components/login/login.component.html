@@ -11,6 +11,8 @@
             <small *ngIf="formData.get('password')?.errors?.['required']">La contraseña es obligatoria.</small>
             <small *ngIf="formData.get('password')?.errors?.['minlength']">Mínimo 6 caracteres.</small>
         </div>
-        <button type="submit" [disabled]="formData.invalid">Registrar</button>
+        <button type="submit" [disabled]="formData.invalid">Iniciar Sesión</button>
+        <button type="submit" [routerLink]="['/registro']">Registro</button>
     </form>
+    
 </main>
