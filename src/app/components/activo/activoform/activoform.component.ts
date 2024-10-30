@@ -11,6 +11,8 @@ import { Activo } from '../../../interfaces/activo';
 })
 export class ActivoFormComponent {
   activoForm: FormGroup;
+  ruta: any;
+  titulo: any;
 
   constructor(private formBuilder: FormBuilder, private activoService: ActivoService) {
     this.activoForm = this.formBuilder.group({
@@ -21,6 +23,8 @@ export class ActivoFormComponent {
       numero_existencia: [null, [Validators.required, Validators.min(1)]],
       numero_real: [null, [Validators.required, Validators.min(1)]]
     });
+    this.ruta = "/dashboard"
+    this.titulo = "Nuevo activo"
   }
 
   // Método para enviar el formulario

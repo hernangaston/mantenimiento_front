@@ -15,6 +15,7 @@ import { TipoTarea } from '../../../interfaces/tipo-tarea';
 import { TagService } from '../../../service/tag.service';
 import { DescripcionService } from '../../../service/descripcion.service';
 import { Descripcion } from '../../../interfaces/descripcion';
+import { BotonDashComponent } from '../../boton-dash/boton-dash.component';
 
 @Component({
   selector: 'app-orden-trabajo-form',
@@ -34,6 +35,8 @@ export class OrdenTrabajoFormComponent implements OnInit {
   tiposTarea: TipoTarea[] = [];
   tags:any[] = [];
   desc:Descripcion[]=[];
+  ruta: any;
+  titulo: any;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -65,6 +68,8 @@ export class OrdenTrabajoFormComponent implements OnInit {
       id_tarea: [[], Validators.required],
       id_tita: [[], Validators.required],
     });
+    this.ruta = "/dashboard"
+    this.titulo = "Nueva orden de trabajo"
   }
 
   ngOnInit() {

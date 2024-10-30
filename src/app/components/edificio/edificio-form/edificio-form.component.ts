@@ -13,6 +13,8 @@ import { Router } from '@angular/router';
 export class EdificioFormComponent implements OnInit {
   edificioForm: FormGroup;
   pisos: any[] = [];
+  ruta: string;
+  titulo: string;
 
   constructor(private formBuilder: FormBuilder, private pisoService: PisoService, private edificioService: EdificioService, private router: Router ) {
     this.edificioForm = this.formBuilder.group({
@@ -22,6 +24,8 @@ export class EdificioFormComponent implements OnInit {
       id_piso: [null, Validators.required],
       fecha_creacion: [null]
     });
+    this.ruta = "/dashboard"
+    this.titulo = "Nuevo edificio"
   }
 
   ngOnInit() {

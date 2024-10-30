@@ -1,13 +1,7 @@
-<div class="panel">
-  <div class="contenedor-home">
-    <h1>Nuevo de edificio</h1>
-    <button type="submit" [routerLink]="['/inicio']"><span class="material-symbols-outlined">
-        home
-      </span></button>
-  </div>
+<div class="panel">  
+  <app-boton-dash [ruta]="ruta" [titulo]="titulo"></app-boton-dash>  
   <form [formGroup]="edificioForm" (ngSubmit)="onSubmit()">
     <div class="fila">
-
       <div>
         <label for="Nombre">Nombre</label>
         <input type="text" id="Nombre" formControlName="Nombre" placeholder="Nombre del edificio" required />
@@ -41,7 +35,6 @@
         </div>
       </div>
     </div>
-
     <button type="submit" class="btn-submit" [disabled]="edificioForm.invalid">Registrar Edificio</button>
   </form>
 </div>

@@ -14,6 +14,8 @@ import { TipoTareaService } from '../../../service/tipo-tarea.service';
 export class TareaFormComponent implements OnInit {
   tareaForm: FormGroup;
   tiposTarea: any[] = [];
+  ruta: string;
+  titulo: string;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -25,6 +27,8 @@ export class TareaFormComponent implements OnInit {
       tiempo_estimado: [null, [Validators.required, Validators.min(0), Validators.pattern(/^\d+(\.\d{1,2})?$/)]],  // Expresion regular para obtener Decimal con 2 decimales
       fecha_creacion: [null]
     });
+    this.ruta = "/dashboard"
+    this.titulo = "Nueva tarea"
   }
 
   ngOnInit() {
@@ -32,7 +36,6 @@ export class TareaFormComponent implements OnInit {
   }
 
   cargarTiposTarea() {
-    // Cargar los tipos de tarea desde el servicio
     this.tipoTareaService.obtenerTiposTarea().subscribe({
       next: (res) => {
         this.tiposTarea = res;
@@ -43,7 +46,6 @@ export class TareaFormComponent implements OnInit {
     });
   }
 
-  // Método para enviar el formulario
   onSubmit() {
     if (this.tareaForm.valid) {
       const nuevaTarea: Tarea = this.tareaForm.value;

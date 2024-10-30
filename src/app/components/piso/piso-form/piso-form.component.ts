@@ -13,6 +13,8 @@ import { SectorService } from '../../../service/sector.service';
 export class PisoFormComponent implements OnInit {
   pisoForm: FormGroup;
   sectores: any[] = []; 
+  ruta: string;
+  titulo: string;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -24,6 +26,8 @@ export class PisoFormComponent implements OnInit {
       labelTag: [null], 
       id_sector: [null, Validators.required]
     });
+    this.ruta = "/dashboard"
+    this.titulo = "Nuevo piso"
   }
 
   ngOnInit() {

@@ -1,35 +1,33 @@
-<form [formGroup]="pisoForm" (ngSubmit)="onSubmit()" class="custom-form">
-    <h1>Registro de Piso</h1>
-  
-    <!-- Campo Nombre -->
-    <div>
-      <label for="nombre">Nombre</label>
-      <input type="text" id="nombre" formControlName="nombre" placeholder="Nombre del piso" required />
-      <div *ngIf="pisoForm.get('nombre')?.invalid && pisoForm.get('nombre')?.touched">
-        <small *ngIf="pisoForm.get('nombre')?.errors?.['required']">El nombre es obligatorio.</small>
-        <small *ngIf="pisoForm.get('nombre')?.errors?.['maxLength']">Máximo 255 caracteres.</small>
+<div class="panel">
+  <app-boton-dash [ruta]="ruta" [titulo]="titulo"></app-boton-dash>
+  <form [formGroup]="pisoForm" (ngSubmit)="onSubmit()">
+    <div class="fila">
+      <div>
+        <label for="nombre">Nombre</label>
+        <input type="text" id="nombre" formControlName="nombre" placeholder="Nombre del piso" required />
+        <div *ngIf="pisoForm.get('nombre')?.invalid && pisoForm.get('nombre')?.touched">
+          <small *ngIf="pisoForm.get('nombre')?.errors?.['required']">El nombre es obligatorio.</small>
+          <small *ngIf="pisoForm.get('nombre')?.errors?.['maxLength']">Máximo 255 caracteres.</small>
+        </div>
+      </div>
+    
+      <div>
+        <label for="labelTag">Label Tag</label>
+        <input type="number" id="labelTag" formControlName="labelTag" placeholder="Etiqueta del piso" />
       </div>
     </div>
-  
-    <!-- Campo LabelTag -->
-    <div>
-      <label for="labelTag">Label Tag</label>
-      <input type="number" id="labelTag" formControlName="labelTag" placeholder="Etiqueta del piso" />
-    </div>
-  
-    <!-- Select para Sector (Clave foránea) -->
-    <div>
-      <label for="id_sector">Sector</label>
-      <select id="id_sector" formControlName="id_sector" required>
-        <option value="">Seleccione un sector</option>
-        <option *ngFor="let sector of sectores" [value]="sector.id_sector">{{ sector.nombre }}</option>
-      </select>
-      <div *ngIf="pisoForm.get('id_sector')?.invalid && pisoForm.get('id_sector')?.touched">
-        <small>Debe seleccionar un sector.</small>
+    <div class="fila">
+      <div>
+        <label for="id_sector">Sector</label>
+        <select id="id_sector" formControlName="id_sector" required>
+          <option value="">Seleccione un sector</option>
+          <option *ngFor="let sector of sectores" [value]="sector.id_sector">{{ sector.nombre }}</option>
+        </select>
+        <div *ngIf="pisoForm.get('id_sector')?.invalid && pisoForm.get('id_sector')?.touched">
+          <small>Debe seleccionar un sector.</small>
+        </div>
       </div>
     </div>
-  
-    <!-- Botón de Enviar -->
-    <button type="submit" [disabled]="pisoForm.invalid">Registrar Piso</button>
+    <button type="submit" class="btn-submit" [disabled]="pisoForm.invalid">Registrar Edificio</button>
   </form>
-  
+</div>

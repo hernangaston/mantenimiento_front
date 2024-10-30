@@ -1,10 +1,5 @@
 <div class="panel">
-  <div class="contenedor-home">
-    <h1>Nuevo orden de trabajo</h1>
-    <button type="submit" [routerLink]="['/inicio']"><span class="material-symbols-outlined">
-        home
-      </span></button>
-  </div>
+  <app-boton-dash [ruta]="ruta" [titulo]="titulo"></app-boton-dash>
   <form [formGroup]="ordenTrabajoForm" (ngSubmit)="onSubmit()">
     <div class="fila">
       <div>

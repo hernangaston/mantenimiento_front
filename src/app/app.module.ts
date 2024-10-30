@@ -23,6 +23,7 @@ import { UbicacionFormComponent } from './components/ubicacion/ubicacion-form/ub
 import { CommonModule } from '@angular/common';
 import { OrdenTrabajoVistaComponent } from './components/ordenTrabajo/orden-trabajo-vista/orden-trabajo-vista.component';
 import { CookieService } from 'ngx-cookie-service';
+import { BotonDashComponent } from './components/boton-dash/boton-dash.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { CookieService } from 'ngx-cookie-service';
     TareaFormComponent,
     TipoTareaFormComponent,
     UbicacionFormComponent,
-    OrdenTrabajoVistaComponent
+    OrdenTrabajoVistaComponent,
+    BotonDashComponent
   ],
   imports: [
     BrowserModule,
