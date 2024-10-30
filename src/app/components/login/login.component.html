@@ -1,6 +1,12 @@
-<main class="main">
-    <form class="custom-form" [formGroup]="formData" (ngSubmit)="onSubmit()">
-        <h1>Login</h1>
+<div class="main-container-forms">
+    <form class="custom-forms" [formGroup]="formData" (ngSubmit)="onSubmit()">
+        <div class="contenedor-home">
+            <h1>Login</h1>
+            <button type="submit" [routerLink]="['/inicio']"><span class="material-symbols-outlined">
+            home
+            </span></button></div>
+        
+        
         <input type="email" id="usuario" name="usuario" formControlName="email" placeholder="nombre de usuario">
         <div *ngIf="formData.get('email')?.invalid && formData.get('email')?.touched">
             <small *ngIf="formData.get('email')?.errors?.['required']">El correo es obligatorio.</small>
@@ -11,8 +17,8 @@
             <small *ngIf="formData.get('password')?.errors?.['required']">La contraseña es obligatoria.</small>
             <small *ngIf="formData.get('password')?.errors?.['minlength']">Mínimo 6 caracteres.</small>
         </div>
-        <button type="submit" [disabled]="formData.invalid">Iniciar Sesión</button>
-        <button type="submit" [routerLink]="['/registro']">Registro</button>
+        <button class="botones-login" type="submit" [disabled]="formData.invalid">Iniciar Sesión</button>
+        <button class="botones-login" type="submit" [routerLink]="['/registro']">Registro</button>
     </form>
     
-</main>
+</div>

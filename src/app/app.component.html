@@ -3,11 +3,20 @@
     <div class="contenedor-nav" *ngIf="autenticado">
         <span class="material-symbols-outlined">
             person
-            </span>
-    <p> {{ currentUser }}</p>
-    <button type="button" (click)="onLogout()" >Salir <span class="material-symbols-outlined">
-            logout
-        </span></button>
+        </span>
+        <p> {{ currentUser }}</p>
+        <button type="button" (click)="onLogout()">Salir <span class="material-symbols-outlined">
+                logout
+            </span></button>
+    </div>
+
+    <div class="contenedor-nav" *ngIf="!autenticado">
+        <button class="cta-btn" (click)="goToLogin()">Iniciar Sesión <span class="material-symbols-outlined">
+                login
+            </span></button>
+        <button class="cta-btn" (click)="goToRegister()">Registro <span class="material-symbols-outlined">
+            app_registration
+            </span></button>
     </div>
 </nav>
 <router-outlet></router-outlet>

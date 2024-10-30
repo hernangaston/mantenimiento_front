@@ -1,22 +1,25 @@
-<div class="register">
-    <form [formGroup]="formData" (ngSubmit)="onSubmit()" class="custom-form" method="post">
-        <h1>Registro</h1>
+<div class="main-container-forms">
+    <form class="custom-forms" [formGroup]="formData" (ngSubmit)="onSubmit()" method="post">
+        <div class="contenedor-home">
+            <h1>Registro</h1>
+            <button type="submit" [routerLink]="['/inicio']"><span class="material-symbols-outlined">
+            home
+            </span></button></div>
         <input type="email" name="email" placeholder="Email" formControlName="email" required />
         <div *ngIf="formData.get('email')?.invalid && formData.get('email')?.touched">
             <small *ngIf="formData.get('email')?.errors?.['required']">El correo es obligatorio.</small>
             <small *ngIf="formData.get('email')?.errors?.['email']">Formato de correo inválido.</small>
         </div>
-        <input type="password" id="password" formControlName="password" name="password" placeholder="Password">
+        <input type="password" id="password" formControlName="password" name="password" placeholder="contraseña">
         <div *ngIf="formData.get('password')?.invalid && formData.get('password')?.touched">
             <small *ngIf="formData.get('password')?.errors?.['required']">La contraseña es obligatoria.</small>
             <small *ngIf="formData.get('password')?.errors?.['minlength']">Mínimo 6 caracteres.</small>
         </div>
         <input type="password" id="confirmPassword" formControlName="confirmPassword" name="password"
-            placeholder="Repeat the password">
+            placeholder="Repite la contraseña">
         <div *ngIf="formData.hasError('notSame') && formData.get('confirmPassword')?.touched">
             <small>Las contraseñas no coinciden.</small>
         </div>
-        <button type="submit" [disabled]="formData.invalid">Registrarse</button>
-        <button type="submit" [routerLink]="['/inicio']">Volver</button>
+        <button type="submit" class="botones-login" [disabled]="formData.invalid">Registrarse</button>
     </form>
 </div>

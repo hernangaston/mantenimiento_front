@@ -34,4 +34,12 @@ export class AppComponent implements OnInit {
     this.userService.logout();
     this.router.navigate(['/login']);
   }
+
+  goToLogin() {
+    this.router.navigate(['/login']); 
+  }
+  goToRegister() {
+    this.router.navigate(['/registro']); 
+  }
+  
 }
