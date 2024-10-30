@@ -1,8 +1,13 @@
-<div class="edificio-form">
-    <form [formGroup]="edificioForm" (ngSubmit)="onSubmit()" class="custom-form">
-      <h1>Registro de Edificio</h1>
-  
-      <!-- Campo Nombre -->
+<div class="panel">
+  <div class="contenedor-home">
+    <h1>Nuevo de edificio</h1>
+    <button type="submit" [routerLink]="['/inicio']"><span class="material-symbols-outlined">
+        home
+      </span></button>
+  </div>
+  <form [formGroup]="edificioForm" (ngSubmit)="onSubmit()">
+    <div class="fila">
+
       <div>
         <label for="Nombre">Nombre</label>
         <input type="text" id="Nombre" formControlName="Nombre" placeholder="Nombre del edificio" required />
@@ -11,8 +16,6 @@
           <small *ngIf="edificioForm.get('Nombre')?.errors?.['maxLength']">Máximo 255 caracteres.</small>
         </div>
       </div>
-  
-      <!-- Campo Dirección -->
       <div>
         <label for="Direccion">Dirección</label>
         <input type="text" id="Direccion" formControlName="Direccion" placeholder="Dirección del edificio" required />
@@ -21,14 +24,12 @@
           <small *ngIf="edificioForm.get('Direccion')?.errors?.['maxLength']">Máximo 255 caracteres.</small>
         </div>
       </div>
-  
-      <!-- Campo labelTag -->
+    </div>
+    <div class="fila">
       <div>
         <label for="labelTag">Label Tag</label>
         <input type="number" id="labelTag" formControlName="labelTag" placeholder="Etiqueta del edificio" />
       </div>
-  
-      <!-- Campo Select para Piso (Clave foránea) -->
       <div>
         <label for="id_piso">Piso</label>
         <select id="id_piso" formControlName="id_piso" required>
@@ -39,9 +40,8 @@
           <small *ngIf="edificioForm.get('id_piso')?.errors?.['required']">Debe seleccionar un piso.</small>
         </div>
       </div>
-  
-      <!-- Botón de Enviar -->
-      <button type="submit" [disabled]="edificioForm.invalid">Registrar Edificio</button>
-    </form>
-  </div>
-  
+    </div>
+
+    <button type="submit" class="btn-submit" [disabled]="edificioForm.invalid">Registrar Edificio</button>
+  </form>
+</div>

@@ -47,6 +47,7 @@ export class TareaFormComponent implements OnInit {
   onSubmit() {
     if (this.tareaForm.valid) {
       const nuevaTarea: Tarea = this.tareaForm.value;
+      console.log(nuevaTarea)
 
       this.tareaService.crearTarea(nuevaTarea).subscribe({
         next: (res) => {
