@@ -1,6 +1,6 @@
 <div class="container-dashboard">
     <div class="sidebar">
-        <!-- Botón 1 con subbotones -->
+
         <div class="menu-item">
             <button (click)="toggleDropdown(1)">Orden de trabajo</button>
             <div *ngIf="isExpanded(1)" class="submenu">
@@ -9,7 +9,6 @@
             </div>
         </div>
 
-        <!-- Botón 2 sin subbotones -->
         <div class="menu-item">
             <button (click)="toggleDropdown(2)">Activo</button>
             <div *ngIf="isExpanded(2)" class="submenu">
@@ -17,7 +16,6 @@
             </div>
         </div>
 
-        <!-- Botón 3 con subbotones -->
         <div class="menu-item">
             <button (click)="toggleDropdown(3)">Tarea</button>
             <div *ngIf="isExpanded(3)" class="submenu">
@@ -25,7 +23,13 @@
             </div>
         </div>
 
-        <!-- Botón 4 con subbotones -->
+        <div class="menu-item">
+            <button (click)="toggleDropdown(7)">Tipo de Tarea</button>
+            <div *ngIf="isExpanded(7)" class="submenu">
+                <button [routerLink]="['tipotarea']">Nuevo</button>                
+            </div>
+        </div>
+
         <div class="menu-item">
             <button (click)="toggleDropdown(4)">Edificio</button>
             <div *ngIf="isExpanded(4)" class="submenu">
@@ -33,11 +37,24 @@
             </div>
         </div>
 
-        <!-- Botón 5 con subbotones -->
+        <div class="menu-item">
+            <button (click)="toggleDropdown(8)">Ubicacion</button>
+            <div *ngIf="isExpanded(8)" class="submenu">
+                <button [routerLink]="['ubicacion']">Nuevo</button>                
+            </div>
+        </div>
+
         <div class="menu-item">
             <button (click)="toggleDropdown(5)">Piso</button>
             <div *ngIf="isExpanded(5)" class="submenu">
                 <button [routerLink]="['piso']">Nuevo</button>                
+            </div>
+        </div>
+
+        <div class="menu-item">
+            <button (click)="toggleDropdown(6)">Sector</button>
+            <div *ngIf="isExpanded(6)" class="submenu">
+                <button [routerLink]="['sector']">Nuevo</button>                
             </div>
         </div>
 

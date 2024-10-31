@@ -53,18 +53,24 @@ const routes: Routes = [
           { path: '', component: PisoFormComponent}
         ]
       },
+      {
+        path: 'sector', children: [
+          { path: '', component: SectorFormComponent},
+        ]
+      },
+      {
+        path: 'ubicacion', children: [
+          { path: '', component: UbicacionFormComponent }
+        ]
+      },
+      {
+        path: 'tipotarea', children: [
+          { path: '', component: TipoTareaFormComponent }
+        ]
+      }
     ]
   },
-  /*{ path: "inicio", component: InicioComponent},
-  { path: "activo", component: ActivoFormComponent},
-  { path: "edificio", component: EdificioFormComponent},
-  { path: "orden", component: OrdenTrabajoFormComponent},
-  { path: "piso", component: PisoFormComponent},
-  { path: "sector", component: SectorFormComponent},
-  { path: "tag", component: TagFormComponent},
-  { path: "tarea", component: TareaFormComponent},
-  { path: "tipoTarea", component: TipoTareaFormComponent},
-  { path: "ubicacion", component: UbicacionFormComponent},*/
+  
   { path: "**", redirectTo: "inicio", pathMatch: "full" }
 ];
 
