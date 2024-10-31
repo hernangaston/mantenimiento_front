@@ -1,5 +1,5 @@
 export interface Descripcion {
-    id_descripcion?: number;  // Opcional porque es AUTO_INCREMENT
+    id_descripcion?: number;
     descripcion: string;
     id_tita: number;
 }

@@ -38,7 +38,6 @@ export class PisoFormComponent implements OnInit {
     this.sectorService.obtenerSectores().subscribe({
       next: (res) => {
         this.sectores = res;
-        console.log(this.sectores);
       },
       error: (err) => {
         console.error('Error al cargar los sectores:', err);
