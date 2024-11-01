@@ -1,34 +1,34 @@
+<h1>Orden de Trabajo de Mantenimiento Planificado</h1>
 
-  <h1>Orden de Trabajo de Mantenimiento Planificado</h1>
+<div class="info-principal">
+  <p><strong>OT N°:</strong> {{ orden?.fecha_creacion | date: 'yyyyMMdd' }} _ 20-> tipo de tarea _ {{ orden?.diminutivo
+    }} 001->edificio 002->piso 081->sector 001->ubicacion 001->activo 566 -> activo nro de existencia</p>
+  <p><strong>Código Único de Identificación de Activo:</strong> {{ orden?.diminutivo }} 001002081001001 - 566</p>
+  <p><strong>Tipo de Activo:</strong> {{ orden?.nombre_tag }} </p>
+  <p><strong>Edificio:</strong> {{ orden?.direccion_edificio }} - {{ orden?.nombre_edificio }}</p>
+  <p><strong>Piso / Nivel:</strong>{{ orden?.nombre_piso }}</p>
+  <p><strong>Sector:</strong>{{ orden?.nombre_sector }}</p>
+  <p><strong>Tipo de Mantenimiento:</strong> Mant. Prev. Planif. = 20</p>
+</div>
 
-  <div class="info-principal">
-    <p><strong>OT N°:</strong> {{ orden?.fecha_creacion | date: 'yyyyMMdd' }} _ 20 _ {{ orden?.diminutivo }} 001002081001001 - 566</p>
-    <p><strong>Código Único de Identificación de Activo:</strong> {{ orden?.diminutivo }} 001002081001001 - 566</p>
-    <p><strong>Tipo de Activo:</strong> {{ orden?.nombre_tag }} </p>
-    <p><strong>Edificio:</strong> {{ orden?.direccion_edificio }} - {{ orden?.nombre_edificio }}</p>
-    <p><strong>Piso / Nivel:</strong>{{ orden?.nombre_piso }}</p>
-    <p><strong>Sector:</strong>{{ orden?.nombre_sector }}</p>
-    <p><strong>Tipo de Mantenimiento:</strong> Mant. Prev. Planif. = 20</p>
-  </div>
+<div class="instrucciones">
+  <h2>Instrucciones de la tarea</h2>
+  <ol>
+    <li *ngFor="let tarea of tareas">
+      {{ tarea.descripcion }}
+    </li>
+  </ol>
+</div>
 
-  <div class="instrucciones">
-    <h2>Instrucciones de la tarea</h2>
-    <ol>
-      <li *ngFor="let tarea of tareas">
-        {{ tarea.descripcion }}
-      </li>
-    </ol>
-  </div>
+<div class="info-adicional">
+  <p><strong>Fecha Impresión:</strong> {{ orden?.fecha_impresion | date: 'MM/dd/yyyy'}}</p>
+  <p><strong>Fecha de Realización:</strong>{{ orden?.fecha_terminacion | date: 'yyyy/MM/dd'}}</p>
+  <p><strong>Tiempo total utilizado:</strong>{{ orden?.tiempo | date: "yyyyMMdd - HH:mm:ss"}}</p>
+  <p><strong>Tarea Realizada por:</strong>{{ orden?.nombre_operario }}</p>
+  <p><strong>Tarea Controlada por:</strong> Ruben</p>
+</div>
 
-  <div class="info-adicional">
-    <p><strong>Fecha Impresión:</strong> {{ orden?.fecha_impresion | date: 'yyyy/MM/dd'}}</p>
-    <p><strong>Fecha de Realización:</strong>{{ orden?.fecha_terminacion | date: 'yyyy/MM/dd'}}</p>
-    <p><strong>Tiempo total utilizado:</strong>{{ orden?.tiempo | date: "yyyyMMdd - HH:mm:ss"}}</p>
-    <p><strong>Tarea Realizada por:</strong>{{ orden?.nombre_operario }}</p>
-    <p><strong>Tarea Controlada por:</strong> Ruben</p>
-  </div>
-
-  <div class="observaciones">
-    <h3>Observaciones, comentarios y repuestos utilizados:</h3>
-    <p>{{ orden?.observacion }}</p>
-  </div>
+<div class="observaciones">
+  <h3>Observaciones, comentarios y repuestos utilizados:</h3>
+  <p>{{ orden?.observacion }}</p>
+</div>

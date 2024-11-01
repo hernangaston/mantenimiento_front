@@ -1,0 +1,7 @@
+<div>
+    <label [for]="id">{{ label }}</label>
+    <input [type]="type" [id]="id" [formControl]="control" />
+    <div *ngIf="control?.invalid && control?.touched">
+        <small *ngIf="control?.errors?.['required']">{{ errorMessage }}</small>
+    </div>
+</div>

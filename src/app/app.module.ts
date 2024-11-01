@@ -23,7 +23,9 @@ import { UbicacionFormComponent } from './components/ubicacion/ubicacion-form/ub
 import { CommonModule } from '@angular/common';
 import { OrdenTrabajoVistaComponent } from './components/ordenTrabajo/orden-trabajo-vista/orden-trabajo-vista.component';
 import { CookieService } from 'ngx-cookie-service';
-import { BotonDashComponent } from './components/boton-dash/boton-dash.component';
+import { BotonDashComponent } from './components/forms/boton-dash/boton-dash.component';
+import { TextinputComponent } from './components/forms/textinput/textinput.component';
+import { NumberinputComponent } from './components/forms/numberinput/numberinput.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +45,9 @@ import { BotonDashComponent } from './components/boton-dash/boton-dash.component
     TipoTareaFormComponent,
     UbicacionFormComponent,
     OrdenTrabajoVistaComponent,
-    BotonDashComponent
+    BotonDashComponent,
+    TextinputComponent,
+    NumberinputComponent
   ],
   imports: [
     BrowserModule,

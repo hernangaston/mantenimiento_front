@@ -1,6 +1,6 @@
 // src/app/components/activo-form/activo-form.component.ts
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivoService } from '../../../service/activo.service';
 import { Activo } from '../../../interfaces/activo';
 
@@ -11,8 +11,9 @@ import { Activo } from '../../../interfaces/activo';
 })
 export class ActivoFormComponent {
   activoForm: FormGroup;
-  ruta: any;
-  titulo: any;
+  ruta: string;
+  titulo: string;
+  parametro: string = "";
 
   constructor(private formBuilder: FormBuilder, private activoService: ActivoService) {
     this.activoForm = this.formBuilder.group({
@@ -43,5 +44,9 @@ export class ActivoFormComponent {
     } else {
       console.log("Formulario inválido");
     }
+  }
+  get nombreControl(): FormControl {
+    console.log(this.parametro);
+    return this.activoForm.get(this.parametro) as FormControl;
   }
 }

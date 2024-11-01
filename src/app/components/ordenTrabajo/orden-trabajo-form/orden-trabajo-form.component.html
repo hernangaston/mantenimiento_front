@@ -5,8 +5,7 @@
       <div>
         <label for="fecha_impresion">Fecha de Impresión</label>
         <input type="date" id="fecha_impresion" formControlName="fecha_impresion">
-        <div
-          *ngIf="ordenTrabajoForm.get('fecha_impresion')?.invalid && ordenTrabajoForm.get('fecha_impresion')?.touched">
+        <div *ngIf="ordenTrabajoForm.get('fecha_impresion')?.invalid && ordenTrabajoForm.get('fecha_impresion')?.touched">
           <small>La fecha de impresión es obligatoria.</small>
         </div>
       </div>

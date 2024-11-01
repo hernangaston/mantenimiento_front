@@ -15,7 +15,6 @@ import { TipoTarea } from '../../../interfaces/tipo-tarea';
 import { TagService } from '../../../service/tag.service';
 import { DescripcionService } from '../../../service/descripcion.service';
 import { Descripcion } from '../../../interfaces/descripcion';
-import { BotonDashComponent } from '../../boton-dash/boton-dash.component';
 
 @Component({
   selector: 'app-orden-trabajo-form',
