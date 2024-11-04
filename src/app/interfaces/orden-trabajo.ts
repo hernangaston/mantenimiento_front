@@ -7,6 +7,8 @@ export interface OrdenTrabajo {
     id_operario?: number;
     tiempo?: string;
     id_edificio?: number;
+    idTita?:number;
+    nombreTita:string;
     id_piso?: number;
     id_sector?: number;
     id_ubicacion?: number;
@@ -22,6 +24,6 @@ export interface OrdenTrabajo {
     nombre_tag?: string;
     id_tarea?: Array<any>;
     nombre_operario?: string,
-    apellido_operario?: string 
+    apellido_operario?: string
   }
   
