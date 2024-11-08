@@ -16,6 +16,7 @@ import { TipoTareaFormComponent } from './components/tipoTarea/tipo-tarea-form/t
 import { UbicacionFormComponent } from './components/ubicacion/ubicacion-form/ubicacion-form.component';
 import { OrdenTrabajoComponent } from './components/ordenTrabajo/orden-trabajo/orden-trabajo.component';
 import { OrdenTrabajoVistaComponent } from './components/ordenTrabajo/orden-trabajo-vista/orden-trabajo-vista.component';
+import { UsuarioFormComponent } from './components/usuario-form/usuario-form.component';
 
 const routes: Routes = [
   { path: "login", component: LoginComponent },
@@ -66,6 +67,11 @@ const routes: Routes = [
       {
         path: 'tipotarea', children: [
           { path: '', component: TipoTareaFormComponent }
+        ]
+      },
+      {
+        path: 'usuario', children: [
+          { path: '', component: UsuarioFormComponent }
         ]
       }
     ]

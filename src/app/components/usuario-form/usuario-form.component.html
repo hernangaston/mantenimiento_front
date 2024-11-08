@@ -1,0 +1,38 @@
+<div class="panel">
+    <app-boton-dash [ruta]="ruta" [titulo]="titulo"></app-boton-dash>
+    <form [formGroup]="usuarioForm" (ngSubmit)="onSubmit()">
+        <div class="fila">
+            <div>
+                <label for="email">Email</label>
+                <input id="email" formControlName="email" type="email" required />
+                <div *ngIf="usuarioForm.get('email')?.invalid && usuarioForm.get('email')?.touched">
+                    <small *ngIf="usuarioForm.get('email')?.errors?.['required']">El email es obligatorio.</small>
+                    <small *ngIf="usuarioForm.get('email')?.errors?.['maxLength']">Máximo 255 caracteres.</small>
+                </div>
+            </div>
+        </div>
+
+        <div class="fila">
+            <div>
+                <label for="password">Password</label>
+                <input id="password" formControlName="password" type="password" required />
+                <div *ngIf="usuarioForm.get('password')?.invalid && usuarioForm.get('password')?.touched">
+                    <small *ngIf="usuarioForm.get('password')?.errors?.['required']">El password es obligatorio.</small>
+                </div>
+            </div>
+        </div>
+
+        <div class="fila">
+            <div>
+                <label for="rol">Rol</label>
+                <select id="rol" formControlName="rol">
+                    <option value="admin">Admin</option>
+                    <option value="operario">Operario</option>
+                    <option value="usuario">Usuario</option>
+                </select>
+            </div>
+        </div>
+
+        <button type="submit" class="btn-submit" [disabled]="!usuarioForm.valid">Guardar</button>
+    </form>
+</div>

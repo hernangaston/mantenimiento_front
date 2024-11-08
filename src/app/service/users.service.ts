@@ -47,12 +47,27 @@ export class UsersService {
     this.cookie.set('auth-token', token);
   }
 
+  setRol(rol: string): void {
+    this.cookie.set('rol', rol);
+  }
+
   getToken(): string {
     return this.cookie.get('auth-token');
   }
 
   isAuthenticated(): boolean {
     return !!this.getToken();
+  }
+
+  getRol(): string {
+    return this.cookie.get('rol');
+  }
+
+  isAdmin(): boolean {
+    if(this.getRol()==='admin'){
+      return true;
+    }
+    return false;
   }
 
   logout(): void {

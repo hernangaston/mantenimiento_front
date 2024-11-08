@@ -26,6 +26,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { BotonDashComponent } from './components/forms/boton-dash/boton-dash.component';
 import { TextinputComponent } from './components/forms/textinput/textinput.component';
 import { NumberinputComponent } from './components/forms/numberinput/numberinput.component';
+import { UsuarioFormComponent } from './components/usuario-form/usuario-form.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { NumberinputComponent } from './components/forms/numberinput/numberinput
     OrdenTrabajoVistaComponent,
     BotonDashComponent,
     TextinputComponent,
-    NumberinputComponent
+    NumberinputComponent,
+    UsuarioFormComponent
   ],
   imports: [
     BrowserModule,

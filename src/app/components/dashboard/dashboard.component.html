@@ -24,37 +24,44 @@
         </div>
 
         <div class="menu-item">
-            <button (click)="toggleDropdown(7)">Tipo de Tarea</button>
-            <div *ngIf="isExpanded(7)" class="submenu">
+            <button (click)="toggleDropdown(4)">Tipo de Tarea</button>
+            <div *ngIf="isExpanded(4)" class="submenu">
                 <button [routerLink]="['tipotarea']">Nuevo</button>                
             </div>
         </div>
 
         <div class="menu-item">
-            <button (click)="toggleDropdown(4)">Edificio</button>
-            <div *ngIf="isExpanded(4)" class="submenu">
+            <button (click)="toggleDropdown(5)">Edificio</button>
+            <div *ngIf="isExpanded(5)" class="submenu">
                 <button [routerLink]="['edificio']">Nuevo</button>
             </div>
         </div>
 
         <div class="menu-item">
-            <button (click)="toggleDropdown(8)">Ubicacion</button>
-            <div *ngIf="isExpanded(8)" class="submenu">
+            <button (click)="toggleDropdown(6)">Ubicacion</button>
+            <div *ngIf="isExpanded(6)" class="submenu">
                 <button [routerLink]="['ubicacion']">Nuevo</button>                
             </div>
         </div>
 
         <div class="menu-item">
-            <button (click)="toggleDropdown(5)">Piso</button>
-            <div *ngIf="isExpanded(5)" class="submenu">
+            <button (click)="toggleDropdown(7)">Piso</button>
+            <div *ngIf="isExpanded(7)" class="submenu">
                 <button [routerLink]="['piso']">Nuevo</button>                
             </div>
         </div>
 
         <div class="menu-item">
-            <button (click)="toggleDropdown(6)">Sector</button>
-            <div *ngIf="isExpanded(6)" class="submenu">
+            <button (click)="toggleDropdown(8)">Sector</button>
+            <div *ngIf="isExpanded(8)" class="submenu">
                 <button [routerLink]="['sector']">Nuevo</button>                
+            </div>
+        </div>
+
+        <div class="menu-item">
+            <button (click)="toggleDropdown(9)">Usuario</button>
+            <div *ngIf="isExpanded(9)" class="submenu">
+                <button [routerLink]="['usuario']">Nuevo</button>                
             </div>
         </div>
 

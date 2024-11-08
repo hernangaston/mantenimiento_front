@@ -30,8 +30,10 @@ export class LoginComponent {
   login(user:any) {
     this.userService.login(user).subscribe({
       next: (response) => {
+        console.log(response.user.rol);
         if (response && response.token) {
           this.userService.setToken(response.token);
+          this.userService.setRol(response.user.rol);
         }else{
           console.log('no hay response');
         }

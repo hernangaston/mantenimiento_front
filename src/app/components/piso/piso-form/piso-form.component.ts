@@ -50,7 +50,6 @@ export class PisoFormComponent implements OnInit {
       const nuevoPiso: Piso = this.pisoForm.value;
       this.pisoService.crearPiso(nuevoPiso).subscribe({
         next: (res)=>{
-          console.log('Piso creado con éxito:', res);
           this.pisoForm.reset();
         },
         error: (err) => {

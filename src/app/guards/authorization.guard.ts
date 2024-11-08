@@ -10,7 +10,7 @@ import { UsersService } from '../service/users.service';
 export class AuthorizationGuard implements CanActivate {
   constructor(private authService: UsersService, private router: Router) {}
   canActivate(): boolean {
-    if (this.authService.isAuthenticated()) {
+    if (this.authService.isAuthenticated() && this.authService.isAdmin()) {
       return true;
     } else {
       this.router.navigate(['login']);
