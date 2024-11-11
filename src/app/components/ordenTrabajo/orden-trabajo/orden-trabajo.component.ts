@@ -4,6 +4,8 @@ import { OrdenTrabajoService } from '../../../service/orden-trabajo.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { OperarioService } from '../../../service/operario.service';
+import { ActivoService } from '../../../service/activo.service';
+import { EdificioService } from '../../../service/edificio.service';
 
 @Component({
   selector: 'app-orden-trabajo',
@@ -24,6 +26,8 @@ export class OrdenTrabajoComponent implements OnInit {
   expandedMenu: number | null = null;
   mostrarBoton: boolean = true;
   operarios: any[] = [];
+  activos: any[] = [];
+  edificios: any[] = [];
 
 
 
@@ -32,7 +36,9 @@ export class OrdenTrabajoComponent implements OnInit {
     private router: Router,
     private ordenTrabajoService:OrdenTrabajoService,
     private formBuilder: FormBuilder,
-    private operarioService: OperarioService) { 
+    private operarioService: OperarioService,
+    private activoService: ActivoService,
+    private edificioService: EdificioService) { 
       
     }
 
@@ -85,6 +91,22 @@ export class OrdenTrabajoComponent implements OnInit {
         console.log(err);
       }
     });    
+    this.activoService.obtenerActivos().subscribe({
+      next: (res) => {
+        this.activos = res;
+      },
+      error: (err) => {
+        console.log(err);
+      }
+    });  
+    this.edificioService.obtenerEdificios().subscribe({
+      next: (res) => {
+        this.edificios = res;
+      },
+      error: (err) => {
+        console.log(err);
+      }
+    });
   }
 
   limpiarFiltros(){

@@ -8,14 +8,21 @@
       <form (submit)="buscar()">
         <div class="panel2">
           <div>
+            
             <select [(ngModel)]="filtros.id_op" name="id_op" class="fields">
               <option value="">Seleccione un operario</option>
               <option *ngFor="let operario of operarios" [value]="operario.id_op">{{ operario.nombre }}</option>
             </select>
           </div>
           <input class="fields" type="date" [(ngModel)]="filtros.fecha_creacion" name="fecha_creacion" placeholder="Fecha de Inicio" />
-          <input class="fields" type="number" [(ngModel)]="filtros.id_activo" name="id_activo" placeholder="Activo ID" />
-          <input class="fields" type="number" [(ngModel)]="filtros.id_edificio" name="id_edificio" placeholder="Edificio ID" />
+          <select id="id_activo" [(ngModel)]="filtros.id_activo" name="id_activo" required>
+            <option value="">Seleccione un activo.</option>
+            <option *ngFor="let activo of activos" [value]="activo.id_tag">{{ activo.nombre }}</option>
+          </select>
+          <select id="id_edificio" [(ngModel)]="filtros.id_edificio" name="id_edificio" required>
+            <option value="">Seleccione un edificio</option>
+            <option *ngFor="let edificio of edificios" [value]="edificio.id_edificio">{{ edificio.Nombre }}</option>
+          </select>
           <select class="fields" [(ngModel)]="filtros.realizada" name="realizada">
             <option value="">Seleccionar estado</option>
             <option value="1">Realizada</option>

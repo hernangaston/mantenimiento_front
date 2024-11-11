@@ -1,4 +1,3 @@
-
 h2 {
   text-align: center;
   color: #333;
@@ -10,7 +9,8 @@ table {
   width: 100%;
   border-collapse: collapse;
   margin-bottom: 20px;
-  overflow-x: auto; /* Permitir desplazamiento horizontal en pantallas pequeñas */
+  overflow-x: auto;
+  /* Permitir desplazamiento horizontal en pantallas pequeñas */
 }
 
 thead {
@@ -18,7 +18,8 @@ thead {
   color: white;
 }
 
-th, td {
+th,
+td {
   padding: 12px 15px;
   text-align: left;
   border-bottom: 1px solid #ddd;
@@ -41,11 +42,13 @@ th {
   font-size: 16px;
 }
 
-table, th, td {
+table,
+th,
+td {
   border: 1px solid #ccc;
 }
 
-.botonesAcciones{
+.botonesAcciones {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -70,35 +73,45 @@ table, th, td {
 /* Media queries para pantallas pequeñas (móviles) */
 @media (max-width: 768px) {
   .container {
-    width: 95%; /* Reducir el ancho del contenedor */
+    width: 95%;
+    /* Reducir el ancho del contenedor */
     padding: 10px;
   }
 
-  th, td {
-    padding: 8px 10px; /* Reducir padding de celdas */
-    font-size: 12px; /* Reducir tamaño de fuente */
+  th,
+  td {
+    padding: 8px 10px;
+    /* Reducir padding de celdas */
+    font-size: 12px;
+    /* Reducir tamaño de fuente */
   }
 
   h2 {
-    font-size: 20px; /* Reducir tamaño del título */
+    font-size: 20px;
+    /* Reducir tamaño del título */
   }
 
   table {
     display: block;
-    overflow-x: auto; /* Agregar scroll horizontal en tablas largas */
-    white-space: nowrap; /* Evitar que las celdas se quiebren en líneas pequeñas */
+    overflow-x: auto;
+    /* Agregar scroll horizontal en tablas largas */
+    white-space: nowrap;
+    /* Evitar que las celdas se quiebren en líneas pequeñas */
   }
 }
 
 /* Media queries para pantallas muy pequeñas (menos de 480px) */
 @media (max-width: 480px) {
-  th, td {
-    font-size: 11px; /* Ajustar aún más el tamaño de las fuentes */
+
+  th,
+  td {
+    font-size: 11px;
+    /* Ajustar aún más el tamaño de las fuentes */
     padding: 6px 8px;
   }
 
   h2 {
-    font-size: 18px; 
+    font-size: 18px;
   }
 }
 
@@ -109,24 +122,29 @@ table, th, td {
   gap: 10px;
 }
 
-.panel2 input,select {
-    all: unset;
-    border-radius: 0.5rem;
-    padding: 1rem;
-    border: none;
-    box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.8),
-        inset 5px 5px 10px rgba(0, 0, 0, 0.1);
-    background: #ebf5fc;
+.panel2 label {
+  display: inline-flex;
+}
+
+.panel2 input,
+select {
+  all: unset;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  border: none;
+  box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.8),
+    inset 5px 5px 10px rgba(0, 0, 0, 0.1);
+  background: #ebf5fc;
 }
 
 
 .btn-buscar {
-  display: flex;             
-  align-items: center;       
-  justify-content: center;   
-  gap: 5px;                  
-  padding: 10px;        
-  border: none;  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 10px;
+  border: none;
   background-color: #666666;
   color: #eeeeee;
   border-radius: 15px;
@@ -134,7 +152,7 @@ table, th, td {
   transition: background-color .3s ease;
 }
 
-.btn-buscar:hover{
+.btn-buscar:hover {
   background-color: #eeeeee;
   color: #666666;
   border: 1px solid #666666;

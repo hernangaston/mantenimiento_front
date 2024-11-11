@@ -88,7 +88,7 @@
       <div>
         <label for="id_activo">Activos</label>
         <select id="id_activo" formControlName="id_activo" required>
-          <option value="">Seleccione un tipo de tarea.</option>
+          <option value="">Seleccione un activo.</option>
           <option *ngFor="let activo of activos" [value]="activo.id_tag">{{ activo.nombre }}</option>
         </select>
         <div *ngIf="ordenTrabajoForm.get('id_activo')?.invalid && ordenTrabajoForm.get('id_activo')?.touched">
