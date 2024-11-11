@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { OrdenTrabajo } from '../../../interfaces/orden-trabajo'; 
 import { OrdenTrabajoService } from '../../../service/orden-trabajo.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { OperarioService } from '../../../service/operario.service';
 
 @Component({
   selector: 'app-orden-trabajo',
@@ -9,12 +11,35 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrl: './orden-trabajo.component.css'
 })
 export class OrdenTrabajoComponent implements OnInit {
+  ordenTrabajoForm: FormGroup | undefined;
   ordenesTrabajo: OrdenTrabajo[] = [];
   id_ot: string | null = null;
-  constructor(private route: ActivatedRoute, private router: Router, private ordenTrabajoService:OrdenTrabajoService) { }
+  filtros = {
+    id_op: null,
+    fecha_creacion: null,
+    id_activo: null,
+    id_edificio: null,
+    realizada: null
+  };
+  expandedMenu: number | null = null;
+  mostrarBoton: boolean = true;
+  operarios: any[] = [];
+
+
+
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private ordenTrabajoService:OrdenTrabajoService,
+    private formBuilder: FormBuilder,
+    private operarioService: OperarioService) { 
+      
+    }
 
   ngOnInit(): void {
     this.id_ot = this.route.snapshot.paramMap.get('id_ot');
+    this.ordenTrabajoForm = this.formBuilder.group({});
+    
     if(this.id_ot){
       this.ordenTrabajoService.deleteOrdenTrabajo(this.id_ot).subscribe({
         next: (d) => { 
@@ -33,5 +58,42 @@ export class OrdenTrabajoComponent implements OnInit {
         }
        })
     }
+  }
+
+  buscar() {
+    this.ordenTrabajoService.getOrdenesTrabajo(this.filtros).subscribe((data) => {
+      this.ordenesTrabajo = data;
+    });
+  }
+
+  async toggleDropdown(menuNumber: number): Promise<void> {
+    await this.cargarDatos();    
+    this.expandedMenu = this.expandedMenu === menuNumber ? null : menuNumber;
+    this.mostrarBoton = !this.mostrarBoton;
+  }
+
+  isExpanded(menuNumber: number): boolean {
+    return this.expandedMenu === menuNumber;
+  }
+
+  cargarDatos() {
+    this.operarioService.obtenerOperarios().subscribe({
+      next: (res) => {
+        this.operarios = res;
+      },
+      error: (err) => {
+        console.log(err);
+      }
+    });    
+  }
+
+  limpiarFiltros(){
+    this.filtros = {
+      id_op: null,
+      fecha_creacion: null,
+      id_activo: null,
+      id_edificio: null,
+      realizada: null
+    };
   }
 }

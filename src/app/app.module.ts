@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { RegistroComponent } from './components/registro/registro.component';
 import { provideHttpClient } from '@angular/common/http';
@@ -55,7 +55,8 @@ import { UsuarioFormComponent } from './components/usuario-form/usuario-form.com
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    CommonModule
+    CommonModule,
+    FormsModule
   ],
   providers: [provideHttpClient(), CookieService],
   bootstrap: [AppComponent]

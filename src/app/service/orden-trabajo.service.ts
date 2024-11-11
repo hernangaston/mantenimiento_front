@@ -1,6 +1,6 @@
 // src/app/services/orden-trabajo.service.ts
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { OrdenTrabajo } from '../interfaces/orden-trabajo';
 
@@ -14,6 +14,16 @@ export class OrdenTrabajoService {
 
   listaOrdenTrabajo(): Observable<OrdenTrabajo[]>{
     return this.http.get<OrdenTrabajo[]>(this.apiUrl);
+  }
+
+  getOrdenesTrabajo(filtros: any): Observable<any> {
+    let params = new HttpParams();
+    for (const key in filtros) {
+      if (filtros[key] !== null && filtros[key] !== undefined) {
+        params = params.set(key, filtros[key]);
+      }
+    }
+    return this.http.get(this.apiUrl, { params });
   }
 
   crearOrdenTrabajo(orden: OrdenTrabajo): Observable<OrdenTrabajo> {

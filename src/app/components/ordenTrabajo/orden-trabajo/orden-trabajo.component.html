@@ -1,49 +1,93 @@
 <div class="contenedor">
-    <h2>Listado de Órdenes de Trabajo</h2>
-    
-    <table>
-      <thead>
-        <tr>
-          <th>Fecha de Impresión</th>
-          <th>Fecha de Terminación</th>
-          <th>Observación</th>
-          <th>Operario</th>
-          <th>Edificio</th>
-          <th>Piso</th>
-          <th>Sector</th>
-          <th>Ubicación</th>
-          <th>Activo</th>
-          <th>Tiempo</th>
-          <th>Acciones</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let orden of ordenesTrabajo">         
-          <td>{{ orden.fecha_impresion | date: 'dd/MM/yyyy' }}</td>
-          <td>{{ orden.fecha_terminacion | date: 'dd/MM/yyyy' }}</td>
-          <td>{{ orden.observacion }}</td>
-          <td>{{ orden.nombre_operario }}</td>
-          <td>{{ orden.nombre_edificio }}</td>
-          <td>{{ orden.nombre_piso }}</td>
-          <td>{{ orden.nombre_sector }}</td>
-          <td>{{ orden.nombre_ubicacion }}</td>
-          <td>{{ orden.nombre_activo }}</td>
-          <td>{{ orden.tiempo | date: 'HH:mm:ss'}}</td>
-          <td><div class="botonesAcciones">
-            
-            <button type="button" [routerLink]="['/dashboard/orden/ver', orden.id_ot]"><span class="material-symbols-outlined">
-              search_insights
+  <div>
+    <button *ngIf="mostrarBoton" (click)="toggleDropdown(1)" class="btn-buscar">Filtros <span
+        class="material-symbols-outlined">
+        keyboard_arrow_down
+      </span></button>
+    <div *ngIf="isExpanded(1)" class="form-filtros">
+      <form (submit)="buscar()">
+        <div class="panel2">
+          <div>
+            <select [(ngModel)]="filtros.id_op" name="id_op" class="fields">
+              <option value="">Seleccione un operario</option>
+              <option *ngFor="let operario of operarios" [value]="operario.id_op">{{ operario.nombre }}</option>
+            </select>
+          </div>
+          <input class="fields" type="date" [(ngModel)]="filtros.fecha_creacion" name="fecha_creacion" placeholder="Fecha de Inicio" />
+          <input class="fields" type="number" [(ngModel)]="filtros.id_activo" name="id_activo" placeholder="Activo ID" />
+          <input class="fields" type="number" [(ngModel)]="filtros.id_edificio" name="id_edificio" placeholder="Edificio ID" />
+          <select class="fields" [(ngModel)]="filtros.realizada" name="realizada">
+            <option value="">Seleccionar estado</option>
+            <option value="1">Realizada</option>
+            <option value="0">No realizada</option>
+          </select>
+          <button type="submit" class="btn-buscar"><span class="material-symbols-outlined">
+              search
+            </span></button>
+        </div>
+        <div class="btns-form">
+          <button *ngIf="!mostrarBoton" (click)="toggleDropdown(1)" class="btn-buscar"><span
+              class="material-symbols-outlined">
+              keyboard_arrow_up
+            </span></button>
+          <button *ngIf="!mostrarBoton" (click)="limpiarFiltros()" class="btn-buscar"><span
+              class="material-symbols-outlined">
+              cleaning_services
+            </span></button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+
+  <h2>Listado de Órdenes de Trabajo</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Fecha de Impresión</th>
+        <th>Fecha de Terminación</th>
+        <th>Observación</th>
+        <th>Operario</th>
+        <th>Edificio</th>
+        <th>Piso</th>
+        <th>Sector</th>
+        <th>Ubicación</th>
+        <th>Activo</th>
+        <th>Tiempo</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let orden of ordenesTrabajo">
+        <td>{{ orden.fecha_impresion | date: 'dd/MM/yyyy' }}</td>
+        <td>{{ orden.fecha_terminacion | date: 'dd/MM/yyyy' }}</td>
+        <td>{{ orden.observacion }}</td>
+        <td>{{ orden.nombre_operario }}</td>
+        <td>{{ orden.nombre_edificio }}</td>
+        <td>{{ orden.nombre_piso }}</td>
+        <td>{{ orden.nombre_sector }}</td>
+        <td>{{ orden.nombre_ubicacion }}</td>
+        <td>{{ orden.nombre_activo }}</td>
+        <td>{{ orden.tiempo | date: 'HH:mm:ss'}}</td>
+        <td>
+          <div class="botonesAcciones">
+
+            <button type="button" [routerLink]="['/dashboard/orden/ver', orden.id_ot]"><span
+                class="material-symbols-outlined">
+                search_insights
               </span></button>
-              <button type="button" [routerLink]="['/dashboard/orden/edit', orden.id_ot]"><span class="material-symbols-outlined">
-              edit_square
+            <button type="button" [routerLink]="['/dashboard/orden/edit', orden.id_ot]"><span
+                class="material-symbols-outlined">
+                edit_square
               </span></button>
-              <button type="button" [routerLink]="['/dashboard/orden/delete', orden.id_ot]"><span class="material-symbols-outlined">
-              delete
+            <button type="button" [routerLink]="['/dashboard/orden/delete', orden.id_ot]"><span
+                class="material-symbols-outlined">
+                delete
               </span></button>
           </div>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

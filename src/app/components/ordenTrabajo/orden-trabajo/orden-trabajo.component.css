@@ -1,5 +1,4 @@
 
-
 h2 {
   text-align: center;
   color: #333;
@@ -99,6 +98,56 @@ table, th, td {
   }
 
   h2 {
-    font-size: 18px; /* Ajustar el tamaño del encabezado */
+    font-size: 18px; 
   }
+}
+
+.panel2 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.panel2 input,select {
+    all: unset;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    border: none;
+    box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.8),
+        inset 5px 5px 10px rgba(0, 0, 0, 0.1);
+    background: #ebf5fc;
+}
+
+
+.btn-buscar {
+  display: flex;             
+  align-items: center;       
+  justify-content: center;   
+  gap: 5px;                  
+  padding: 10px;        
+  border: none;  
+  background-color: #666666;
+  color: #eeeeee;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: background-color .3s ease;
+}
+
+.btn-buscar:hover{
+  background-color: #eeeeee;
+  color: #666666;
+  border: 1px solid #666666;
+}
+
+.form-filtros {
+  margin: 10px;
+}
+
+.btns-form {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  justify-content: end;
+  margin: 10px;
 }
