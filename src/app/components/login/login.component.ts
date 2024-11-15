@@ -19,6 +19,17 @@ export class LoginComponent {
     });
   }
 
+  loginAsAdmin() {
+    this.userService.setRol('admin');
+    // Redirige al área de admin
+    console.log(this.userService.isAdmin())
+  }
+
+  loginAsOperador() {
+    this.userService.setRol('operador');
+    // Redirige al área de operador
+  }
+
   onSubmit() {
     if (this.formData.valid) {
       this.login(this.formData.value);
@@ -28,9 +39,9 @@ export class LoginComponent {
   }
 
   login(user:any) {
+
     this.userService.login(user).subscribe({
       next: (response) => {
-        console.log(response.user.rol);
         if (response && response.token) {
           this.userService.setToken(response.token);
           this.userService.setRol(response.user.rol);

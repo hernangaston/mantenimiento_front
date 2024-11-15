@@ -4,6 +4,7 @@ import { Edificio } from '../../../interfaces/edificio';
 import { PisoService } from '../../../service/piso.service';
 import { EdificioService } from '../../../service/edificio.service';
 import { Router } from '@angular/router';
+import { Piso } from '../../../interfaces/piso';
 
 @Component({
   selector: 'app-edificio-form',
@@ -12,7 +13,7 @@ import { Router } from '@angular/router';
 })
 export class EdificioFormComponent implements OnInit {
   edificioForm: FormGroup;
-  pisos: any[] = [];
+  pisos: Piso[] = [];
   ruta: string;
   titulo: string;
 

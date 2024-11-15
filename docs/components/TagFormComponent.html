@@ -1,0 +1,687 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>mantenimiento-front documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">mantenimiento-front documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  TagFormComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/components/tag/tag-form/tag-form.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-tag-form</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./tag-form.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./tag-form.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#tagForm" >tagForm</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#onSubmit" >onSubmit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">function Object() { [native code] }</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(formBuilder: FormBuilder, tagService: <a href="../injectables/TagService.html" target="_self">TagService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/components/tag/tag-form/tag-form.component.ts:13</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>formBuilder</td>
+                                                  
+                                                        <td>
+                                                                    <code>FormBuilder</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>tagService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/TagService.html" target="_self" >TagService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="26"
+                                    class="link-to-prism">src/app/components/tag/tag-form/tag-form.component.ts:26</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onSubmit"></a>
+                    <span class="name">
+                        <span ><b>onSubmit</b></span>
+                        <a href="#onSubmit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onSubmit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="37"
+                                    class="link-to-prism">src/app/components/tag/tag-form/tag-form.component.ts:37</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="tagForm"></a>
+                    <span class="name">
+                        <span ><b>tagForm</b></span>
+                        <a href="#tagForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>FormGroup</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/components/tag/tag-form/tag-form.component.ts:13</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import { FormBuilder, FormGroup, Validators } from &#x27;@angular/forms&#x27;;
+import { Tag } from &#x27;../../../interfaces/tag&#x27;;
+import { TagService } from &#x27;../../../service/tag.service&#x27;;
+
+@Component({
+  selector: &#x27;app-tag-form&#x27;,
+  templateUrl: &#x27;./tag-form.component.html&#x27;,
+  styleUrls: [&#x27;./tag-form.component.css&#x27;]
+})
+export class TagFormComponent implements OnInit {
+  tagForm: FormGroup;
+
+  constructor(
+    private formBuilder: FormBuilder,
+    private tagService: TagService
+  ) {
+    this.tagForm &#x3D; this.formBuilder.group({
+      nombre: [&#x27;&#x27;, [Validators.required, Validators.maxLength(255)]],
+      tag_deminutivo: [&#x27;&#x27;, Validators.maxLength(255)],
+      fecha_creacion: [null]
+    });
+  }
+
+  ngOnInit(): void {
+    /*const tags &#x3D; this.tagService.obtenerTags().subscribe({
+      next: (res) &#x3D;&gt; {
+        console.log(res);
+      },
+      error: (err) &#x3D;&gt; {
+        console.log(&quot;Error: &quot; + err);
+      }
+    });*/
+  }
+
+  onSubmit() {
+    if (this.tagForm.valid) {
+      const nuevoTag: Tag &#x3D; this.tagForm.value;
+      this.tagService.crearTag(nuevoTag).subscribe({
+        next: (res) &#x3D;&gt; {
+          console.log(&#x27;Tag creado con éxito:&#x27;, res);
+          this.tagForm.reset();
+        },
+        error: (err) &#x3D;&gt; {
+          console.error(&#x27;Error al crear el tag:&#x27;, err);
+        }
+      });
+    } else {
+      console.log(&#x27;Formulario no válido&#x27;);
+    }
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;form [formGroup]&#x3D;&quot;tagForm&quot; (ngSubmit)&#x3D;&quot;onSubmit()&quot; class&#x3D;&quot;custom-form&quot;&gt;
+    &lt;h1&gt;Registro de Tag&lt;/h1&gt;
+  
+    &lt;!-- Campo Nombre --&gt;
+    &lt;div&gt;
+      &lt;label for&#x3D;&quot;nombre&quot;&gt;Nombre&lt;/label&gt;
+      &lt;input type&#x3D;&quot;text&quot; id&#x3D;&quot;nombre&quot; formControlName&#x3D;&quot;nombre&quot; placeholder&#x3D;&quot;Nombre del tag&quot; required /&gt;
+      &lt;div *ngIf&#x3D;&quot;tagForm.get(&#x27;nombre&#x27;)?.invalid &amp;&amp; tagForm.get(&#x27;nombre&#x27;)?.touched&quot;&gt;
+        &lt;small *ngIf&#x3D;&quot;tagForm.get(&#x27;nombre&#x27;)?.errors?.[&#x27;required&#x27;]&quot;&gt;El nombre es obligatorio.&lt;/small&gt;
+        &lt;small *ngIf&#x3D;&quot;tagForm.get(&#x27;nombre&#x27;)?.errors?.[&#x27;maxLength&#x27;]&quot;&gt;Máximo 255 caracteres.&lt;/small&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  
+    &lt;!-- Campo Tag Diminutivo --&gt;
+    &lt;div&gt;
+      &lt;label for&#x3D;&quot;tag_deminutivo&quot;&gt;Tag Diminutivo&lt;/label&gt;
+      &lt;input type&#x3D;&quot;text&quot; id&#x3D;&quot;tag_deminutivo&quot; formControlName&#x3D;&quot;tag_deminutivo&quot; placeholder&#x3D;&quot;Diminutivo del tag&quot; /&gt;
+      &lt;div *ngIf&#x3D;&quot;tagForm.get(&#x27;tag_deminutivo&#x27;)?.invalid &amp;&amp; tagForm.get(&#x27;tag_deminutivo&#x27;)?.touched&quot;&gt;
+        &lt;small&gt;Máximo 255 caracteres.&lt;/small&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  
+    &lt;!-- Campo Fecha de Creación --&gt;
+    &lt;div&gt;
+      &lt;label for&#x3D;&quot;fecha_creacion&quot;&gt;Fecha de Creación&lt;/label&gt;
+      &lt;input type&#x3D;&quot;date&quot; id&#x3D;&quot;fecha_creacion&quot; formControlName&#x3D;&quot;fecha_creacion&quot; /&gt;
+    &lt;/div&gt;
+  
+    &lt;!-- Botón de Enviar --&gt;
+    &lt;button type&#x3D;&quot;submit&quot; [disabled]&#x3D;&quot;tagForm.invalid&quot;&gt;Registrar Tag&lt;/button&gt;
+  &lt;/form&gt;
+  </code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./tag-form.component.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+}
+
+.custom-form {
+    min-width: 280px;
+    max-width: 60%;
+    background: rgba(255, 255, 255, 0.15);
+    padding: 2rem 3rem;
+    margin: 250px;
+    border-radius: 2.5rem;
+    background-color: #ecf0f3;
+    box-shadow: 13px 13px 20px #cbced1, -13px -13px 20px #ffffff;
+    color: black;    
+}
+
+.custom-form input {
+    display: block;
+    margin: 2rem 0;
+    width: 100%;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    border: none;
+    box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.8),
+        inset 5px 5px 10px rgba(0, 0, 0, 0.1);
+    border: 0 none;
+    background: #ebf5fc;
+}
+
+
+label {
+    margin-bottom: 10px;
+}
+input {
+    width: 100%;
+    height: 40px;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+button {
+    width: 100%;
+    height: 40px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    margin-top:2rem;
+}
+
+.register {
+    display:  flex;
+    justify-content: center;
+
+}
+
+small{
+    color: red;
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><form [formGroup]="tagForm" (ngSubmit)="onSubmit()" class="custom-form">    <h1>Registro de Tag</h1>      <!-- Campo Nombre -->    <div>      <label for="nombre">Nombre</label>      <input type="text" id="nombre" formControlName="nombre" placeholder="Nombre del tag" required />      <div *ngIf="tagForm.get(\'nombre\')?.invalid && tagForm.get(\'nombre\')?.touched">        <small *ngIf="tagForm.get(\'nombre\')?.errors?.[\'required\']">El nombre es obligatorio.</small>        <small *ngIf="tagForm.get(\'nombre\')?.errors?.[\'maxLength\']">Máximo 255 caracteres.</small>      </div>    </div>      <!-- Campo Tag Diminutivo -->    <div>      <label for="tag_deminutivo">Tag Diminutivo</label>      <input type="text" id="tag_deminutivo" formControlName="tag_deminutivo" placeholder="Diminutivo del tag" />      <div *ngIf="tagForm.get(\'tag_deminutivo\')?.invalid && tagForm.get(\'tag_deminutivo\')?.touched">        <small>Máximo 255 caracteres.</small>      </div>    </div>      <!-- Campo Fecha de Creación -->    <div>      <label for="fecha_creacion">Fecha de Creación</label>      <input type="date" id="fecha_creacion" formControlName="fecha_creacion" />    </div>      <!-- Botón de Enviar -->    <button type="submit" [disabled]="tagForm.invalid">Registrar Tag</button>  </form>  </div>'
+    var COMPONENTS = [{'name': 'ActivoFormComponent', 'selector': 'app-activo-form'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BotonDashComponent', 'selector': 'app-boton-dash'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'EdificioFormComponent', 'selector': 'app-edificio-form'},{'name': 'InicioComponent', 'selector': 'app-inicio'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'NumberinputComponent', 'selector': 'app-numberinput'},{'name': 'OrdenTrabajoComponent', 'selector': 'app-orden-trabajo'},{'name': 'OrdenTrabajoFormComponent', 'selector': 'app-orden-trabajo-form'},{'name': 'OrdenTrabajoVistaComponent', 'selector': 'app-orden-trabajo-vista'},{'name': 'PisoFormComponent', 'selector': 'app-piso-form'},{'name': 'RegistroComponent', 'selector': 'app-registro'},{'name': 'SectorFormComponent', 'selector': 'app-sector-form'},{'name': 'TagFormComponent', 'selector': 'app-tag-form'},{'name': 'TareaFormComponent', 'selector': 'app-tarea-form'},{'name': 'TextinputComponent', 'selector': 'app-textinput'},{'name': 'TipoTareaFormComponent', 'selector': 'app-tipo-tarea-form'},{'name': 'UbicacionFormComponent', 'selector': 'app-ubicacion-form'},{'name': 'UsuarioFormComponent', 'selector': 'app-usuario-form'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'TagFormComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'TagFormComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

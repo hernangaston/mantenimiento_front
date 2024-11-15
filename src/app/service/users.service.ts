@@ -2,6 +2,7 @@ import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Subject, Observable, BehaviorSubject } from "rxjs";
 import { CookieService } from "ngx-cookie-service";
+import { Usuario } from "../interfaces/usuario";
 
 @Injectable({
   providedIn: "root"
@@ -54,17 +55,26 @@ export class UsersService {
   getToken(): string {
     return this.cookie.get('auth-token');
   }
+  
+  getRol(): string {
+    return this.cookie.get('rol');
+  }
 
   isAuthenticated(): boolean {
     return !!this.getToken();
   }
 
-  getRol(): string {
-    return this.cookie.get('rol');
+  isAdmin(): boolean {
+    console.log(this.getRol());
+    if(this.getRol()==='admin'){
+      return true;
+    }
+    return false;
   }
 
-  isAdmin(): boolean {
-    if(this.getRol()==='admin'){
+  isOperador(): boolean {
+    console.log(this.getRol());
+    if(this.getRol()==='operador'){
       return true;
     }
     return false;
