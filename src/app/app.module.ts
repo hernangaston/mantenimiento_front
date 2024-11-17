@@ -25,7 +25,6 @@ import { OrdenTrabajoVistaComponent } from './components/ordenTrabajo/orden-trab
 import { CookieService } from 'ngx-cookie-service';
 import { BotonDashComponent } from './components/forms/boton-dash/boton-dash.component';
 import { TextinputComponent } from './components/forms/textinput/textinput.component';
-import { NumberinputComponent } from './components/forms/numberinput/numberinput.component';
 import { UsuarioFormComponent } from './components/usuario-form/usuario-form.component';
 
 @NgModule({
@@ -48,7 +47,6 @@ import { UsuarioFormComponent } from './components/usuario-form/usuario-form.com
     OrdenTrabajoVistaComponent,
     BotonDashComponent,
     TextinputComponent,
-    NumberinputComponent,
     UsuarioFormComponent
   ],
   imports: [

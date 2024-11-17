@@ -65,7 +65,6 @@ export class UsersService {
   }
 
   isAdmin(): boolean {
-    console.log(this.getRol());
     if(this.getRol()==='admin'){
       return true;
     }
@@ -73,7 +72,6 @@ export class UsersService {
   }
 
   isOperador(): boolean {
-    console.log(this.getRol());
     if(this.getRol()==='operador'){
       return true;
     }

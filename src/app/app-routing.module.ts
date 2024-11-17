@@ -17,7 +17,6 @@ import { UbicacionFormComponent } from './components/ubicacion/ubicacion-form/ub
 import { OrdenTrabajoComponent } from './components/ordenTrabajo/orden-trabajo/orden-trabajo.component';
 import { OrdenTrabajoVistaComponent } from './components/ordenTrabajo/orden-trabajo-vista/orden-trabajo-vista.component';
 import { UsuarioFormComponent } from './components/usuario-form/usuario-form.component';
-import { operarioGuard } from './guards/operario.guard';
 
 const routes: Routes = [
   { path: "login", component: LoginComponent },
@@ -77,7 +76,6 @@ const routes: Routes = [
       }
     ]
   },
-  {path: "dashboardOperario", component: DashboardComponent, canActivate: [operarioGuard]},
   { path: "**", redirectTo: "inicio", pathMatch: "full" }
 ];
 

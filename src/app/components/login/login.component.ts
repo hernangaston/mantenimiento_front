@@ -3,6 +3,7 @@ import { Router } from "@angular/router";
 import { UsersService } from "../../service/users.service";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { CookieService } from "ngx-cookie-service";
+import { Usuario } from "../../interfaces/usuario";
 
 @Component({
   selector: "app-login",
@@ -19,17 +20,6 @@ export class LoginComponent {
     });
   }
 
-  loginAsAdmin() {
-    this.userService.setRol('admin');
-    // Redirige al área de admin
-    console.log(this.userService.isAdmin())
-  }
-
-  loginAsOperador() {
-    this.userService.setRol('operador');
-    // Redirige al área de operador
-  }
-
   onSubmit() {
     if (this.formData.valid) {
       this.login(this.formData.value);
@@ -38,13 +28,12 @@ export class LoginComponent {
     }
   }
 
-  login(user:any) {
-
+  login(user:Usuario) {
     this.userService.login(user).subscribe({
       next: (response) => {
         if (response && response.token) {
           this.userService.setToken(response.token);
-          this.userService.setRol(response.user.rol);
+          this.userService.setRol(response.user.rol);          
         }else{
           console.log('no hay response');
         }

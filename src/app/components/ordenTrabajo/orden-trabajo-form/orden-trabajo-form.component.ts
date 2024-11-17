@@ -58,7 +58,7 @@ export class OrdenTrabajoFormComponent implements OnInit {
 
   ngOnInit():void  {
     this.ordenTrabajoForm = this.formBuilder.group({
-      fecha_impresion: [null, Validators.required],
+      fecha_impresion: ['', Validators.required],
       observacion: ['', [Validators.maxLength(255)]],
       fecha_terminacion: [null, Validators.required],
       realizada: [false],
@@ -181,7 +181,6 @@ export class OrdenTrabajoFormComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.ordenTrabajoForm.value);
     if (this.ordenTrabajoForm.valid) {
       if (this.id_ot) {
         const ot: OrdenTrabajo = this.ordenTrabajoForm.getRawValue();
@@ -192,10 +191,9 @@ export class OrdenTrabajoFormComponent implements OnInit {
         });
       } else {
         const nuevaOrden: OrdenTrabajo = this.ordenTrabajoForm.value;
-        console.log("Nueva", nuevaOrden);
         this.ordenTrabajoService.crearOrdenTrabajo(nuevaOrden).subscribe({
-          next: (res) => {
-            this.ordenTrabajoForm.reset();
+          next: (res) => {            
+            this.router.navigate(['/dashboard/orden/lista']);
           },
           error: (err) => {
             console.error('Error al crear la orden de trabajo:', err);

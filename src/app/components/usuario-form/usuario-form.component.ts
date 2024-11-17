@@ -28,9 +28,7 @@ export class UsuarioFormComponent implements OnInit {
   onSubmit(): void {
     if (this.usuarioForm.valid) {
       const usuarioData = this.usuarioForm.value;
-      console.log('Datos del formulario:', usuarioData);
 
-      // Llama al servicio para enviar los datos a la API
       this.usuarioService.register(usuarioData).subscribe({
         next: (res) => {
           console.log("Usuario creado", res.message);

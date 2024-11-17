@@ -1,5 +1,5 @@
 export interface Activo {
-    id_activo?: number;  // Opcional porque es AUTO_INCREMENT
+    id_activo?: number;  
     nombre: string;
     id_tag: number;
     Disponibilidad: boolean;
