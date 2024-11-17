@@ -9,9 +9,10 @@ import { Usuario } from '../../interfaces/usuario';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
-export class DashboardComponent {
+export class DashboardComponent implements OnInit{
   expandedMenu: number | null = null;
   operarios: Usuario[] = [];
+  operario=false
 
   constructor(private route: ActivatedRoute, private router: Router, private userService: UsersService, private operarioService: OperarioService,){}
 
@@ -34,5 +35,8 @@ export class DashboardComponent {
     });    
   }
 
+  ngOnInit(): void {
+      this.operario = this.userService.isOperador();
+  }
 
 }

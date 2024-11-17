@@ -72,7 +72,7 @@ export class UsersService {
   }
 
   isOperador(): boolean {
-    if(this.getRol()==='operador'){
+    if(this.getRol()==='operario'){
       return true;
     }
     return false;

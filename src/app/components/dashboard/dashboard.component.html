@@ -4,10 +4,12 @@
         <div class="menu-item">
             <button (click)="toggleDropdown(1)">Orden de trabajo</button>
             <div *ngIf="isExpanded(1)" class="submenu">
-                <button [routerLink]="['orden']">Nueva</button>
+                <button *ngIf="!operario" [routerLink]="['orden']">Nueva</button>
                 <button [routerLink]="['orden/lista']">Lista</button>
             </div>
         </div>
+
+        <div *ngIf="!operario">
 
         <div class="menu-item">
             <button (click)="toggleDropdown(2)">Activo</button>
@@ -64,7 +66,7 @@
                 <button [routerLink]="['usuario']">Nuevo</button>                
             </div>
         </div>
-
+        </div>
         <button class="btn-volver" [routerLink]="['/dashboard']">Volver</button>
     </div>
     <div class="contenedor">
