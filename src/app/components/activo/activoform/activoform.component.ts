@@ -28,14 +28,14 @@ export class ActivoFormComponent {
     this.titulo = "Nuevo activo"
   }
 
-  // Método para enviar el formulario
+  
   onSubmit() {
     if (this.activoForm.valid) {
       const nuevoActivo: Activo = this.activoForm.value;
       this.activoService.crearActivo(nuevoActivo).subscribe({
         next: (response: any) => {
           console.log('Activo registrado:', response);
-          this.activoForm.reset();  // Limpiar el formulario tras el éxito
+          this.activoForm.reset();
         },
         error: (error: any) => {
           console.error('Error al registrar activo:', error);
@@ -46,7 +46,6 @@ export class ActivoFormComponent {
     }
   }
   get nombreControl(): FormControl {
-    console.log(this.parametro);
     return this.activoForm.get(this.parametro) as FormControl;
   }
 }

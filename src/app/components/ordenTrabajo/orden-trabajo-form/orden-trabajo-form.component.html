@@ -1,16 +1,17 @@
 <div class="panel">
   <app-boton-dash [ruta]="ruta" [titulo]="titulo"></app-boton-dash>
   <form [formGroup]="ordenTrabajoForm" (ngSubmit)="onSubmit()">
-    <div class="fila">
-      <div>
+    <div class="grid-container">
+      <div class="form-group">
         <label for="fecha_impresion">Fecha de Impresión</label>
         <input type="date" id="fecha_impresion" formControlName="fecha_impresion">
-        <div *ngIf="ordenTrabajoForm.get('fecha_impresion')?.invalid && ordenTrabajoForm.get('fecha_impresion')?.touched">
+        <div
+          *ngIf="ordenTrabajoForm.get('fecha_impresion')?.invalid && ordenTrabajoForm.get('fecha_impresion')?.touched">
           <small>La fecha de impresión es obligatoria.</small>
         </div>
       </div>
 
-      <div>
+      <div class="form-group">
         <label for="fecha_terminacion">Fecha de terminacion</label>
         <input type="date" id="fecha_terminacion" formControlName="fecha_terminacion">
         <div
@@ -20,7 +21,7 @@
       </div>
 
 
-      <div>
+      <div class="form-group">
         <label for="observacion">Observación</label>
         <textarea type="text" id="observacion" formControlName="observacion" maxlength="255"></textarea>
         <div *ngIf="ordenTrabajoForm.get('observacion')?.invalid && ordenTrabajoForm.get('observacion')?.touched">
@@ -28,8 +29,8 @@
         </div>
       </div>
     </div>
-    <div class="fila">
-      <div>
+    <div class="grid-container">
+      <div class="form-group">
         <label for="id_operario">Operario</label>
         <select id="id_operario" formControlName="id_op" required>
           <option value="">Seleccione un operario</option>
@@ -40,7 +41,7 @@
         </div>
       </div>
 
-      <div>
+      <div class="form-group">
         <label for="id_edificio">Edificio</label>
         <select id="id_edificio" formControlName="id_edificio" required>
           <option value="">Seleccione un edificio</option>
@@ -51,7 +52,7 @@
         </div>
       </div>
 
-      <div>
+      <div class="form-group">
         <label for="id_piso">Piso</label>
         <select id="id_piso" formControlName="id_piso" required>
           <option value="">Seleccione un piso</option>
@@ -62,8 +63,8 @@
         </div>
       </div>
     </div>
-    <div class="fila">
-      <div>
+    <div class="grid-container">
+      <div class="form-group">
         <label for="id_sector">Sector</label>
         <select id="id_sector" formControlName="id_sector" required>
           <option value="">Seleccione un sector</option>
@@ -74,7 +75,7 @@
         </div>
       </div>
 
-      <div>
+      <div class="form-group">
         <label for="id_ubicacion">Ubicacion</label>
         <select id="id_ubicacion" formControlName="id_ubicacion" required>
           <option value="">Seleccione una ubicacion.</option>
@@ -85,7 +86,7 @@
         </div>
       </div>
 
-      <div>
+      <div class="form-group">
         <label for="id_activo">Activos</label>
         <select id="id_activo" formControlName="id_activo" required>
           <option value="">Seleccione un activo.</option>
@@ -96,8 +97,8 @@
         </div>
       </div>
     </div>
-    <div class="fila">
-      <div>
+    <div class="grid-container">
+      <div class="form-group">
         <label for="id_tita">Tipos de tarea</label>
         <select id="id_tita" formControlName="id_tita" required>
           <option value="">Seleccione un tipo de tarea.</option>
@@ -108,7 +109,7 @@
         </div>
       </div>
 
-      <div>
+      <div class="form-group">
         <label for="tiempo">Tiempo</label>
         <input type="date" id="tiempo" formControlName="tiempo">
         <div *ngIf="ordenTrabajoForm.get('tiempo')?.invalid && ordenTrabajoForm.get('tiempo')?.touched">
@@ -117,7 +118,7 @@
       </div>
 
 
-      <div>
+      <div class="form-group">
         <label for="id_tarea">Tareas</label>
         <select id="id_tarea" formControlName="id_tarea" multiple required>
           <option *ngFor="let tarea of desc" [value]="tarea.id_descripcion">{{ tarea.descripcion }}</option>

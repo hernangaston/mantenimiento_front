@@ -22,7 +22,7 @@ import { Descripcion } from '../../../interfaces/descripcion';
   styleUrls: ['./orden-trabajo-form.component.css']
 })
 export class OrdenTrabajoFormComponent implements OnInit {
-  ordenTrabajoForm: FormGroup;
+  ordenTrabajoForm!: FormGroup;
   operarios: any[] = [];
   edificios: any[] = [];
   pisos: any[] = [];
@@ -30,7 +30,7 @@ export class OrdenTrabajoFormComponent implements OnInit {
   ubicaciones: any[] = [];
   activos: any[] = [];
   id_ot: any = "";
-  tareas: any[] = [];  // Tareas a mostrar en el select múltiple
+  tareas: any[] = [];
   tiposTarea: TipoTarea[] = [];
   tags:any[] = [];
   desc:Descripcion[]=[];
@@ -52,27 +52,29 @@ export class OrdenTrabajoFormComponent implements OnInit {
     private router: Router,
     private descService: DescripcionService
   ) {
+    this.ruta = "/dashboard"
+    this.titulo = "Nueva orden de trabajo"
+  }
+
+  ngOnInit():void  {
     this.ordenTrabajoForm = this.formBuilder.group({
       fecha_impresion: [null, Validators.required],
       observacion: ['', [Validators.maxLength(255)]],
-      fecha_terminacion: [null],
+      fecha_terminacion: [null, Validators.required],
       realizada: [false],
-      id_op: [null, Validators.required],
+      id_op: [null],
       id_edificio: [null, Validators.required],
       id_piso: [null, Validators.required],
       id_sector: [null, Validators.required],
       id_ubicacion: [null, Validators.required],
       id_activo: [null, Validators.required],
-      tiempo: [null, Validators.required],
+      tiempo: [null],
       id_tarea: [[], Validators.required],
-      id_tita: [[], Validators.required],
+      id_tita: [[], Validators.required]
     });
-    this.ruta = "/dashboard"
-    this.titulo = "Nueva orden de trabajo"
-  }
 
-  ngOnInit() {
     this.id_ot = this.route.snapshot.paramMap.get('id_ot');
+    
     this.id_ot ? this.cargarForm() : this.cargarDatos();
     
     this.activoService.obtenerActivos().subscribe({
@@ -179,6 +181,7 @@ export class OrdenTrabajoFormComponent implements OnInit {
   }
 
   onSubmit() {
+    console.log(this.ordenTrabajoForm.value);
     if (this.ordenTrabajoForm.valid) {
       if (this.id_ot) {
         const ot: OrdenTrabajo = this.ordenTrabajoForm.getRawValue();
@@ -189,7 +192,7 @@ export class OrdenTrabajoFormComponent implements OnInit {
         });
       } else {
         const nuevaOrden: OrdenTrabajo = this.ordenTrabajoForm.value;
-        console.log(nuevaOrden);
+        console.log("Nueva", nuevaOrden);
         this.ordenTrabajoService.crearOrdenTrabajo(nuevaOrden).subscribe({
           next: (res) => {
             this.ordenTrabajoForm.reset();

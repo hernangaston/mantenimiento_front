@@ -1,8 +1,8 @@
 <div class="panel">
   <app-boton-dash [ruta]="'/dashboard'" [titulo]="'Nuevo tipo de tarea'"></app-boton-dash>
   <form [formGroup]="tipoTareaForm" (ngSubmit)="onSubmit()">
-    <div class="fila">
-      <div>
+    <div class="grid-container">
+      <div class="form-group">
         <label for="nombre">Nombre</label>
         <input type="text" id="nombre" formControlName="nombre" placeholder="Nombre del tipo de tarea" required />
         <div *ngIf="tipoTareaForm.get('nombre')?.invalid && tipoTareaForm.get('nombre')?.touched">
@@ -12,7 +12,7 @@
       </div>
 
       <!-- Campo Descripción -->
-      <div>
+      <div class="form-group">
         <label for="descripcion">Descripción</label>
         <input type="text" id="descripcion" formControlName="descripcion" placeholder="Descripción del tipo de tarea" />
         <div *ngIf="tipoTareaForm.get('descripcion')?.invalid && tipoTareaForm.get('descripcion')?.touched">

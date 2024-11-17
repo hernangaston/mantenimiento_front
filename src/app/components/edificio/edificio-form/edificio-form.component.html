@@ -1,8 +1,8 @@
 <div class="panel">  
   <app-boton-dash [ruta]="ruta" [titulo]="titulo"></app-boton-dash>  
   <form [formGroup]="edificioForm" (ngSubmit)="onSubmit()">
-    <div class="fila">
-      <div>
+    <div class="grid-container">
+      <div class="form-group">
         <label for="Nombre">Nombre</label>
         <input type="text" id="Nombre" formControlName="Nombre" placeholder="Nombre del edificio" required />
         <div *ngIf="edificioForm.get('Nombre')?.invalid && edificioForm.get('Nombre')?.touched">
@@ -10,7 +10,7 @@
           <small *ngIf="edificioForm.get('Nombre')?.errors?.['maxLength']">Máximo 255 caracteres.</small>
         </div>
       </div>
-      <div>
+      <div class="form-group">
         <label for="Direccion">Dirección</label>
         <input type="text" id="Direccion" formControlName="Direccion" placeholder="Dirección del edificio" required />
         <div *ngIf="edificioForm.get('Direccion')?.invalid && edificioForm.get('Direccion')?.touched">
@@ -19,12 +19,12 @@
         </div>
       </div>
     </div>
-    <div class="fila">
-      <div>
+    <div class="grid-container">
+      <div class="form-group">
         <label for="labelTag">Label Tag</label>
         <input type="number" id="labelTag" formControlName="labelTag" placeholder="Etiqueta del edificio" />
       </div>
-      <div>
+      <div class="form-group">
         <label for="id_piso">Piso</label>
         <select id="id_piso" formControlName="id_piso" required>
           <option value="">Seleccione un piso</option>

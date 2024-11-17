@@ -1,8 +1,8 @@
 <div class="panel">
     <app-boton-dash [ruta]="ruta" [titulo]="titulo"></app-boton-dash>
     <form [formGroup]="usuarioForm" (ngSubmit)="onSubmit()">
-        <div class="fila">
-            <div>
+        <div class="grid-container">
+            <div class="form-group">
                 <label for="email">Email</label>
                 <input id="email" formControlName="email" type="email" required />
                 <div *ngIf="usuarioForm.get('email')?.invalid && usuarioForm.get('email')?.touched">
@@ -12,8 +12,8 @@
             </div>
         </div>
 
-        <div class="fila">
-            <div>
+        <div class="grid-container">
+            <div class="form-group">
                 <label for="password">Password</label>
                 <input id="password" formControlName="password" type="password" required />
                 <div *ngIf="usuarioForm.get('password')?.invalid && usuarioForm.get('password')?.touched">
@@ -22,8 +22,8 @@
             </div>
         </div>
 
-        <div class="fila">
-            <div>
+        <div class="grid-container">
+            <div class="form-group">
                 <label for="rol">Rol</label>
                 <select id="rol" formControlName="rol">
                     <option value="admin">Admin</option>

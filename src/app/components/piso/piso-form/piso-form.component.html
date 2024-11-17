@@ -1,8 +1,8 @@
 <div class="panel">
   <app-boton-dash [ruta]="ruta" [titulo]="titulo"></app-boton-dash>
   <form [formGroup]="pisoForm" (ngSubmit)="onSubmit()">
-    <div class="fila">
-      <div>
+    <div class="grid-container">
+      <div class="form-group">
         <label for="nombre">Nombre</label>
         <input type="text" id="nombre" formControlName="nombre" placeholder="Nombre del piso" required />
         <div *ngIf="pisoForm.get('nombre')?.invalid && pisoForm.get('nombre')?.touched">
@@ -11,13 +11,13 @@
         </div>
       </div>
     
-      <div>
+      <div class="form-group">
         <label for="labelTag">Label Tag</label>
         <input type="number" id="labelTag" formControlName="labelTag" placeholder="Etiqueta del piso" />
       </div>
     </div>
-    <div class="fila">
-      <div>
+    <div class="grid-container">
+      <div class="form-group">
         <label for="id_sector">Sector</label>
         <select id="id_sector" formControlName="id_sector" required>
           <option value="">Seleccione un sector</option>

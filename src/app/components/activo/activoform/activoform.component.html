@@ -1,9 +1,15 @@
 <div class="panel">
     <app-boton-dash [ruta]="ruta" [titulo]="titulo"></app-boton-dash>
     <form [formGroup]="activoForm" (ngSubmit)="onSubmit()">
-        <div class="fila">
-            <app-textinput label="Nombre" id="nombre" type="text" [control]="nombreControl"></app-textinput>
-            <div>
+        <div class="grid-container">
+            <div class="form-group">
+                <label for="nombre">Nombre</label>
+                <input type="text" id="nombre" formControlName="nombre">
+                <div *ngIf="activoForm.get('nombre')?.invalid && activoForm.get('nombre')?.touched">
+                    <small *ngIf="activoForm.get('nombre')?.errors?.['required']">El nombre es obligatorio.</small>
+                </div>
+            </div>
+            <div class="form-group">
                 <label for="id_tag">ID Tag</label>
                 <input type="number" id="id_tag" formControlName="id_tag">
                 <div *ngIf="activoForm.get('id_tag')?.invalid && activoForm.get('id_tag')?.touched">
@@ -12,12 +18,12 @@
                 </div>
             </div>
         </div>
-        <div class="fila">
-            <div>
+        <div class="grid-container">
+            <div class="form-group">
                 <label for="Disponibilidad">Disponibilidad</label>
                 <input type="checkbox" id="Disponibilidad" formControlName="Disponibilidad">
             </div>
-            <div>
+            <div class="form-group">
                 <label for="labelTag">Label Tag</label>
                 <input type="number" id="labelTag" formControlName="labelTag">
                 <div *ngIf="activoForm.get('labelTag')?.invalid && activoForm.get('labelTag')?.touched">
@@ -27,8 +33,8 @@
             </div>
         </div>
 
-        <div class="fila">
-            <div>
+        <div class="grid-container">
+            <div class="form-group">
                 <label for="numero_existencia">Número de Existencia</label>
                 <input type="number" id="numero_existencia" formControlName="numero_existencia">
                 <div
@@ -40,7 +46,7 @@
                 </div>
             </div>
 
-            <div>
+            <div class="form-group">
                 <label for="numero_real">Número Real</label>
                 <input type="number" id="numero_real" formControlName="numero_real">
                 <div *ngIf="activoForm.get('numero_real')?.invalid && activoForm.get('numero_real')?.touched">

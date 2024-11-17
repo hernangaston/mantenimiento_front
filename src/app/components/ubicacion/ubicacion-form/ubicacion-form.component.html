@@ -1,8 +1,8 @@
 <div class="panel">
   <app-boton-dash [ruta]="'/dashboard'" [titulo]="'Nueva ubicación'"></app-boton-dash>
   <form [formGroup]="ubicacionForm" (ngSubmit)="onSubmit()">
-    <div class="fila">
-      <div>
+    <div class="grid-container">
+      <div class="form-group">
         <label for="nombre">Nombre</label>
         <input type="text" id="nombre" formControlName="nombre" placeholder="Nombre de la ubicación" required />
         <div *ngIf="ubicacionForm.get('nombre')?.invalid && ubicacionForm.get('nombre')?.touched">
@@ -12,11 +12,11 @@
       </div>
 
       <!-- Campo LabelTag -->
-      <div>
+      <div class="form-group">
         <label for="labelTag">Label Tag</label>
         <input type="number" id="labelTag" formControlName="labelTag" placeholder="Etiqueta de la ubicación" />
       </div>
-      <div>
+      <div class="form-group">
         <label for="fecha_creacion">Fecha de Creación</label>
         <input type="date" id="fecha_creacion" formControlName="fecha_creacion" />
       </div>
