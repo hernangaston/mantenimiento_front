@@ -52,8 +52,8 @@ export class OrdenTrabajoFormComponent implements OnInit {
     private router: Router,
     private descService: DescripcionService
   ) {
-    this.ruta = "/dashboard"
-    this.titulo = "Nueva orden de trabajo"
+    this.ruta = "/dashboard";
+    this.titulo = "Nueva orden de trabajo";
   }
 
   ngOnInit():void  {
