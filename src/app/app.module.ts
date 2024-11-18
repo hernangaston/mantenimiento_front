@@ -31,6 +31,8 @@ import { FormDateInputComponent } from './components/forms/form-date-input/form-
 import { FormSelectComponent } from './components/forms/form-select/form-select.component';
 import { FormMultiselectComponent } from './components/forms/form-multiselect/form-multiselect.component';
 import { FormTextareaComponent } from './components/forms/form-textarea/form-textarea.component';
+import { FormInputComponent } from './components/forms/form-input/form-input.component';
+import { FormCheckboxComponent } from './components/forms/form-checkbox/form-checkbox.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +59,9 @@ import { FormTextareaComponent } from './components/forms/form-textarea/form-tex
     FormDateInputComponent,
     FormSelectComponent,
     FormMultiselectComponent,
-    FormTextareaComponent
+    FormTextareaComponent,
+    FormInputComponent,
+    FormCheckboxComponent
   ],
   imports: [
     BrowserModule,

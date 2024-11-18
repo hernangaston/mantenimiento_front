@@ -1,0 +1,8 @@
+<div class="form-group">
+    <label [for]="controlName">{{ label }}</label>
+    <input [type]="type" [id]="controlName" [formControl]="control">
+    <div *ngIf="control?.invalid && control?.touched">
+        <small *ngIf="control?.errors?.['required']">{{ label }} es obligatorio.</small>
+        <small *ngIf="control?.errors?.['min']">Debe ser un número positivo.</small>
+    </div>
+</div>

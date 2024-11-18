@@ -2,59 +2,25 @@
     <app-boton-dash [ruta]="ruta" [titulo]="titulo"></app-boton-dash>
     <form [formGroup]="activoForm" (ngSubmit)="onSubmit()">
         <div class="grid-container">
-            <div class="form-group">
-                <label for="nombre">Nombre</label>
-                <input type="text" id="nombre" formControlName="nombre">
-                <div *ngIf="activoForm.get('nombre')?.invalid && activoForm.get('nombre')?.touched">
-                    <small *ngIf="activoForm.get('nombre')?.errors?.['required']">El nombre es obligatorio.</small>
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="id_tag">ID Tag</label>
-                <input type="number" id="id_tag" formControlName="id_tag">
-                <div *ngIf="activoForm.get('id_tag')?.invalid && activoForm.get('id_tag')?.touched">
-                    <small *ngIf="activoForm.get('id_tag')?.errors?.['required']">El ID Tag es obligatorio.</small>
-                    <small *ngIf="activoForm.get('id_tag')?.errors?.['min']">Debe ser un número positivo.</small>
-                </div>
-            </div>
+            <app-form-input label="Nombre" type="text" controlName="nombre" [formGroup]="activoForm">
+            </app-form-input>
+
+            <app-form-input label="ID Tag" type="number" controlName="id_tag" [formGroup]="activoForm">
+            </app-form-input>
+            
+            <app-form-checkbox label="Disponibilidad" controlName="Disponibilidad" [formGroup]="activoForm">
+            </app-form-checkbox>
         </div>
         <div class="grid-container">
-            <div class="form-group">
-                <label for="Disponibilidad">Disponibilidad</label>
-                <input type="checkbox" id="Disponibilidad" formControlName="Disponibilidad">
-            </div>
-            <div class="form-group">
-                <label for="labelTag">Label Tag</label>
-                <input type="number" id="labelTag" formControlName="labelTag">
-                <div *ngIf="activoForm.get('labelTag')?.invalid && activoForm.get('labelTag')?.touched">
-                    <small *ngIf="activoForm.get('labelTag')?.errors?.['required']">El Label Tag es obligatorio.</small>
-                    <small *ngIf="activoForm.get('labelTag')?.errors?.['min']">Debe ser un número positivo.</small>
-                </div>
-            </div>
-        </div>
+            <app-form-input label="Label Tag" type="number" controlName="labelTag" [formGroup]="activoForm">
+            </app-form-input>
 
-        <div class="grid-container">
-            <div class="form-group">
-                <label for="numero_existencia">Número de Existencia</label>
-                <input type="number" id="numero_existencia" formControlName="numero_existencia">
-                <div
-                    *ngIf="activoForm.get('numero_existencia')?.invalid && activoForm.get('numero_existencia')?.touched">
-                    <small *ngIf="activoForm.get('numero_existencia')?.errors?.['required']">Este campo es
-                        obligatorio.</small>
-                    <small *ngIf="activoForm.get('numero_existencia')?.errors?.['min']">Debe ser un número
-                        positivo.</small>
-                </div>
-            </div>
+            <app-form-input label="Número de Existencia" type="number" controlName="numero_existencia"
+                [formGroup]="activoForm">
+            </app-form-input>
 
-            <div class="form-group">
-                <label for="numero_real">Número Real</label>
-                <input type="number" id="numero_real" formControlName="numero_real">
-                <div *ngIf="activoForm.get('numero_real')?.invalid && activoForm.get('numero_real')?.touched">
-                    <small *ngIf="activoForm.get('numero_real')?.errors?.['required']">Este campo es
-                        obligatorio.</small>
-                    <small *ngIf="activoForm.get('numero_real')?.errors?.['min']">Debe ser un número positivo.</small>
-                </div>
-            </div>
+            <app-form-input label="Número Real" type="number" controlName="numero_real" [formGroup]="activoForm">
+            </app-form-input>
         </div>
         <button type="submit" class="btn-submit" [disabled]="activoForm.invalid">Registrar Activo</button>
     </form>
