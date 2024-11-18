@@ -2,38 +2,24 @@
   <app-boton-dash [ruta]="ruta" [titulo]="titulo"></app-boton-dash>  
   <form [formGroup]="edificioForm" (ngSubmit)="onSubmit()">
     <div class="grid-container">
-      <div class="form-group">
-        <label for="Nombre">Nombre</label>
-        <input type="text" id="Nombre" formControlName="Nombre" placeholder="Nombre del edificio" required />
-        <div *ngIf="edificioForm.get('Nombre')?.invalid && edificioForm.get('Nombre')?.touched">
-          <small *ngIf="edificioForm.get('Nombre')?.errors?.['required']">El nombre es obligatorio.</small>
-          <small *ngIf="edificioForm.get('Nombre')?.errors?.['maxLength']">Máximo 255 caracteres.</small>
-        </div>
-      </div>
-      <div class="form-group">
-        <label for="Direccion">Dirección</label>
-        <input type="text" id="Direccion" formControlName="Direccion" placeholder="Dirección del edificio" required />
-        <div *ngIf="edificioForm.get('Direccion')?.invalid && edificioForm.get('Direccion')?.touched">
-          <small *ngIf="edificioForm.get('Direccion')?.errors?.['required']">La dirección es obligatoria.</small>
-          <small *ngIf="edificioForm.get('Direccion')?.errors?.['maxLength']">Máximo 255 caracteres.</small>
-        </div>
-      </div>
+      
+      <app-form-input label="Nombre" type="text" controlName="Nombre" [formGroup]="edificioForm">
+      </app-form-input>
+
+      <app-form-input label="Direccion" type="text" controlName="Direccion" [formGroup]="edificioForm">
+      </app-form-input>
+     
     </div>
     <div class="grid-container">
-      <div class="form-group">
-        <label for="labelTag">Label Tag</label>
-        <input type="number" id="labelTag" formControlName="labelTag" placeholder="Etiqueta del edificio" />
-      </div>
-      <div class="form-group">
-        <label for="id_piso">Piso</label>
-        <select id="id_piso" formControlName="id_piso" required>
-          <option value="">Seleccione un piso</option>
-          <option *ngFor="let piso of pisos" [value]="piso.id_piso">{{ piso.nombre }}</option>
-        </select>
-        <div *ngIf="edificioForm.get('id_piso')?.invalid && edificioForm.get('id_piso')?.touched">
-          <small *ngIf="edificioForm.get('id_piso')?.errors?.['required']">Debe seleccionar un piso.</small>
-        </div>
-      </div>
+     
+      <app-form-input label="labelTag" type="number" controlName="labelTag" [formGroup]="edificioForm">
+      </app-form-input>
+      
+
+      <app-form-select label="Piso" controlName="id_piso" [formGroup]="edificioForm" [options]="pisos"
+        displayProperty="nombre" valueProperty="id_piso">
+      </app-form-select>
+
     </div>
     <button type="submit" class="btn-submit" [disabled]="edificioForm.invalid">Registrar Edificio</button>
   </form>

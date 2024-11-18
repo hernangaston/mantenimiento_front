@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Edificio } from '../../../interfaces/edificio';
 import { PisoService } from '../../../service/piso.service';
 import { EdificioService } from '../../../service/edificio.service';
@@ -21,7 +21,7 @@ export class EdificioFormComponent implements OnInit {
     this.edificioForm = this.formBuilder.group({
       Nombre: ['', [Validators.required, Validators.maxLength(255)]],
       Direccion: ['', [Validators.required, Validators.maxLength(255)]],
-      labelTag: [null],
+      labelTag: [null, [Validators.required]],
       id_piso: [null, Validators.required],
       fecha_creacion: [null]
     });
@@ -59,4 +59,5 @@ export class EdificioFormComponent implements OnInit {
       console.log('Formulario no válido');
     }
   }
+
 }

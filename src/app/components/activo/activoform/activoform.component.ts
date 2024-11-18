@@ -45,7 +45,5 @@ export class ActivoFormComponent {
       console.log("Formulario inválido");
     }
   }
-  get nombreControl(): FormControl {
-    return this.activoForm.get(this.parametro) as FormControl;
-  }
+  
 }
