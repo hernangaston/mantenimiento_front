@@ -1,32 +1,14 @@
 <form [formGroup]="tagForm" (ngSubmit)="onSubmit()" class="custom-form">
-    <h1>Registro de Tag</h1>
-  
-    <!-- Campo Nombre -->
-    <div>
-      <label for="nombre">Nombre</label>
-      <input type="text" id="nombre" formControlName="nombre" placeholder="Nombre del tag" required />
-      <div *ngIf="tagForm.get('nombre')?.invalid && tagForm.get('nombre')?.touched">
-        <small *ngIf="tagForm.get('nombre')?.errors?.['required']">El nombre es obligatorio.</small>
-        <small *ngIf="tagForm.get('nombre')?.errors?.['maxLength']">Máximo 255 caracteres.</small>
-      </div>
-    </div>
-  
-    <!-- Campo Tag Diminutivo -->
-    <div>
-      <label for="tag_deminutivo">Tag Diminutivo</label>
-      <input type="text" id="tag_deminutivo" formControlName="tag_deminutivo" placeholder="Diminutivo del tag" />
-      <div *ngIf="tagForm.get('tag_deminutivo')?.invalid && tagForm.get('tag_deminutivo')?.touched">
-        <small>Máximo 255 caracteres.</small>
-      </div>
-    </div>
-  
-    <!-- Campo Fecha de Creación -->
-    <div>
-      <label for="fecha_creacion">Fecha de Creación</label>
-      <input type="date" id="fecha_creacion" formControlName="fecha_creacion" />
-    </div>
-  
-    <!-- Botón de Enviar -->
-    <button type="submit" [disabled]="tagForm.invalid">Registrar Tag</button>
-  </form>
-  
+  <h1>Registro de Tag</h1>
+  <div class="grid-container">
+    <app-form-input label="Nombre" type="text" controlName="nombre" [formGroup]="tagForm">
+    </app-form-input>
+
+    <app-form-input label="Tag Diminutivo" type="text" controlName="tag_deminutivo" [formGroup]="tagForm">
+    </app-form-input>
+    <app-form-date-input label="Fecha de Creación" controlName="fecha_creacion" [formGroup]="tagForm">
+    </app-form-date-input>
+  </div>
+  <!-- Botón de Enviar -->
+  <button type="submit" [disabled]="tagForm.invalid">Registrar Tag</button>
+</form>

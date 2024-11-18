@@ -2,43 +2,20 @@
   <app-boton-dash [ruta]="'/dashboard'" [titulo]="'Nuevo sector'"></app-boton-dash>
   <form [formGroup]="sectorForm" (ngSubmit)="onSubmit()">
     <div class="grid-container">
-      <div class="form-group">
-        <label for="nombre">Nombre</label>
-        <input type="text" id="nombre" formControlName="nombre" placeholder="Nombre del sector" required />
-        <div *ngIf="sectorForm.get('nombre')?.invalid && sectorForm.get('nombre')?.touched">
-          <small *ngIf="sectorForm.get('nombre')?.errors?.['required']">El nombre es obligatorio.</small>
-          <small *ngIf="sectorForm.get('nombre')?.errors?.['maxLength']">Máximo 255 caracteres.</small>
-        </div>
-      </div>
+      <app-form-input label="Nombre" type="text" controlName="nombre" [formGroup]="sectorForm">
+      </app-form-input>
 
-      <div class="form-group">
-        <label for="labelTag">Label Tag</label>
-        <input type="number" id="labelTag" formControlName="labelTag" placeholder="Etiqueta del sector" />
-      </div>
+      <app-form-input label="labelTag" type="number" controlName="labelTag" [formGroup]="sectorForm">
+      </app-form-input>
     </div>
     <div class="grid-container">
-      <div class="form-group">
-        <label for="id_activo">Activo</label>
-        <select id="id_activo" formControlName="id_activo" required>
-          <option value="">Seleccione un activo</option>
-          <option *ngFor="let activo of activos" [value]="activo.id_activo">{{ activo.nombre }}</option>
-        </select>
-        <div *ngIf="sectorForm.get('id_activo')?.invalid && sectorForm.get('id_activo')?.touched">
-          <small>Debe seleccionar un activo.</small>
-        </div>
-      </div>
+      <app-form-select label="Ubicacion" controlName="id_ubicacion" [formGroup]="sectorForm" [options]="ubicaciones"
+        displayProperty="nombre" valueProperty="id_ubicacion">
+      </app-form-select>
 
-      <!-- Select para Ubicación (Clave foránea) -->
-      <div class="form-group">
-        <label for="id_ubicacion">Ubicación</label>
-        <select id="id_ubicacion" formControlName="id_ubicacion" required>
-          <option value="">Seleccione una ubicación</option>
-          <option *ngFor="let ubicacion of ubicaciones" [value]="ubicacion.id_ubicacion">{{ ubicacion.nombre }}</option>
-        </select>
-        <div *ngIf="sectorForm.get('id_ubicacion')?.invalid && sectorForm.get('id_ubicacion')?.touched">
-          <small>Debe seleccionar una ubicación.</small>
-        </div>
-      </div>
+      <app-form-select label="Activos" controlName="id_activo" [formGroup]="sectorForm" [options]="activos"
+        displayProperty="nombre" valueProperty="id_activo">
+      </app-form-select>
     </div>
     <button type="submit" class="btn-submit" [disabled]="sectorForm.invalid">Registrar sector</button>
   </form>

@@ -2,24 +2,13 @@
     <app-boton-dash [ruta]="ruta" [titulo]="titulo"></app-boton-dash>
     <form [formGroup]="usuarioForm" (ngSubmit)="onSubmit()">
         <div class="grid-container">
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input id="email" formControlName="email" type="email" required />
-                <div *ngIf="usuarioForm.get('email')?.invalid && usuarioForm.get('email')?.touched">
-                    <small *ngIf="usuarioForm.get('email')?.errors?.['required']">El email es obligatorio.</small>
-                    <small *ngIf="usuarioForm.get('email')?.errors?.['maxLength']">Máximo 255 caracteres.</small>
-                </div>
-            </div>
+            <app-form-input label="Email" type="email" controlName="email" [formGroup]="usuarioForm">
+            </app-form-input>
         </div>
 
         <div class="grid-container">
-            <div class="form-group">
-                <label for="password">Password</label>
-                <input id="password" formControlName="password" type="password" required />
-                <div *ngIf="usuarioForm.get('password')?.invalid && usuarioForm.get('password')?.touched">
-                    <small *ngIf="usuarioForm.get('password')?.errors?.['required']">El password es obligatorio.</small>
-                </div>
-            </div>
+            <app-form-input label="Password" type="password" controlName="password" [formGroup]="usuarioForm">
+            </app-form-input>
         </div>
 
         <div class="grid-container">

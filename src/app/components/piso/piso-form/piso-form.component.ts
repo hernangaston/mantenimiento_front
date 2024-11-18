@@ -23,7 +23,7 @@ export class PisoFormComponent implements OnInit {
   ) {
     this.pisoForm = this.formBuilder.group({
       nombre: ['', [Validators.required, Validators.maxLength(255)]],
-      labelTag: [null], 
+      labelTag: [null, Validators.required], 
       id_sector: [null, Validators.required]
     });
     this.ruta = "/dashboard"
