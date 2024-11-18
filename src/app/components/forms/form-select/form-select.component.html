@@ -1,0 +1,13 @@
+<div class="form-group">
+    <label [for]="controlName">{{ label }}</label>
+    <select [id]="controlName" [formControl]="control">
+      <option value="">Seleccione una opción</option>
+      <option *ngFor="let option of options" [value]="option[valueProperty]">
+        {{ option[displayProperty] }}
+      </option>
+    </select>
+    <div *ngIf="control.invalid && control.touched">
+      <small>{{ errorMessage }}</small>
+    </div>
+  </div>
+  

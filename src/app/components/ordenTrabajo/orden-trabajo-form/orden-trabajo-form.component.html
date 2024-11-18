@@ -2,26 +2,11 @@
   <app-boton-dash [ruta]="ruta" [titulo]="titulo"></app-boton-dash>
   <form [formGroup]="ordenTrabajoForm" (ngSubmit)="onSubmit()">
     <div class="grid-container">
-            
-      <div class="form-group">        
-        <label for="fecha_impresion">Fecha de Impresión</label>
-        <input type="date" id="fecha_impresion" formControlName="fecha_impresion">
-        <div
-          *ngIf="ordenTrabajoForm.get('fecha_impresion')?.invalid && ordenTrabajoForm.get('fecha_impresion')?.touched">
-          <small>La fecha de impresión es obligatoria.</small>
-        </div>
-      </div>
- 
+      <app-form-date-input label="Fecha de Impresión" controlName="fecha_impresion" [formGroup]="ordenTrabajoForm">
+      </app-form-date-input>
 
-      <div class="form-group">
-        <label for="fecha_terminacion">Fecha de terminacion</label>
-        <input type="date" id="fecha_terminacion" formControlName="fecha_terminacion">
-        <div
-          *ngIf="ordenTrabajoForm.get('fecha_terminacion')?.invalid && ordenTrabajoForm.get('fecha_terminacion')?.touched">
-          <small>La fecha de terminacion es obligatoria.</small>
-        </div>
-      </div>
-
+      <app-form-date-input label="Fecha de Terminación" controlName="fecha_terminacion" [formGroup]="ordenTrabajoForm">
+      </app-form-date-input>
 
       <div class="form-group">
         <label for="observacion">Observación</label>
@@ -32,93 +17,38 @@
       </div>
     </div>
     <div class="grid-container">
-      <div class="form-group">
-        <label for="id_operario">Operario</label>
-        <select id="id_operario" formControlName="id_op" required>
-          <option value="">Seleccione un operario</option>
-          <option *ngFor="let operario of operarios" [value]="operario.id_op">{{ operario.nombre }}</option>
-        </select>
-        <div *ngIf="ordenTrabajoForm.get('id_op')?.invalid && ordenTrabajoForm.get('id_op')?.touched">
-          <small>El operario es obligatorio.</small>
-        </div>
-      </div>
+      <app-form-select label="Operario" controlName="id_op" [formGroup]="ordenTrabajoForm" [options]="operarios"
+        displayProperty="nombre" valueProperty="id_op">
+      </app-form-select>
 
-      <div class="form-group">
-        <label for="id_edificio">Edificio</label>
-        <select id="id_edificio" formControlName="id_edificio" required>
-          <option value="">Seleccione un edificio</option>
-          <option *ngFor="let edificio of edificios" [value]="edificio.id_edificio">{{ edificio.Nombre }}</option>
-        </select>
-        <div *ngIf="ordenTrabajoForm.get('id_edificio')?.invalid && ordenTrabajoForm.get('id_edificio')?.touched">
-          <small>El edificio es obligatorio.</small>
-        </div>
-      </div>
+      <app-form-select label="Edificio" controlName="id_edificio" [formGroup]="ordenTrabajoForm" [options]="edificios"
+        displayProperty="Nombre" valueProperty="id_edificio">
+      </app-form-select>
 
-      <div class="form-group">
-        <label for="id_piso">Piso</label>
-        <select id="id_piso" formControlName="id_piso" required>
-          <option value="">Seleccione un piso</option>
-          <option *ngFor="let piso of pisos" [value]="piso.id_piso">{{ piso.nombre }}</option>
-        </select>
-        <div *ngIf="ordenTrabajoForm.get('id_piso')?.invalid && ordenTrabajoForm.get('id_piso')?.touched">
-          <small>El piso es obligatorio.</small>
-        </div>
-      </div>
+      <app-form-select label="Piso" controlName="id_piso" [formGroup]="ordenTrabajoForm" [options]="pisos"
+        displayProperty="nombre" valueProperty="id_piso">
+      </app-form-select>
     </div>
     <div class="grid-container">
-      <div class="form-group">
-        <label for="id_sector">Sector</label>
-        <select id="id_sector" formControlName="id_sector" required>
-          <option value="">Seleccione un sector</option>
-          <option *ngFor="let sector of sectores" [value]="sector.id_sector">{{ sector.nombre }}</option>
-        </select>
-        <div *ngIf="ordenTrabajoForm.get('id_sector')?.invalid && ordenTrabajoForm.get('id_sector')?.touched">
-          <small>El sector es obligatorio.</small>
-        </div>
-      </div>
+      <app-form-select label="Sector" controlName="id_sector" [formGroup]="ordenTrabajoForm" [options]="sectores"
+        displayProperty="nombre" valueProperty="id_sector">
+      </app-form-select>
 
-      <div class="form-group">
-        <label for="id_ubicacion">Ubicacion</label>
-        <select id="id_ubicacion" formControlName="id_ubicacion" required>
-          <option value="">Seleccione una ubicacion.</option>
-          <option *ngFor="let ubicacion of ubicaciones" [value]="ubicacion.id_ubicacion">{{ ubicacion.nombre }}</option>
-        </select>
-        <div *ngIf="ordenTrabajoForm.get('id_ubicacion')?.invalid && ordenTrabajoForm.get('id_ubicacion')?.touched">
-          <small>La ubicacion es obligatoria.</small>
-        </div>
-      </div>
+      <app-form-select label="Ubicacion" controlName="id_ubicacion" [formGroup]="ordenTrabajoForm"
+        [options]="ubicaciones" displayProperty="nombre" valueProperty="id_ubicacion">
+      </app-form-select>
 
-      <div class="form-group">
-        <label for="id_activo">Activos</label>
-        <select id="id_activo" formControlName="id_activo" required>
-          <option value="">Seleccione un activo.</option>
-          <option *ngFor="let activo of activos" [value]="activo.id_tag">{{ activo.nombre }}</option>
-        </select>
-        <div *ngIf="ordenTrabajoForm.get('id_activo')?.invalid && ordenTrabajoForm.get('id_activo')?.touched">
-          <small>El tipo de tarea es obligatorio.</small>
-        </div>
-      </div>
+      <app-form-select label="Activos" controlName="id_activo" [formGroup]="ordenTrabajoForm" [options]="activos"
+        displayProperty="nombre" valueProperty="id_activo">
+      </app-form-select>
     </div>
     <div class="grid-container">
-      <div class="form-group">
-        <label for="id_tita">Tipos de tarea</label>
-        <select id="id_tita" formControlName="id_tita" required>
-          <option value="">Seleccione un tipo de tarea.</option>
-          <option *ngFor="let tipoTarea of tiposTarea" [value]="tipoTarea.id_tita">{{ tipoTarea.nombre }}</option>
-        </select>
-        <div *ngIf="ordenTrabajoForm.get('id_tita')?.invalid && ordenTrabajoForm.get('id_tita')?.touched">
-          <small>El tipo de tarea es obligatorio.</small>
-        </div>
-      </div>
+      <app-form-select label="Tipos de tarea" controlName="id_tita" [formGroup]="ordenTrabajoForm" [options]="tiposTarea"
+        displayProperty="nombre" valueProperty="id_tita">
+      </app-form-select>
 
-      <div class="form-group">
-        <label for="tiempo">Tiempo</label>
-        <input type="date" id="tiempo" formControlName="tiempo">
-        <div *ngIf="ordenTrabajoForm.get('tiempo')?.invalid && ordenTrabajoForm.get('tiempo')?.touched">
-          <small>El tiempo es obligatorio.</small>
-        </div>
-      </div>
-
+      <app-form-date-input label="Tiempo" controlName="tiempo" [formGroup]="ordenTrabajoForm">
+      </app-form-date-input>
 
       <div class="form-group">
         <label for="id_tarea">Tareas</label>

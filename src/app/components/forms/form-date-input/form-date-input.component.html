@@ -1,0 +1,7 @@
+<div class="form-group">
+    <label [for]="controlName">{{ label }}</label>
+    <input type="date" [id]="controlName" [formControl]="control">
+    <div *ngIf="control.invalid && control.touched">
+        <small>{{ label }} es obligatorio.</small>
+    </div>
+</div>

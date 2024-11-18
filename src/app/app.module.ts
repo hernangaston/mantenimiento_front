@@ -27,6 +27,8 @@ import { BotonDashComponent } from './components/forms/boton-dash/boton-dash.com
 import { TextinputComponent } from './components/forms/textinput/textinput.component';
 import { UsuarioFormComponent } from './components/usuario-form/usuario-form.component';
 import { InputFormComponent } from './components/forms/input-form/input-form.component';
+import { FormDateInputComponent } from './components/forms/form-date-input/form-date-input.component';
+import { FormSelectComponent } from './components/forms/form-select/form-select.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +51,9 @@ import { InputFormComponent } from './components/forms/input-form/input-form.com
     BotonDashComponent,
     TextinputComponent,
     UsuarioFormComponent,
-    InputFormComponent
+    InputFormComponent,
+    FormDateInputComponent,
+    FormSelectComponent
   ],
   imports: [
     BrowserModule,
