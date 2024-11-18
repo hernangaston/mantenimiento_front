@@ -29,6 +29,8 @@ import { UsuarioFormComponent } from './components/usuario-form/usuario-form.com
 import { InputFormComponent } from './components/forms/input-form/input-form.component';
 import { FormDateInputComponent } from './components/forms/form-date-input/form-date-input.component';
 import { FormSelectComponent } from './components/forms/form-select/form-select.component';
+import { FormMultiselectComponent } from './components/forms/form-multiselect/form-multiselect.component';
+import { FormTextareaComponent } from './components/forms/form-textarea/form-textarea.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +55,9 @@ import { FormSelectComponent } from './components/forms/form-select/form-select.
     UsuarioFormComponent,
     InputFormComponent,
     FormDateInputComponent,
-    FormSelectComponent
+    FormSelectComponent,
+    FormMultiselectComponent,
+    FormTextareaComponent
   ],
   imports: [
     BrowserModule,

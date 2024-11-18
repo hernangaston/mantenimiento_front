@@ -1,0 +1,7 @@
+<div class="form-group">
+    <label [for]="controlName">{{ label }}</label>
+    <textarea [id]="controlName" [formControl]="control" [maxlength]="maxLength"></textarea>
+    <div *ngIf="control.invalid && control.touched">
+        <small>{{ errorMessage }}</small>
+    </div>
+</div>

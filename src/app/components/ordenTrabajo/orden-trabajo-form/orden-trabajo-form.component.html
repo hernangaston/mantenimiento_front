@@ -8,13 +8,8 @@
       <app-form-date-input label="Fecha de Terminación" controlName="fecha_terminacion" [formGroup]="ordenTrabajoForm">
       </app-form-date-input>
 
-      <div class="form-group">
-        <label for="observacion">Observación</label>
-        <textarea type="text" id="observacion" formControlName="observacion" maxlength="255"></textarea>
-        <div *ngIf="ordenTrabajoForm.get('observacion')?.invalid && ordenTrabajoForm.get('observacion')?.touched">
-          <small>Máximo 255 caracteres.</small>
-        </div>
-      </div>
+      <app-form-textarea label="Observación" controlName="observacion" [formGroup]="ordenTrabajoForm">
+      </app-form-textarea>
     </div>
     <div class="grid-container">
       <app-form-select label="Operario" controlName="id_op" [formGroup]="ordenTrabajoForm" [options]="operarios"
@@ -43,22 +38,16 @@
       </app-form-select>
     </div>
     <div class="grid-container">
-      <app-form-select label="Tipos de tarea" controlName="id_tita" [formGroup]="ordenTrabajoForm" [options]="tiposTarea"
-        displayProperty="nombre" valueProperty="id_tita">
+      <app-form-select label="Tipos de tarea" controlName="id_tita" [formGroup]="ordenTrabajoForm"
+        [options]="tiposTarea" displayProperty="nombre" valueProperty="id_tita">
       </app-form-select>
 
       <app-form-date-input label="Tiempo" controlName="tiempo" [formGroup]="ordenTrabajoForm">
       </app-form-date-input>
 
-      <div class="form-group">
-        <label for="id_tarea">Tareas</label>
-        <select id="id_tarea" formControlName="id_tarea" multiple required>
-          <option *ngFor="let tarea of desc" [value]="tarea.id_descripcion">{{ tarea.descripcion }}</option>
-        </select>
-        <div *ngIf="ordenTrabajoForm.get('id_tarea')?.invalid && ordenTrabajoForm.get('id_tarea')?.touched">
-          <small>La tarea es obligatoria.</small>
-        </div>
-      </div>
+      <app-form-multiselect label="Tareas" controlName="id_tarea" [formGroup]="ordenTrabajoForm" [options]="desc"
+        displayProperty="descripcion" valueProperty="id_descripcion">
+      </app-form-multiselect>
     </div>
     <button type="submit" class="btn-submit" [disabled]="ordenTrabajoForm.invalid">Registrar Orden de trabajo</button>
   </form>
