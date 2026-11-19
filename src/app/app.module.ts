@@ -7,7 +7,8 @@ import { LoginComponent } from './components/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { RegistroComponent } from './components/registro/registro.component';
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
+import { authInterceptor } from './interceptors/auth.interceptor';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { InicioComponent } from './components/inicio/inicio.component';
 import { ActivoFormComponent } from './components/activo/activoform/activoform.component';
@@ -70,7 +71,7 @@ import { FormCheckboxComponent } from './components/forms/form-checkbox/form-che
     CommonModule,
     FormsModule
   ],
-  providers: [provideHttpClient(), CookieService],
+  providers: [provideHttpClient(withInterceptors([authInterceptor])), CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
